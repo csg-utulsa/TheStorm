@@ -1,0 +1,44 @@
+Final Perspective
+  -3D World
+  -Forced 2D Perspective
+  - 2D Sprites
+  
+  
+Artwork (Pixel)
+   -Only concept art (size, basic look, sketches, color scheme) not finalized pieces
+   
+   -Background 3D:
+      -Summer
+   -Sprites 2D:
+      -Kyle
+   -Characters:
+      -Alex King   
+   -Flex:
+      -Nathan
+   -Level Layout
+      
+Game Mechanics:
+    -Character:
+      -Movement
+      -Interaction/Pickup
+      -Fight
+      -Stats and Classes
+      
+      Chris: Stats, Empty Character Prefab, Basic Functionality (Movement, Empty Classes)
+      
+    -Guards
+      -Movement (Navigation)
+      -Attack
+      -Field of Vision (Trigger)
+      -Reaction AI
+      -Health
+      
+    -Weapons
+      -Firing/Hitting
+      
+    -UI
+    
+Bosses:
+  -3 Big Bosses - set levels (5, 10, 15)
+  -Pool of 4-5 mini bosses that will be chosen randomly for each level
+  -
