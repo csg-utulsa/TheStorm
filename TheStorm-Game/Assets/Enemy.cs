@@ -22,9 +22,8 @@ public class Enemy : MonoBehaviour
     {
         if (alerted)
         {
-            transform.LookAt(player.transform.position);
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
-            
+            transform.LookAt(player.transform);
+            transform.position += transform.forward * speed * Time.deltaTime;
         }
     }
 
