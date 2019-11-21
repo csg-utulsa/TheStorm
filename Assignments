@@ -22,6 +22,7 @@ Game Mechanics:
       -Movement 
           -Character faces mouse at all points (for shooting/attacking)
           -Movement controlled by WASD
+          -Use mouse to aim (retical stays in a specific radius surrounding player)
       -Interaction/Pickup
           -E button
       -Fight
