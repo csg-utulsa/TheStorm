@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
-        gameObject.transform.position = new Vector2(transform.position.x + (h * speed),
-           transform.position.y + (v * speed));
+        gameObject.transform.position = new Vector3(transform.position.x + (h * speed), 1, 
+           transform.position.z + (v * speed));
     }
 }
