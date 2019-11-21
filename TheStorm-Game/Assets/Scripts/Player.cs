@@ -5,9 +5,6 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float speed;
-    public float health;
-    public float training;
-    public float stealth;
 
     // Start is called before the first frame update
     void Start()
