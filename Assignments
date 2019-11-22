@@ -19,9 +19,14 @@ Artwork (Pixel)
       
 Game Mechanics:
     -Character:
-      -Movement
+      -Movement 
+          -Character faces mouse at all points (for shooting/attacking)
+          -Movement controlled by WASD
+          -Use mouse to aim (retical stays in a specific radius surrounding player)
       -Interaction/Pickup
+          -E button
       -Fight
+          -Left mouse button
       -Stats and Classes
       
       Chris: Stats, Empty Character Prefab, Basic Functionality (Movement, Empty Classes)
