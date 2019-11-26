@@ -18,9 +18,9 @@ public class Bullet : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        float moveAmt = speed * Time.fixedDeltaTime;
+        float moveAmt = speed * Time.deltaTime;
         transform.Translate(0, 0, moveAmt);
         distance += moveAmt;
 
@@ -37,8 +37,10 @@ public class Bullet : MonoBehaviour
         {
             hit(other.gameObject);
         }
-
-        finish();
+        else if(!other.tag.Equals("Bullet"))
+        {
+            finish();
+        }
     }
 
     protected virtual void hit(GameObject o)

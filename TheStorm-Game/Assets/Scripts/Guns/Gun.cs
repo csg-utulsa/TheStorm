@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+    [Header("Fire Rate")]
     public float fireRate;
+    [Header("Bullet Attributes")]
     public float damage;
     public float range;
     public float bulletVelocity;
@@ -26,7 +28,7 @@ public class Gun : MonoBehaviour
         {
             if(isFiring)
             {
-                fire();
+                Fire();
 
                 timeSinceLastShot = fireRate;
             }
@@ -37,35 +39,18 @@ public class Gun : MonoBehaviour
         }
     }
 
-    public void startFiring()
+    public void StartFiring()
     {
         isFiring = true;
     }
 
-    public void stopFiring()
+    public void StopFiring()
     {
         isFiring = false;
     }
 
-    protected virtual void fire()
+    protected virtual void Fire()
     {
         BulletSpawner.Spawn(transform, damage, range, bulletVelocity, bulletType, 0);
-    }
-
-    public void setValues(float[] values, BulletTypes bt)
-    {
-        bulletType = bt;
-        fireRate = values[0];
-        damage = values[1];
-        range = values[2];
-        bulletVelocity = values[3];
-    }
-
-    public float[] getValues(out BulletTypes bulletType)
-    {
-        bulletType = this.bulletType;
-        float[] values = {fireRate, damage, range, bulletVelocity};
-
-        return values;
     }
 }

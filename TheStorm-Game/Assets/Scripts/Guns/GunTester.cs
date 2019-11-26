@@ -4,16 +4,30 @@ using UnityEngine;
 
 public class GunTester : MonoBehaviour
 {
-    public Gun equippedGun;
+    public GameObject equippedGun;
+
     private Gun gun;
 
     private void Start()
     {
-        gun = GetComponent<Gun>();
+        for(int i = 0; i < transform.childCount; i++)
+        {
+            GameObject child = transform.GetChild(i).gameObject;
 
-        BulletTypes temp;
-
-        gun.setValues(equippedGun.getValues(out temp), temp);
+            if(child.tag.Equals("Gun"))
+            {
+                equippedGun = child;
+                break;
+            }
+            else if(i == transform.childCount-1)
+            {
+                Debug.Log("No starting Gun");
+                return;
+            }
+        }
+        
+        gun = equippedGun.GetComponent<Gun>();
+        Debug.Assert(gun != null, "Gun is null");
     }
 
     // Update is called once per frame
@@ -21,12 +35,21 @@ public class GunTester : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            gun.startFiring();
+            gun.StartFiring();
         }
         
         if(Input.GetMouseButtonUp(0))
         {
-            gun.stopFiring();
+            gun.StopFiring();
         }
+    }
+
+    public void EquipGun(GameObject newGun)
+    {
+        Destroy(equippedGun);
+
+        equippedGun = Instantiate(newGun, transform);
+
+        gun = equippedGun.GetComponent<Gun>();
     }
 }
