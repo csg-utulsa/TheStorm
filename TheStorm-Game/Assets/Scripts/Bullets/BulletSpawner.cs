@@ -24,24 +24,17 @@ public class BulletSpawner : MonoBehaviour
 
     public static void Spawn(Transform t, float damage, float range, float bulletVelocity, BulletTypes type, float angle)
     {
-        Debug.Log("Spawn");
-        Vector3 angles = t.eulerAngles;
-        angles.y += angle;
-        t.eulerAngles = angles;
+        Quaternion temp = t.rotation;
 
-        GameObject bullet = Instantiate(bulletPrefabsStatic[(int)type], t.position, t.rotation);
-        bullet.GetComponent<Bullet>().initialize(damage, range, bulletVelocity);
-    }
-
-    public static void Spawn(Transform t, float damage, float range, float bulletVelocity, BulletTypes type)
-    {
-        GameObject bullet = Instantiate(bulletPrefabsStatic[(int)type], t.position, t.rotation);
-        bullet.GetComponent<Bullet>().initialize(damage, range, bulletVelocity);
-    }
-
-    public static void Spawn(Transform t, float damage, float range, float bulletVelocity)
-    {
-        GameObject bullet = Instantiate(bulletPrefabsStatic[0], t.position, t.rotation);
+        if(angle != 0)
+        {
+            Vector3 angles = temp.eulerAngles;
+            angles.y += angle;
+            temp.eulerAngles = angles;
+            Debug.Log($"Angle: {angle}");
+        }
+        Debug.Log(temp.eulerAngles.y);
+        GameObject bullet = Instantiate(bulletPrefabsStatic[(int)type], t.position, temp);
         bullet.GetComponent<Bullet>().initialize(damage, range, bulletVelocity);
     }
 }

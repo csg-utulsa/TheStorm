@@ -11,7 +11,6 @@ public class Bullet : MonoBehaviour
 
     public void initialize(float d, float r, float s)
     {
-        Debug.Log("initialize");
         damage = d;
         range = r;
         speed = s;
@@ -32,7 +31,6 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Hit");
         if(other.tag.Equals("Character"))
         {
             hit(other.gameObject);
@@ -50,7 +48,6 @@ public class Bullet : MonoBehaviour
 
     protected virtual void finish()
     {
-        Debug.Log("Finish");
         Destroy(gameObject);
     }
 }

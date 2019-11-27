@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireRate: 0.75
+  inaccuracy: 3
   damage: 1
   range: 10
   bulletVelocity: 3
