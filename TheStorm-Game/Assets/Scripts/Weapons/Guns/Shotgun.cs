@@ -6,6 +6,16 @@ public class Shotgun : Gun
 {
     [Header("Shotgun Attributes")]
     public int numPellets;
+    public float rangeModifier;
+
+    private float defaultRange;
+    private float defaultSpeed;
+
+    private void Start()
+    {
+        defaultRange = range;
+        defaultSpeed = bulletVelocity;
+    }
 
     /// <summary>
     /// Fires a number of bullets specified above
@@ -17,6 +27,7 @@ public class Shotgun : Gun
         for(int i = 0; i < numPellets; i++)
         {
             float spread;
+            float rangeChange;
 
             if(i < numPellets/2)
             {
@@ -27,10 +38,19 @@ public class Shotgun : Gun
                 spread = .5f;
             }
 
+            rangeChange = 1 + Random.Range(-rangeModifier / 2, rangeModifier / 2);
+
+            range *= rangeChange;
+            bulletVelocity *= rangeChange;
+
             float spreadAngle = Random.Range(-inaccuracy * spread, inaccuracy * spread);
 
-
             base.SpawnBullet(spreadAngle);
+
+            range = defaultRange;
+            bulletVelocity = defaultSpeed;
         }
+
+        
     }
 }

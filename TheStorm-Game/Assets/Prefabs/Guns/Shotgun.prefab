@@ -50,3 +50,4 @@ MonoBehaviour:
   bulletVelocity: 9
   bulletType: 0
   numPellets: 6
+  rangeModifier: 0.2
