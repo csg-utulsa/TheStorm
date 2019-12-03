@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     [Header("GameObjects")]
     public GameObject player;
+    public GameObject FOV_p;
     public GameObject FOV;
     public GameObject agroCircle;
     [Header("Materials")]
@@ -36,7 +37,9 @@ public class Enemy : MonoBehaviour
         {
             if (waypointIndex <= waypoints.Length - 1)
             {
-                transform.LookAt(waypoints[waypointIndex].transform.position);
+                Vector3 distance = waypoints[waypointIndex].position - FOV_p.transform.position;
+                Quaternion rot = Quaternion.Slerp(FOV_p.transform.rotation, Quaternion.LookRotation(distance), speed * Time.deltaTime);
+                FOV_p.transform.rotation = rot;
 
                 transform.position = Vector3.MoveTowards(transform.position, 
                     waypoints[waypointIndex].transform.position,
@@ -53,16 +56,15 @@ public class Enemy : MonoBehaviour
         }
 
         if (alerted)
-        {
-            transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
-            transform.position += transform.forward * speed * Time.deltaTime;
+        { 
+            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        print("OntriggerEntered");
-        if (other.tag == "Player" || other.tag == "Enemy")
+        print("OnCollisionEntered");
+        if (collision.transform.gameObject.tag == "Player" || collision.transform.gameObject.tag == "Enemy")
         {
             becomeAlerted();
         }

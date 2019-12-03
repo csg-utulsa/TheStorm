@@ -10,8 +10,8 @@ public class alertEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        parent = GetComponentInParent<Transform>().parent.gameObject;
-        enemy = parent.GetComponent<Enemy>();
+        enemy = GetComponentInParent<Transform>().parent.gameObject.GetComponentInParent<Enemy>();
+        //enemy = parent.GetComponent<Enemy>();
     }
 
     private void OnTriggerEnter(Collider other)
