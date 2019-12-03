@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour
 
         if (alerted)
         {
-            transform.LookAt(new Vector3(player.transform.position.x, player.transform.position.y, 0));
+            transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
             transform.position += transform.forward * speed * Time.deltaTime;
         }
     }
