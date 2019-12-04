@@ -5,9 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float speed;
-    public float health;
-    public float training;
-    public float stealth;
+    public float rotationSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +19,26 @@ public class Player : MonoBehaviour
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
-        gameObject.transform.position = new Vector3(transform.position.x + (h * speed), 1, 
-           transform.position.z + (v * speed));
+        //print(h);
+
+        gameObject.transform.position += new Vector3(h, 0, v).normalized * speed;
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit = new RaycastHit();
+        if (Physics.Raycast(ray, out hit, 100))
+        {
+            Vector3 hitPoint = hit.point;
+
+            //transform.LookAt(hitPoint);
+            //transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, transform.eulerAngles.z);
+
+            Vector3 directionToMouse = (hitPoint - transform.position).normalized;
+            Quaternion lookRotation = Quaternion.LookRotation(directionToMouse);
+            lookRotation.x = 0;
+            lookRotation.z = 0;
+            //lookRotation.SetEulerAngles(0, lookRotation.eulerAngles.y, 0);
+            //Quaternion.Euler
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
+        }
     }
 }
