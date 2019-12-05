@@ -15,10 +15,14 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        // PLAYER MOVEMENT //
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
-        gameObject.transform.position = new Vector3(transform.position.x + (h * speed),
-           1, transform.position.z + (v * speed));
+        Vector3 movement = new Vector3(h, 0, v);
+        movement.Normalize();
+        movement *= speed;
+        transform.Translate(movement);
     }
 }
