@@ -1062,7 +1062,7 @@ MonoBehaviour:
   agroCircle: {fileID: 1480871541}
   healthBar: {fileID: 878263358}
   m_yellow: {fileID: 2100000, guid: f381f37034776584bb1ae21d47e60526, type: 2}
-  m_red: {fileID: 2100000, guid: b9eb6cc65549f6c4da464faaee8089bf, type: 2}
+  m_red: {fileID: 0}
   speed: 5
   alerted: 0
   waypoints:
@@ -1414,7 +1414,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7c5b40490e6785540bc1a8486aa78882, type: 2}
+  - {fileID: 2100000, guid: f2164431882b2684fb9c517b2a1ad5b2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
