@@ -80,16 +80,16 @@ public class Character : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void changeSpeed(float mult, float duration)
+    public void ChangeSpeed(float mult, float duration)
     {
         float defaultSpeed = speed;
 
         speed *= mult;
 
-        Invoke("resetSpeed(defaultSpeed)", duration);
+        Invoke("ResetSpeed(defaultSpeed)", duration);
     }
 
-    public void resetSpeed(float defaultSpeed)
+    public void ResetSpeed(float defaultSpeed)
     {
         speed = defaultSpeed;
     }

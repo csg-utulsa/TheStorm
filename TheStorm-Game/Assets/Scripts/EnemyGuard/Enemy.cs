@@ -37,7 +37,7 @@ public class Enemy : Character
         // DEBUG TO TEST DAMAGE FUNCTION //
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            takeDamage(5);
+            TakeDamage(5);
         }
 
         Move();
@@ -48,25 +48,16 @@ public class Enemy : Character
         print("OnCollisionEntered");
         if (collision.transform.gameObject.tag == "Player" || collision.transform.gameObject.tag == "Enemy")
         {
-            becomeAlerted();
+            BecomeAlerted();
         }
     }
 
-    public void becomeAlerted()
+    public void BecomeAlerted()
     {
         print("guard triggered");
         alerted = true;
         FOV.SetActive(false);
         agroCircle.SetActive(true);
-    }
-
-    public void takeDamage(int damage)
-    {
-        healthBar.value -= damage;
-        if (healthBar.value <= 0)
-        {
-            Destroy(gameObject);
-        }
     }
 
     protected override void Move()
