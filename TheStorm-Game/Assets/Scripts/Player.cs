@@ -40,4 +40,22 @@ public class Player : Character
 
         transform.Translate(movement);
     }
+
+    public void pickupWeapon(GameObject newWeapon)
+    {
+        if(secondaryWeapon == null)
+        {
+            secondaryWeapon = equippedWeapon;
+        }
+        else
+        {
+            Destroy(equippedWeapon);
+        }
+
+        equippedWeapon = Instantiate(newWeapon, transform);
+
+        weapon = equippedWeapon.GetComponent<Weapon>();
+
+        weapon.setBSP(bulletSpawnPoint);
+    }
 }

@@ -18,7 +18,7 @@ public class alertEnemy : MonoBehaviour
     {
         if (other.tag == "Player" || other.tag == "Enemy")
         {
-            enemy.becomeAlerted();
+            enemy.BecomeAlerted();
         }
     }
 }

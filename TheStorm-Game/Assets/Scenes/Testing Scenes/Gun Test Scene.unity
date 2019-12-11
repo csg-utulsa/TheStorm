@@ -1569,6 +1569,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 0.5
   damage: 1
+  weaponSprite: {fileID: 0}
   swingTime: 0.5
   swingAngle: 180
 --- !u!4 &2021194387058652206
