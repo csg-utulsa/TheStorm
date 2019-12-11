@@ -41,12 +41,18 @@ public class Character : MonoBehaviour
 
     protected virtual void StartAttack()
     {
-        weapon.StartFiring();
+        if(weapon != null)
+        {
+            weapon.StartFiring();
+        }        
     }
 
     protected virtual void StopAttack()
     {
-        weapon.StopFiring();
+        if(weapon != null)
+        {
+            weapon.StopFiring();
+        }
     }
 
     public virtual void TakeDamage(int damage)
@@ -72,5 +78,19 @@ public class Character : MonoBehaviour
     protected virtual void Die()
     {
         Destroy(gameObject);
+    }
+
+    public void changeSpeed(float mult, float duration)
+    {
+        float defaultSpeed = speed;
+
+        speed *= mult;
+
+        Invoke("resetSpeed(defaultSpeed)", duration);
+    }
+
+    public void resetSpeed(float defaultSpeed)
+    {
+        speed = defaultSpeed;
     }
 }
