@@ -35,6 +35,12 @@ public class Inventory : MonoBehaviour
     public delegate void OnItemChanged(); //delegates are variables that reference a method
     public OnItemChanged onItemChangedCallback; //the delegate method is set to a varialbe
 
+    public InventorySlot[] slots;
+
+    public void Start()
+    {
+        onItemChangedCallback += UpdateUI;
+    }
 
     //Add item to list
     public bool Add(Item item)
@@ -45,7 +51,7 @@ public class Inventory : MonoBehaviour
 
             if(items.Count >= space)
             {//if there is not room in inventory , return
-                Debug.Log("Not enough room");
+                Debug.Log("Not enough room"+items.Count);
                 return false;
             }
 
@@ -75,5 +81,25 @@ public class Inventory : MonoBehaviour
         }
 
     }//end Remove
+
+    void UpdateUI()
+    {//update the UI 
+
+        Debug.Log("update ui");
+
+        //loop through all slots
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (i < items.Count)
+            {//if there is more items to count
+                slots[i].AddItem(items[i]);
+            }
+            else
+            {
+                slots[i].ClearSlot();
+            }
+        }
+
+    }
 
 }//end class

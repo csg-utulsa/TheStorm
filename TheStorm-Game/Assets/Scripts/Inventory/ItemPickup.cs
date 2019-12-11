@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using TMPro;
 /*Author: Akram Taghavi-Burris
  * Created: 10-20-19
  * Modified: 10-20-19
@@ -8,6 +9,12 @@ public class ItemPickup : Interactable
 
     /****VARIABLES****/
     public Item item; //get item properites
+    public TextMeshPro textPrompt;
+
+    public void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
 
     public override void Interact()
     {
@@ -16,6 +23,21 @@ public class ItemPickup : Interactable
         PickUp();
 
     }//end Interact
+
+    public new void Update()
+    {
+        base.Update();
+
+        float distance = Vector3.Distance(player.position, interactionTransform.position);
+        if ((distance <= radius))
+        {
+            textPrompt.gameObject.SetActive(true);
+        }
+        else
+        {
+            textPrompt.gameObject.SetActive(false);
+        }
+    }
 
 
     void PickUp()

@@ -24,7 +24,7 @@ public class InventorySlot : MonoBehaviour
         item = newItem; //set the new item
         icon.sprite = item.icon; //grab the item property
         icon.enabled = true; //enable the image
-        removeButton.interactable = true; //activate remove button 
+        //removeButton.interactable = true; //activate remove button 
     }
 
     public void ClearSlot()
@@ -32,7 +32,7 @@ public class InventorySlot : MonoBehaviour
         item = null;
         icon.sprite = null;
         icon.enabled = false;
-        removeButton.interactable = false;
+        //removeButton.interactable = false;
     }
 
 
