@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WeaponPickup : MonoBehaviour
+public class WeaponPickup : Pickup
 {
     public GameObject weapon;
 
@@ -17,15 +17,9 @@ public class WeaponPickup : MonoBehaviour
         }   
     }
 
-    private void OnTriggerStay(Collider other)
+    protected override void PickUp()
     {
-        if(other.tag.Equals("Player"))
-        {
-            if(Input.GetKeyDown(KeyCode.E))
-            {
-                other.gameObject.GetComponent<Player>().pickupWeapon(weapon);
-                Destroy(gameObject);
-            }
-        }
+        player.GetComponent<Player>().PickupWeapon(weapon);
+        Destroy(gameObject);
     }
 }

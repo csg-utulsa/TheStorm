@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 0.75
   damage: 1
-  weaponSprite: {fileID: 21300060, guid: 5fd47355f2cf5544da49a1b9b3b9bed4, type: 3}
+  weaponSprite: {fileID: 21300000, guid: 77868c993610538418e8eb1f1873fe6f, type: 3}
   inaccuracy: 3
   range: 20
   bulletVelocity: 6

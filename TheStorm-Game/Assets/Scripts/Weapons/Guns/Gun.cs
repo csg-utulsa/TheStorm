@@ -21,6 +21,7 @@ public class Gun : Weapon
     /// </summary>
     protected override void Fire()
     {
+        Debug.Log("Spawn Check");
         SpawnBullet();
     }
 

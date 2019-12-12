@@ -65,4 +65,25 @@ public class Player : Character
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
         }
     }
+
+    public void PickupWeapon(GameObject newWeapon)
+    {
+        if(equippedWeapon != null)
+        {
+            if(secondaryWeapon = null)
+            {
+                secondaryWeapon = equippedWeapon;
+            }
+            else
+            {
+                Destroy(equippedWeapon);
+            }
+        }
+
+        equippedWeapon = Instantiate(newWeapon, transform) as GameObject;
+
+        weapon = equippedWeapon.GetComponent<Weapon>();
+
+        weapon.setBSP(bulletSpawnPoint);
+    }
 }

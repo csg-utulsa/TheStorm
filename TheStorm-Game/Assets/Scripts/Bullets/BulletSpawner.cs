@@ -38,6 +38,7 @@ public class BulletSpawner : MonoBehaviour
     /// <param name="angle">The degrees from straight to rotate the bullet</param>
     public static void Spawn(Transform t, float damage, float range, float bulletVelocity, BulletTypes type, float angle)
     {
+        Debug.Log("Spawner Check");
         Quaternion temp = t.rotation;
         //If the bullet is not shooting straight
         if(angle != 0)
