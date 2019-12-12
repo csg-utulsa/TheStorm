@@ -38,11 +38,12 @@ public class Player : Character
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
-        Vector3 movement = new Vector3(h, 0, v);
-        movement.Normalize();
-        movement *= (speed * Time.deltaTime);
+        //Vector3 movement = new Vector3(h, 0, v);
+        //movement.Normalize();
+        //movement *= (speed * Time.deltaTime);
 
-        transform.Translate(movement);
+        //transform.Translate(movement);
+        gameObject.transform.position += new Vector3(h, 0, v).normalized * speed;
     }
 
     private void Rotate()
