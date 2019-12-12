@@ -10,6 +10,13 @@ public class Character : MonoBehaviour
     public float health;
     public float speed;
     public Slider healthBar;
+
+    [Header("Character Images")]
+    public Sprite facingAway;
+    public Sprite facingRight;
+    public Sprite facingLeft;
+    public Sprite facingFront;
+
     [Header("Weapons")]
     public GameObject equippedWeapon;
 

@@ -43,7 +43,8 @@ public class Player : Character
         //movement *= (speed * Time.deltaTime);
 
         //transform.Translate(movement);
-        gameObject.transform.position += new Vector3(h, 0, v).normalized * speed;
+        //gameObject.transform.position += new Vector3(h, 0, v).normalized * speed;
+        gameObject.GetComponentInParent<Transform>().parent.position += new Vector3(h, 0, v).normalized * speed;
     }
 
     private void Rotate()
@@ -65,5 +66,27 @@ public class Player : Character
             //Quaternion.Euler
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
         }
+
+        if(transform.rotation.eulerAngles.y > 315 || transform.rotation.eulerAngles.y < 45)
+        {
+            print(gameObject.GetComponentInParent<SpriteRenderer>().sprite);
+            gameObject.GetComponentInParent<SpriteRenderer>().sprite = facingAway;
+        }
+        else if(transform.rotation.eulerAngles.y > 45 && transform.rotation.eulerAngles.y < 135)
+        {
+            print(gameObject.GetComponentInParent<SpriteRenderer>().sprite);
+            gameObject.GetComponentInParent<SpriteRenderer>().sprite = facingRight;
+        }
+        else if(transform.rotation.eulerAngles.y > 135 && transform.rotation.eulerAngles.y < 225)
+        {
+            print(gameObject.GetComponentInParent<SpriteRenderer>().sprite);
+            gameObject.GetComponentInParent<SpriteRenderer>().sprite = facingFront;
+        }
+        else
+        {
+            print(gameObject.GetComponentInParent<SpriteRenderer>().sprite);
+            gameObject.GetComponentInParent<SpriteRenderer>().sprite = facingLeft;
+        }
+        //print(transform.rotation.eulerAngles.y);
     }
 }

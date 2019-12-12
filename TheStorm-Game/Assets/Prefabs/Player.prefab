@@ -108,7 +108,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c472cfddd3ca9c946b03039e3f949ca8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
   speed: 0.4
+  healthBar: {fileID: 0}
+  facingAway: {fileID: -9028164806588199520, guid: 0a34bcf12f0c5a24f95eec31ce916b6f,
+    type: 3}
+  facingRight: {fileID: 3091503301342321425, guid: 3d9ac85094b1974439dd94d3bb106f5d,
+    type: 3}
+  facingLeft: {fileID: -5267721827989065483, guid: 735b978a65bb00342a704e8078a0766c,
+    type: 3}
+  facingFront: {fileID: 192139897972210979, guid: f0b88d362e500314aa8036d63322abfe,
+    type: 3}
+  equippedWeapon: {fileID: 0}
+  secondaryWeapon: {fileID: 0}
   rotationSpeed: 10
 --- !u!1 &8643397957727054782
 GameObject:
