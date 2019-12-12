@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : Character
 {
-    public float speed;
+    public GameObject secondaryWeapon;
 
     // Start is called before the first frame update
     void Start()
@@ -15,14 +15,29 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Move();
 
+        if (Input.GetMouseButtonDown(0))
+        {
+            StartAttack();
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            StopAttack();
+        }
+    }
+
+    protected override void Move()
+    {
         // PLAYER MOVEMENT //
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
         Vector3 movement = new Vector3(h, 0, v);
         movement.Normalize();
-        movement *= speed;
+        movement *= (speed * Time.deltaTime);
+
         transform.Translate(movement);
     }
 }
