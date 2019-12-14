@@ -70,9 +70,12 @@ public class Player : Character
     {
         if(equippedWeapon != null)
         {
-            if(secondaryWeapon = null)
+            Debug.Log("First Check");
+            if(secondaryWeapon == null)
             {
+                Debug.Log("Second Check");
                 secondaryWeapon = equippedWeapon;
+                Inventory.instance.SetWeaponSlots(null, weapon.weaponSprite);
             }
             else
             {
@@ -83,7 +86,26 @@ public class Player : Character
         equippedWeapon = Instantiate(newWeapon, transform) as GameObject;
 
         weapon = equippedWeapon.GetComponent<Weapon>();
+        Inventory.instance.SetWeaponSlots(weapon.weaponSprite, null);
 
         weapon.setBSP(bulletSpawnPoint);
+    }
+
+    public void SwapWeapons()
+    {
+        var temp = equippedWeapon;
+        equippedWeapon = secondaryWeapon;
+        secondaryWeapon = temp;
+
+        if(secondaryWeapon != null)
+        {
+            Inventory.instance.SetWeaponSlots(null, weapon.weaponSprite);
+        }
+
+        if(equippedWeapon != null)
+        {
+            weapon = equippedWeapon.GetComponent<Weapon>();
+            Inventory.instance.SetWeaponSlots(weapon.weaponSprite, null);
+        }
     }
 }

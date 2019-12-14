@@ -53,7 +53,10 @@ public class InventorySlot : MonoBehaviour
         }
     }
 
-
+    public void SetVisible(bool visible)
+    {
+        gameObject.SetActive(visible);
+    }
 
 
 }//end class

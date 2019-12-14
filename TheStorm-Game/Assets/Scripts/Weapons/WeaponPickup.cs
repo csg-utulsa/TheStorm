@@ -13,7 +13,12 @@ public class WeaponPickup : Pickup
         Sprite weaponSprite = weapon.GetComponent<Weapon>().weaponSprite;
         for(int i = 0; i < transform.childCount; i++)
         {
-            transform.GetChild(i).gameObject.GetComponent<SpriteRenderer>().sprite = weaponSprite;
+            GameObject child = transform.GetChild(i).gameObject;
+
+            if(child.name.Contains("Gun Icon"))
+            {
+                child.GetComponent<SpriteRenderer>().sprite = weaponSprite;
+            }
         }   
     }
 
