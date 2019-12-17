@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /*Author: Akram Taghavi-Burris
  * Created: 10-20-19
@@ -36,10 +37,22 @@ public class Inventory : MonoBehaviour
     public OnItemChanged onItemChangedCallback; //the delegate method is set to a varialbe
 
     public InventorySlot[] slots;
+    public Image[] weaponSlots;
+
+    private bool itemsVisible = true;
 
     public void Start()
     {
         onItemChangedCallback += UpdateUI;
+        ToggleItemInventory();
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.I))
+        {
+            ToggleItemInventory();
+        }
     }
 
     //Add item to list
@@ -100,6 +113,29 @@ public class Inventory : MonoBehaviour
             }
         }
 
+    }
+
+    public void SetWeaponSlots(Sprite weapon1, Sprite weapon2)
+    {
+        if(weapon1 != null)
+        {
+            weaponSlots[0].sprite = weapon1;
+        }
+
+        if(weapon2 != null)
+        {
+            weaponSlots[1].sprite = weapon2;
+        }
+    }
+
+    private void ToggleItemInventory()
+    {
+        itemsVisible = !itemsVisible;
+
+        foreach(InventorySlot iS in slots)
+        {
+            iS.SetVisible(itemsVisible);
+        }
     }
 
 }//end class

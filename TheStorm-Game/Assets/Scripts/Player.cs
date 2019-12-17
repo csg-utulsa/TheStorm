@@ -65,4 +65,47 @@ public class Player : Character
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
         }
     }
+
+    public void PickupWeapon(GameObject newWeapon)
+    {
+        if(equippedWeapon != null)
+        {
+            Debug.Log("First Check");
+            if(secondaryWeapon == null)
+            {
+                Debug.Log("Second Check");
+                secondaryWeapon = equippedWeapon;
+                Inventory.instance.SetWeaponSlots(null, weapon.weaponSprite);
+            }
+            else
+            {
+                Destroy(equippedWeapon);
+            }
+        }
+
+        equippedWeapon = Instantiate(newWeapon, transform) as GameObject;
+
+        weapon = equippedWeapon.GetComponent<Weapon>();
+        Inventory.instance.SetWeaponSlots(weapon.weaponSprite, null);
+
+        weapon.setBSP(bulletSpawnPoint);
+    }
+
+    public void SwapWeapons()
+    {
+        var temp = equippedWeapon;
+        equippedWeapon = secondaryWeapon;
+        secondaryWeapon = temp;
+
+        if(secondaryWeapon != null)
+        {
+            Inventory.instance.SetWeaponSlots(null, weapon.weaponSprite);
+        }
+
+        if(equippedWeapon != null)
+        {
+            weapon = equippedWeapon.GetComponent<Weapon>();
+            Inventory.instance.SetWeaponSlots(weapon.weaponSprite, null);
+        }
+    }
 }
