@@ -9,7 +9,11 @@ public class Weapon : MonoBehaviour
     public float fireRate;
     //How much damage bullets from this gun will do
     public float damage;
+    //The 2d sprite corresponding to this weapon
+    public Sprite weaponSprite;
 
+    //Where bullets spawn from
+    protected Transform bulletSpawnPoint;
     //If the trigger is held down
     private bool isFiring;
     //Time since Fire() was last called
@@ -62,6 +66,11 @@ public class Weapon : MonoBehaviour
     /// </summary>
     protected virtual void Fire()
     {
-        
+
+    }
+
+    public void setBSP(Transform BSP)
+    {
+        bulletSpawnPoint = BSP;
     }
 }

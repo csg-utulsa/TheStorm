@@ -7,6 +7,8 @@ public class Player : Character
     public GameObject secondaryWeapon;
     [Header("Player Attributes")]
     public float rotationSpeed;
+    [Header("PLayer Sprites")]
+    public Sprite facingFront, facingLeft, facingRight, facingAway;
 
     // Start is called before the first frame update
     void Start()
