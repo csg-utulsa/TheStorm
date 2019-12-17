@@ -10,17 +10,11 @@ public class Character : MonoBehaviour
     public float health;
     public float speed;
     public Slider healthBar;
-
-    [Header("Character Images")]
-    public Sprite facingAway;
-    public Sprite facingRight;
-    public Sprite facingLeft;
-    public Sprite facingFront;
-
     [Header("Weapons")]
+    public Transform bulletSpawnPoint;
     public GameObject equippedWeapon;
 
-    private Weapon weapon;
+    protected Weapon weapon;
 
     private void Start()
     {
@@ -43,20 +37,24 @@ public class Character : MonoBehaviour
         healthBar.maxValue = health;
 
         weapon = equippedWeapon.GetComponent<Weapon>();
+        weapon.setBSP(bulletSpawnPoint);
         Debug.Assert(weapon != null, "Weapon is null");
     }
 
     protected virtual void StartAttack()
     {
-        if(weapon != null)
+        Debug.Log("Start Attacking");
+        if (weapon != null)
         {
+            Debug.Log("Weapon Check");
             weapon.StartFiring();
-        }        
+        }
     }
 
     protected virtual void StopAttack()
     {
-        if(weapon != null)
+        Debug.Log("Stop Attacking");
+        if (weapon != null)
         {
             weapon.StopFiring();
         }
@@ -66,7 +64,7 @@ public class Character : MonoBehaviour
     {
         health -= damage;
 
-        if(healthBar != null)
+        if (healthBar != null)
         {
             healthBar.value = health;
         }
