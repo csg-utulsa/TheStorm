@@ -8,7 +8,6 @@ public class Player : Character
     [Header("Player Attributes")]
     public float rotationSpeed;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +43,7 @@ public class Player : Character
 
         //transform.Translate(movement);
         //gameObject.transform.position += new Vector3(h, 0, v).normalized * speed;
-        gameObject.GetComponentInParent<Transform>().parent.position += new Vector3(h, 0, v).normalized * speed;
+        gameObject.GetComponentInParent<Transform>().parent.position += new Vector3(h, 0, v).normalized * speed * Time.deltaTime;
     }
 
     private void Rotate()
@@ -88,5 +87,48 @@ public class Player : Character
             gameObject.GetComponentInParent<SpriteRenderer>().sprite = facingLeft;
         }
         //print(transform.rotation.eulerAngles.y);
+    }
+
+    public void PickupWeapon(GameObject newWeapon)
+    {
+        if (equippedWeapon != null)
+        {
+            Debug.Log("First Check");
+            if (secondaryWeapon == null)
+            {
+                Debug.Log("Second Check");
+                secondaryWeapon = equippedWeapon;
+                Inventory.instance.SetWeaponSlots(null, weapon.weaponSprite);
+            }
+            else
+            {
+                Destroy(equippedWeapon);
+            }
+        }
+
+        equippedWeapon = Instantiate(newWeapon, transform) as GameObject;
+
+        weapon = equippedWeapon.GetComponent<Weapon>();
+        Inventory.instance.SetWeaponSlots(weapon.weaponSprite, null);
+
+        weapon.setBSP(bulletSpawnPoint);
+    }
+
+    public void SwapWeapons()
+    {
+        var temp = equippedWeapon;
+        equippedWeapon = secondaryWeapon;
+        secondaryWeapon = temp;
+
+        if (secondaryWeapon != null)
+        {
+            Inventory.instance.SetWeaponSlots(null, weapon.weaponSprite);
+        }
+
+        if (equippedWeapon != null)
+        {
+            weapon = equippedWeapon.GetComponent<Weapon>();
+            Inventory.instance.SetWeaponSlots(weapon.weaponSprite, null);
+        }
     }
 }
