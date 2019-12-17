@@ -44,11 +44,11 @@ public class Character : MonoBehaviour
     protected virtual void StartAttack()
     {
         Debug.Log("Start Attacking");
-        if(weapon != null)
+        if (weapon != null)
         {
             Debug.Log("Weapon Check");
             weapon.StartFiring();
-        }        
+        }
     }
 
     protected virtual void StopAttack()
@@ -64,7 +64,7 @@ public class Character : MonoBehaviour
     {
         health -= damage;
 
-        if(healthBar != null)
+        if (healthBar != null)
         {
             healthBar.value = health;
         }

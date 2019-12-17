@@ -4,13 +4,43 @@ using TMPro;
  * Created: 10-20-19
  * Modified: 10-20-19
  * Description: defines interactable items*/
-public class ItemPickup : Pickup
+public class ItemPickup : Interactable
 {//inherents from Interactble class
 
     /****VARIABLES****/
     public Item item; //get item properites
+    public TextMeshPro textPrompt;
 
-    protected override void PickUp()
+    public void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
+    public override void Interact()
+    {
+        base.Interact();//run the parent method
+
+        PickUp();
+
+    }//end Interact
+
+    public new void Update()
+    {
+        base.Update();
+
+        float distance = Vector3.Distance(player.position, interactionTransform.position);
+        if ((distance <= radius))
+        {
+            textPrompt.gameObject.SetActive(true);
+        }
+        else
+        {
+            textPrompt.gameObject.SetActive(false);
+        }
+    }
+
+
+    void PickUp()
     {
         Debug.Log("picked up " + item.name); //test pick
 
@@ -20,5 +50,8 @@ public class ItemPickup : Pickup
         {
          Destroy(gameObject); //destory item object;
         }
+       
+
     }//
+
 }//class

@@ -13,7 +13,6 @@ public class Bullet : MonoBehaviour
     //Initializes attributes
     public void initialize(float d, float r, float s)
     {
-        Debug.Log($"Bullet Check: {r}");
         damage = d;
         range = r;
         speed = s;
@@ -32,7 +31,6 @@ public class Bullet : MonoBehaviour
         //If it has moved to its max range
         if(distance >= range)
         {
-            Debug.Log("Range Check");
             //Finish the bullet
             finish();
         }
@@ -49,7 +47,6 @@ public class Bullet : MonoBehaviour
         //If the bullet hit something other than a character
         else if(!other.tag.Equals("Bullet"))
         {
-            Debug.Log("Hit Check");
             //Finish the bullet
             finish();
         }
@@ -69,7 +66,6 @@ public class Bullet : MonoBehaviour
     /// </summary>
     protected virtual void finish()
     {
-        Debug.Log("Finish Check");
         //Destroy the bullet
         Destroy(gameObject);
     }

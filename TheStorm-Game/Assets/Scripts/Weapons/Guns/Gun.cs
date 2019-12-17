@@ -21,7 +21,6 @@ public class Gun : Weapon
     /// </summary>
     protected override void Fire()
     {
-        Debug.Log("Spawn Check");
         SpawnBullet();
     }
 
@@ -32,7 +31,7 @@ public class Gun : Weapon
     {
         float offset = Random.Range(-inaccuracy / 2, inaccuracy / 2);
         
-        BulletSpawner.Spawn(bulletSpawnPoint, damage, range, bulletVelocity, bulletType, offset);
+        BulletSpawner.Spawn(transform, damage, range, bulletVelocity, bulletType, offset);
     }
 
     /// <summary>
@@ -43,7 +42,7 @@ public class Gun : Weapon
     {
         float offset = Random.Range(-inaccuracy / 2, inaccuracy / 2);
 
-        BulletSpawner.Spawn(bulletSpawnPoint, damage, range, bulletVelocity, bt, offset);
+        BulletSpawner.Spawn(transform, damage, range, bulletVelocity, bt, offset);
     }
 
     /// <summary>
@@ -52,7 +51,7 @@ public class Gun : Weapon
     /// <param name="angle">The angle of the bullet in degrees from forward</param>
     protected virtual void SpawnBullet(float angle)
     {
-        BulletSpawner.Spawn(bulletSpawnPoint, damage, range, bulletVelocity, bulletType, angle);
+        BulletSpawner.Spawn(transform, damage, range, bulletVelocity, bulletType, angle);
     }
 
     /// <summary>
@@ -62,6 +61,6 @@ public class Gun : Weapon
     /// <param name="angle">Angle of the spawned bullet in degrees from forward</param>
     protected virtual void SpawnBullet(BulletTypes bt, float angle)
     {
-        BulletSpawner.Spawn(bulletSpawnPoint, damage, range, bulletVelocity, bt, angle);
+        BulletSpawner.Spawn(transform, damage, range, bulletVelocity, bt, angle);
     }
 }

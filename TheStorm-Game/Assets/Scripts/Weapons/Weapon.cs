@@ -66,7 +66,7 @@ public class Weapon : MonoBehaviour
     /// </summary>
     protected virtual void Fire()
     {
-        
+
     }
 
     public void setBSP(Transform BSP)

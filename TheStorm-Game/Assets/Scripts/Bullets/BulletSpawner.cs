@@ -24,7 +24,6 @@ public class BulletSpawner : MonoBehaviour
     {
         //Converts the prefabs set in the editor to static
         bulletPrefabsStatic = bulletPrefabs;
-        Instantiate(bulletPrefabsStatic[0]);
     }
 
     /// <summary>
@@ -38,7 +37,6 @@ public class BulletSpawner : MonoBehaviour
     /// <param name="angle">The degrees from straight to rotate the bullet</param>
     public static void Spawn(Transform t, float damage, float range, float bulletVelocity, BulletTypes type, float angle)
     {
-        Debug.Log("Spawner Check");
         Quaternion temp = t.rotation;
         //If the bullet is not shooting straight
         if(angle != 0)
@@ -48,7 +46,6 @@ public class BulletSpawner : MonoBehaviour
             angles.y += angle;
             temp.eulerAngles = angles;
         }
-        
         //Instantiate the bullet
         GameObject bullet = Instantiate(bulletPrefabsStatic[(int)type], t.position, temp);
         //Initialize the bullet's values

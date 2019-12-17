@@ -24,7 +24,7 @@ public class WeaponPickup : Pickup
 
     protected override void PickUp()
     {
-        player.GetComponent<Player>().PickupWeapon(weapon);
+        player.transform.GetChild(0).gameObject.GetComponent<Player>().PickupWeapon(weapon);
         Destroy(gameObject);
     }
 }

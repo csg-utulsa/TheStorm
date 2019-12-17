@@ -49,7 +49,7 @@ public class Inventory : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I))
         {
             ToggleItemInventory();
         }
@@ -62,20 +62,20 @@ public class Inventory : MonoBehaviour
         if (!item.isDefaultItem)
         {//only add none default items to inventory
 
-            if(items.Count >= space)
+            if (items.Count >= space)
             {//if there is not room in inventory , return
-                Debug.Log("Not enough room"+items.Count);
+                Debug.Log("Not enough room" + items.Count);
                 return false;
             }
 
-          //otherwise add item  
-          items.Add(item);
+            //otherwise add item  
+            items.Add(item);
 
-        if(onItemChangedCallback != null)
+            if (onItemChangedCallback != null)
             {//if method is not null, invoke the method
                 onItemChangedCallback.Invoke();
             }
-            
+
 
         }
 
@@ -117,12 +117,12 @@ public class Inventory : MonoBehaviour
 
     public void SetWeaponSlots(Sprite weapon1, Sprite weapon2)
     {
-        if(weapon1 != null)
+        if (weapon1 != null)
         {
             weaponSlots[0].sprite = weapon1;
         }
 
-        if(weapon2 != null)
+        if (weapon2 != null)
         {
             weaponSlots[1].sprite = weapon2;
         }
@@ -132,7 +132,7 @@ public class Inventory : MonoBehaviour
     {
         itemsVisible = !itemsVisible;
 
-        foreach(InventorySlot iS in slots)
+        foreach (InventorySlot iS in slots)
         {
             iS.SetVisible(itemsVisible);
         }
