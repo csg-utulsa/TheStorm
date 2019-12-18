@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Character
 {
     // GAME OBJECTS //
     [Header("GameObjects")]
@@ -58,7 +58,14 @@ public class Enemy : MonoBehaviour
         //{
         //    takeDamage(5);
         //}
-
+        
+        // function to move
+        Move();
+    }
+    
+    
+    protected override void Move()
+    {
         // PASSIVE & FOLLOWING WAYPOINTS //
         if (!alerted && waypoints != null)
         {
@@ -114,12 +121,12 @@ public class Enemy : MonoBehaviour
         if (collision.transform.gameObject.tag == "Player" || collision.transform.gameObject.tag == "Enemy")
         {
             // function call
-            becomeAlerted();
+            BecomeAlerted();
         }
     }
 
     // ALERT //
-    public void becomeAlerted()
+    public void BecomeAlerted()
     {
         // print the function call
         print("becomeAlerted()");
@@ -135,7 +142,7 @@ public class Enemy : MonoBehaviour
     }
 
     // TAKE DAMAGE //
-    public void takeDamage(int damage)
+    /*public void takeDamage(int damage)
     {
         // print the function call
         print("takeDamage(" + damage + ")");
@@ -149,5 +156,5 @@ public class Enemy : MonoBehaviour
             // destroy the game object
             Destroy(gameObject);
         }
-    }
+    }*/
 }
