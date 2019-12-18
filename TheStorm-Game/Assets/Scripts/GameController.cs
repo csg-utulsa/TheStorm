@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
 
     public Canvas EndLevelCanvas;
+    public GameObject HelpPanel;
     
     // Start is called before the first frame update
     void Start()
@@ -35,6 +37,16 @@ public class GameController : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void LoadLevel(int level)
+    {
+        SceneManager.LoadScene(level);
+    }
+
+    public void ToggleActiveHelp()
+    {
+        HelpPanel.SetActive(!HelpPanel.activeSelf);
     }
 
 
