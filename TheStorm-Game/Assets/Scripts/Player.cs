@@ -10,12 +10,6 @@ public class Player : Character
     [Header("PLayer Sprites")]
     public Sprite facingFront, facingLeft, facingRight, facingAway;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -70,22 +64,18 @@ public class Player : Character
 
         if(transform.rotation.eulerAngles.y > 315 || transform.rotation.eulerAngles.y < 45)
         {
-            print(gameObject.GetComponentInParent<SpriteRenderer>().sprite);
             gameObject.GetComponentInParent<SpriteRenderer>().sprite = facingAway;
         }
         else if(transform.rotation.eulerAngles.y > 45 && transform.rotation.eulerAngles.y < 135)
         {
-            print(gameObject.GetComponentInParent<SpriteRenderer>().sprite);
             gameObject.GetComponentInParent<SpriteRenderer>().sprite = facingRight;
         }
         else if(transform.rotation.eulerAngles.y > 135 && transform.rotation.eulerAngles.y < 225)
         {
-            print(gameObject.GetComponentInParent<SpriteRenderer>().sprite);
             gameObject.GetComponentInParent<SpriteRenderer>().sprite = facingFront;
         }
         else
         {
-            print(gameObject.GetComponentInParent<SpriteRenderer>().sprite);
             gameObject.GetComponentInParent<SpriteRenderer>().sprite = facingLeft;
         }
         //print(transform.rotation.eulerAngles.y);
@@ -111,9 +101,9 @@ public class Player : Character
         equippedWeapon = Instantiate(newWeapon, transform) as GameObject;
 
         weapon = equippedWeapon.GetComponent<Weapon>();
-        Inventory.instance.SetWeaponSlots(weapon.weaponSprite, null);
+        weapon.setOwnerTag(tag);
 
-        weapon.setBSP(bulletSpawnPoint);
+        Inventory.instance.SetWeaponSlots(weapon.weaponSprite, null);
     }
 
     public void SwapWeapons()
@@ -130,6 +120,8 @@ public class Player : Character
         if (equippedWeapon != null)
         {
             weapon = equippedWeapon.GetComponent<Weapon>();
+            weapon.setOwnerTag(tag);
+
             Inventory.instance.SetWeaponSlots(weapon.weaponSprite, null);
         }
     }

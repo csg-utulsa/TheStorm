@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5203893515431327492}
   m_Layer: 0
   m_Name: PlayerChild
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,8 +48,8 @@ MonoBehaviour:
   health: 1
   speed: 40
   healthBar: {fileID: 0}
-  bulletSpawnPoint: {fileID: 8643397958296181782}
   equippedWeapon: {fileID: 0}
+  deathScreen: {fileID: 0}
   secondaryWeapon: {fileID: 0}
   rotationSpeed: 10
   facingFront: {fileID: 192139897972210979, guid: f0b88d362e500314aa8036d63322abfe,

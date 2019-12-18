@@ -10,11 +10,14 @@ public class Bullet : MonoBehaviour
         speed,
         distance;
 
+    private string ownerTag;
+
     //Initializes attributes
-    public void initialize(float d, float r, float s)
+    public void initialize(float d, float r, float s, string ot)
     {
         damage = d;
         range = r;
+        ownerTag = ot;
         speed = s;
         distance = 0;
     }
@@ -39,14 +42,17 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //If the bullet hit a character
-        if(other.tag.Equals("Enemy"))
+        if(other.tag.Equals("Enemy") || other.tag.Equals("Player"))
         {
-            //call the hit method
-            hit(other.gameObject);
-        }
-        else if (other.tag.Equals("Player"))
-        {
-
+            if(!other.tag.Equals(ownerTag))
+            {
+                //call the hit method
+                hit(other.gameObject);
+            }      
+            else
+            {
+                Debug.Log("Hit Self");
+            }
         }
         //If the bullet hit something other than a character
         else if(!other.tag.Equals("Bullet"))
@@ -62,7 +68,14 @@ public class Bullet : MonoBehaviour
     /// <param name="o">The gameobject of the character hit</param>
     protected virtual void hit(GameObject o)
     {
-        o.GetComponent<Character>().TakeDamage(damage);
+        if(o.tag.Equals("Player"))
+        {
+            o.GetComponentInChildren<Character>().TakeDamage(damage);
+        }
+        else
+        {
+            o.GetComponent<Character>().TakeDamage(damage);
+        }
     }
 
     /// <summary>
