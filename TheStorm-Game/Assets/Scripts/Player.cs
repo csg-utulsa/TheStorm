@@ -17,7 +17,7 @@ public class Player : Character
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Move();
 
