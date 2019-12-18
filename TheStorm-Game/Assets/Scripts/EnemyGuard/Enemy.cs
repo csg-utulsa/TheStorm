@@ -12,7 +12,6 @@ public class Enemy : Character
     public GameObject pivot;
     public GameObject FOV;
     public GameObject aggroCircle;
-    public Slider healthBar;
 
     // MATERIALS //
     [Header("Materials")]
@@ -21,7 +20,6 @@ public class Enemy : Character
 
     // VARIABLES
     [Header("Variables")]
-    public float speed;
     public bool alerted = false;
 
     // AI PATHING //
@@ -42,6 +40,8 @@ public class Enemy : Character
         // prevent the gameobject from rotating by means of the agent
         agent.updateRotation = false;
 
+        agent.speed = speed;
+
         // if there are waypoints
         if (waypoints.Length > 0)
         {
@@ -52,13 +52,7 @@ public class Enemy : Character
 
     // Update is called once per frame
     void Update()
-    {
-        // DEBUG TO TEST DAMAGE FUNCTION //
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    takeDamage(5);
-        //}
-        
+    {        
         // function to move
         Move();
     }
@@ -106,8 +100,7 @@ public class Enemy : Character
         // AGGRO //
         if (alerted)
         {
-            // update the agent's destination as the position of the player
-            agent.SetDestination(player.transform.position);
+            AlertAction();
         }
     }
 
@@ -141,20 +134,9 @@ public class Enemy : Character
         aggroCircle.SetActive(true);
     }
 
-    // TAKE DAMAGE //
-    /*public void takeDamage(int damage)
+    public void AlertAction()
     {
-        // print the function call
-        print("takeDamage(" + damage + ")");
-
-        // reduce the health bar value by the damage amount
-        healthBar.value -= damage;
-
-        // if the health has reached 0
-        if (healthBar.value <= 0)
-        {
-            // destroy the game object
-            Destroy(gameObject);
-        }
-    }*/
+        // update the agent's destination as the position of the player
+        agent.SetDestination(player.transform.position);
+    }
 }
