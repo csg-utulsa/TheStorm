@@ -36,10 +36,11 @@ public class Character : MonoBehaviour
 
         healthBar.maxValue = health;
 
-        Debug.Log(transform.tag);
+        Debug.Log(tag);
 
         weapon = equippedWeapon.GetComponent<Weapon>();
-        weapon.setBSP(transform);
+        weapon.setOwnerTag(tag);
+
         Debug.Assert(weapon != null, "Weapon is null");
     }
 

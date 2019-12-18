@@ -10,17 +10,6 @@ public class Player : Character
     [Header("PLayer Sprites")]
     public Sprite facingFront, facingLeft, facingRight, facingAway;
 
-    // Start is called before the first frame update
-    new void Start()
-    {
-        base.Start();
-
-        if(weapon != null)
-        {
-            weapon.setBSP(transform.parent);
-        }
-    }
-
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -112,9 +101,9 @@ public class Player : Character
         equippedWeapon = Instantiate(newWeapon, transform) as GameObject;
 
         weapon = equippedWeapon.GetComponent<Weapon>();
-        Inventory.instance.SetWeaponSlots(weapon.weaponSprite, null);
+        weapon.setOwnerTag(tag);
 
-        weapon.setBSP(transform.parent);
+        Inventory.instance.SetWeaponSlots(weapon.weaponSprite, null);
     }
 
     public void SwapWeapons()
@@ -131,6 +120,8 @@ public class Player : Character
         if (equippedWeapon != null)
         {
             weapon = equippedWeapon.GetComponent<Weapon>();
+            weapon.setOwnerTag(tag);
+
             Inventory.instance.SetWeaponSlots(weapon.weaponSprite, null);
         }
     }

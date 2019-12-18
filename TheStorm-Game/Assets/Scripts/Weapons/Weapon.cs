@@ -12,12 +12,12 @@ public class Weapon : MonoBehaviour
     //The 2d sprite corresponding to this weapon
     public Sprite weaponSprite;
 
-    //Where bullets spawn from
-    protected Transform bulletSpawnPoint;
     //If the trigger is held down
     private bool isFiring;
     //Time since Fire() was last called
     private float timeSinceLastShot;
+
+    protected string ownerTag;
 
     // Start is called before the first frame update
     void Start()
@@ -69,9 +69,8 @@ public class Weapon : MonoBehaviour
 
     }
 
-    public void setBSP(Transform BSP)
+    public void setOwnerTag(string ot)
     {
-        Debug.Log(BSP.tag);
-        bulletSpawnPoint = BSP;
+        ownerTag = ot;
     }
 }

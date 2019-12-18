@@ -35,7 +35,7 @@ public class BulletSpawner : MonoBehaviour
     /// <param name="bulletVelocity">Speed of the bullet</param>
     /// <param name="type">The type of bullet to spawn</param>
     /// <param name="angle">The degrees from straight to rotate the bullet</param>
-    public static void Spawn(Transform t, float damage, float range, float bulletVelocity, BulletTypes type, float angle)
+    public static void Spawn(Transform t, float damage, float range, float bulletVelocity, BulletTypes type, float angle, string tag)
     {
         Quaternion temp = t.rotation;
         //If the bullet is not shooting straight
@@ -49,8 +49,8 @@ public class BulletSpawner : MonoBehaviour
         //Instantiate the bullet
         GameObject bullet = Instantiate(bulletPrefabsStatic[(int)type], t.position, temp);
 
-        Debug.Log(t.tag);
+        Debug.Log(tag);
         //Initialize the bullet's values
-        bullet.GetComponent<Bullet>().initialize(damage, range, bulletVelocity, t.tag);
+        bullet.GetComponent<Bullet>().initialize(damage, range, bulletVelocity, tag);
     }
 }
