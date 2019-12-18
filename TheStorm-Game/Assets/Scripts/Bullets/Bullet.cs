@@ -39,10 +39,14 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //If the bullet hit a character
-        if(other.tag.Equals("Character"))
+        if(other.tag.Equals("Enemy"))
         {
             //call the hit method
             hit(other.gameObject);
+        }
+        else if (other.tag.Equals("Player"))
+        {
+
         }
         //If the bullet hit something other than a character
         else if(!other.tag.Equals("Bullet"))
@@ -58,7 +62,7 @@ public class Bullet : MonoBehaviour
     /// <param name="o">The gameobject of the character hit</param>
     protected virtual void hit(GameObject o)
     {
-        //o.GetComponent<CharacterController>().takeDamage(damage);
+        o.GetComponent<Character>().TakeDamage(damage);
     }
 
     /// <summary>
