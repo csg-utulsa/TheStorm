@@ -41,6 +41,7 @@ public class Enemy : Character
         agent.updateRotation = false;
 
         agent.speed = speed;
+
         // if there are waypoints
         if (waypoints.Length > 0)
         {
@@ -51,16 +52,16 @@ public class Enemy : Character
 
     // Update is called once per frame
     void Update()
-    {        
+    {
         // function to move
         Move();
     }
-    
-    
+
+
     protected override void Move()
     {
         // PASSIVE & FOLLOWING WAYPOINTS //
-        if (!alerted && waypoints != null && waypoints.Length > 0)
+        if (!alerted && waypoints != null)
         {
             if (waypointIndex <= waypoints.Length - 1)
             {
@@ -140,6 +141,9 @@ public class Enemy : Character
 
         // set active the aggro circle
         aggroCircle.SetActive(true);
+
+        // start attacking player
+        StartAttack();
     }
 
     public void AlertAction()
