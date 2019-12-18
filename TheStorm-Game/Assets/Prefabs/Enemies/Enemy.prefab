@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3347434835468846951
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6352509398640379416}
+  m_Layer: 0
+  m_Name: BSP
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6352509398640379416
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3347434835468846951}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7358258805621032829}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7358258804561015723
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,14 +413,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7358258805128888380}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7358258805493582749}
   m_Father: {fileID: 7358258805621032829}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!135 &7358258805128888375
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -606,6 +636,7 @@ Transform:
   - {fileID: 7358258805128888379}
   - {fileID: 7358258806030897184}
   - {fileID: 7358258804889781006}
+  - {fileID: 6352509398640379416}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -667,21 +698,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dd35624bc94aa14ea0a343901e6be25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 20
   speed: 5
   healthBar: {fileID: 7358258804910723579}
-  bulletSpawnPoint: {fileID: 0}
-  equippedWeapon: {fileID: 0}
+  bulletSpawnPoint: {fileID: 6352509398640379416}
+  equippedWeapon: {fileID: 2366689712083047641, guid: 1ff7cc8ed7f896c4880ef1bf9a2fd0ac,
+    type: 3}
   player: {fileID: 0}
-  pivot: {fileID: 0}
-  FOV: {fileID: 0}
-  aggroCircle: {fileID: 0}
-  healthBar: {fileID: 7358258804910723579}
+  pivot: {fileID: 7358258805128888380}
+  FOV: {fileID: 7358258805493582750}
+  aggroCircle: {fileID: 7358258806030897185}
   m_yellow: {fileID: 2100000, guid: f381f37034776584bb1ae21d47e60526, type: 2}
-  m_red: {fileID: 0}
-  speed: 5
+  m_red: {fileID: 2100000, guid: b18de3222e73d754581a716724e45608, type: 2}
   alerted: 0
-  agent: {fileID: 0}
+  agent: {fileID: 7383931840069931448}
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -726,7 +756,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 20
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
