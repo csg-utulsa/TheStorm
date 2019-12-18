@@ -11,13 +11,12 @@ public class Character : MonoBehaviour
     public float speed;
     public Slider healthBar;
     [Header("Weapons")]
-    public Transform bulletSpawnPoint;
     public GameObject equippedWeapon;
     public GameObject deathScreen;
 
     protected Weapon weapon;
 
-    private void Start()
+    protected void Start()
     {
         for (int i = 0; i < transform.childCount; i++)
         {
@@ -37,8 +36,10 @@ public class Character : MonoBehaviour
 
         healthBar.maxValue = health;
 
+        Debug.Log(transform.tag);
+
         weapon = equippedWeapon.GetComponent<Weapon>();
-        weapon.setBSP(bulletSpawnPoint);
+        weapon.setBSP(transform);
         Debug.Assert(weapon != null, "Weapon is null");
     }
 

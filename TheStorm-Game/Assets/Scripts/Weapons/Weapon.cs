@@ -71,6 +71,7 @@ public class Weapon : MonoBehaviour
 
     public void setBSP(Transform BSP)
     {
+        Debug.Log(BSP.tag);
         bulletSpawnPoint = BSP;
     }
 }

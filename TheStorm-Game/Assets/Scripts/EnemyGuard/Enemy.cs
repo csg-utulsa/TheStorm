@@ -29,8 +29,9 @@ public class Enemy : Character
     private int waypointIndex = 0;
 
     // Start is called before the first frame update
-    void Start()
+    new void Start()
     {
+        base.Start();
         // find the player
         player = GameObject.FindGameObjectWithTag("Player");
 

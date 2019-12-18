@@ -48,7 +48,9 @@ public class BulletSpawner : MonoBehaviour
         }
         //Instantiate the bullet
         GameObject bullet = Instantiate(bulletPrefabsStatic[(int)type], t.position, temp);
+
+        Debug.Log(t.tag);
         //Initialize the bullet's values
-        bullet.GetComponent<Bullet>().initialize(damage, range, bulletVelocity);
+        bullet.GetComponent<Bullet>().initialize(damage, range, bulletVelocity, t.tag);
     }
 }
