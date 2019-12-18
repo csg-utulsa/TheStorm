@@ -110,7 +110,16 @@ public class Enemy : Character
         print("OnCollisionEnter(" + collision.gameObject + ")");
 
         // if collided with by either a player or other enemy
-        if (collision.transform.gameObject.tag == "Player" || collision.transform.gameObject.tag == "Enemy")
+        if (collision.transform.gameObject.tag == "Player" || collision.transform.gameObject.tag == "Enemy" || collision.transform.gameObject.tag == "Bullet")
+        {
+            // function call
+            BecomeAlerted();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.gameObject.tag == "Bullet")
         {
             // function call
             BecomeAlerted();
