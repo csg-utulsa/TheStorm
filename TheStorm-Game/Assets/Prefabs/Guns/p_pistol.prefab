@@ -43,10 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c472588fa0b8474095c2a15ac9cb056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 0.75
+  fireRate: 0.25
   damage: 1
   weaponSprite: {fileID: 21300000, guid: 77868c993610538418e8eb1f1873fe6f, type: 3}
   inaccuracy: 3
-  range: 10
-  bulletVelocity: 3
+  range: 100
+  bulletVelocity: 60
   bulletType: 0
