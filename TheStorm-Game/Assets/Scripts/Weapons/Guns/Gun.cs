@@ -14,6 +14,12 @@ public class Gun : Weapon
     public float bulletVelocity;
     //What type of bullet is shot from this gun
     public BulletTypes bulletType;
+    AudioSource audioData;
+
+    private void Start()
+    {
+        audioData = GetComponent<AudioSource>();
+    }
 
     /// <summary>
     /// Called periodically while the trigger is held
@@ -22,6 +28,7 @@ public class Gun : Weapon
     protected override void Fire()
     {
         SpawnBullet();
+        audioData.Play(0);
     }
 
     /// <summary>
