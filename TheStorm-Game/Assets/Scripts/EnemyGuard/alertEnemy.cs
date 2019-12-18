@@ -22,7 +22,7 @@ public class alertEnemy : MonoBehaviour
         if (other.tag == "Player" || other.tag == "Enemy")
         {
             // call the function of the enemy this object belongs to
-            enemy.becomeAlerted();
+            enemy.BecomeAlerted();
         }
     }
 }
