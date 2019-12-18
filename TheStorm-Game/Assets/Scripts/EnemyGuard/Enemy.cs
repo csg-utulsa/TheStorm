@@ -41,7 +41,6 @@ public class Enemy : Character
         agent.updateRotation = false;
 
         agent.speed = speed;
-
         // if there are waypoints
         if (waypoints.Length > 0)
         {
@@ -61,7 +60,7 @@ public class Enemy : Character
     protected override void Move()
     {
         // PASSIVE & FOLLOWING WAYPOINTS //
-        if (!alerted && waypoints != null)
+        if (!alerted && waypoints != null && waypoints.Length > 0)
         {
             if (waypointIndex <= waypoints.Length - 1)
             {
