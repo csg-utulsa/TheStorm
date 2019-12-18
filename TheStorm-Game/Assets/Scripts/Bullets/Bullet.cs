@@ -39,7 +39,7 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //If the bullet hit a character
-        if(other.tag.Equals("Character"))
+        if(other.tag.Equals("Enemy"))
         {
             //call the hit method
             hit(other.gameObject);
