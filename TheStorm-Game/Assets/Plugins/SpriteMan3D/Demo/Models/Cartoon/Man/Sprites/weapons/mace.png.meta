@@ -1,147 +1,56 @@
 fileFormatVersion: 2
 guid: 255777e450ec2e844a8a012c249f8776
+timeCreated: 1502050268
+licenseType: Store
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 21300000
-    second: mace_male_0
-  - first:
-      213: 21300002
-    second: mace_male_1
-  - first:
-      213: 21300004
-    second: mace_male_2
-  - first:
-      213: 21300006
-    second: mace_male_3
-  - first:
-      213: 21300008
-    second: mace_male_4
-  - first:
-      213: 21300010
-    second: mace_male_5
-  - first:
-      213: 21300012
-    second: mace_male_6
-  - first:
-      213: 21300014
-    second: mace_male_7
-  - first:
-      213: 21300016
-    second: mace_male_8
-  - first:
-      213: 21300018
-    second: mace_male_9
-  - first:
-      213: 21300020
-    second: mace_male_10
-  - first:
-      213: 21300022
-    second: mace_male_11
-  - first:
-      213: 21300024
-    second: mace_male_12
-  - first:
-      213: 21300026
-    second: mace_male_13
-  - first:
-      213: 21300028
-    second: mace_male_14
-  - first:
-      213: 21300030
-    second: mace_male_15
-  - first:
-      213: 21300032
-    second: mace_male_16
-  - first:
-      213: 21300034
-    second: mace_male_17
-  - first:
-      213: 21300036
-    second: mace_male_18
-  - first:
-      213: 21300038
-    second: mace_male_19
-  - first:
-      213: 21300040
-    second: mace_male_20
-  - first:
-      213: 21300042
-    second: mace_male_21
-  - first:
-      213: 21300044
-    second: mace_male_22
-  - first:
-      213: 21300046
-    second: slash-n.4
-  - first:
-      213: 21300048
-    second: idle-n
-  - first:
-      213: 21300050
-    second: slash-n.5
-  - first:
-      213: 21300052
-    second: slash-n.3
-  - first:
-      213: 21300054
-    second: slash-n.2
-  - first:
-      213: 21300056
-    second: slash-w.5
-  - first:
-      213: 21300058
-    second: slash-w.4
-  - first:
-      213: 21300060
-    second: slash-w.3
-  - first:
-      213: 21300062
-    second: slash-w.2
-  - first:
-      213: 21300064
-    second: slash-w.1
-  - first:
-      213: 21300066
-    second: idle-w
-  - first:
-      213: 21300068
-    second: slash-s.3
-  - first:
-      213: 21300070
-    second: slash-s.2
-  - first:
-      213: 21300072
-    second: slash-s.1
-  - first:
-      213: 21300074
-    second: idle-s
-  - first:
-      213: 21300076
-    second: slash-s.5
-  - first:
-      213: 21300078
-    second: slash-s.4
-  - first:
-      213: 21300080
-    second: slash-e.5
-  - first:
-      213: 21300082
-    second: slash-e.4
-  - first:
-      213: 21300084
-    second: slash-e.3
-  - first:
-      213: 21300086
-    second: slash-e.2
-  - first:
-      213: 21300088
-    second: slash-e.1
-  - first:
-      213: 21300090
-    second: idle-e
-  externalObjects: {}
-  serializedVersion: 10
+  fileIDToRecycleName:
+    21300000: mace_male_0
+    21300002: mace_male_1
+    21300004: mace_male_2
+    21300006: mace_male_3
+    21300008: mace_male_4
+    21300010: mace_male_5
+    21300012: mace_male_6
+    21300014: mace_male_7
+    21300016: mace_male_8
+    21300018: mace_male_9
+    21300020: mace_male_10
+    21300022: mace_male_11
+    21300024: mace_male_12
+    21300026: mace_male_13
+    21300028: mace_male_14
+    21300030: mace_male_15
+    21300032: mace_male_16
+    21300034: mace_male_17
+    21300036: mace_male_18
+    21300038: mace_male_19
+    21300040: mace_male_20
+    21300042: mace_male_21
+    21300044: mace_male_22
+    21300046: slash-n.4
+    21300048: idle-n
+    21300050: slash-n.5
+    21300052: slash-n.3
+    21300054: slash-n.2
+    21300056: slash-w.5
+    21300058: slash-w.4
+    21300060: slash-w.3
+    21300062: slash-w.2
+    21300064: slash-w.1
+    21300066: idle-w
+    21300068: slash-s.3
+    21300070: slash-s.2
+    21300072: slash-s.1
+    21300074: idle-s
+    21300076: slash-s.5
+    21300078: slash-s.4
+    21300080: slash-e.5
+    21300082: slash-e.4
+    21300084: slash-e.3
+    21300086: slash-e.2
+    21300088: slash-e.1
+    21300090: idle-e
+  serializedVersion: 4
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -159,8 +68,6 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
-  streamingMipmaps: 0
-  streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -171,7 +78,7 @@ TextureImporter:
     serializedVersion: 2
     filterMode: 0
     aniso: -1
-    mipBias: -100
+    mipBias: -1
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -183,127 +90,89 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spritePixelsToUnits: 100
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
-  singleChannelComponent: 0
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
   platformSettings:
-  - serializedVersion: 3
-    buildTarget: DefaultTexturePlatform
+  - buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
-  - serializedVersion: 3
-    buildTarget: Standalone
+  - buildTarget: Standalone
     maxTextureSize: 2048
-    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
-  - serializedVersion: 3
-    buildTarget: iPhone
+  - buildTarget: iPhone
     maxTextureSize: 2048
-    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
-  - serializedVersion: 3
-    buildTarget: tvOS
+  - buildTarget: tvOS
     maxTextureSize: 2048
-    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
-  - serializedVersion: 3
-    buildTarget: Android
+  - buildTarget: Android
     maxTextureSize: 2048
-    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
-  - serializedVersion: 3
-    buildTarget: Tizen
+  - buildTarget: Tizen
     maxTextureSize: 2048
-    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
+  - buildTarget: Windows Store Apps
     maxTextureSize: 2048
-    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
-  - serializedVersion: 3
-    buildTarget: WebGL
+  - buildTarget: WebGL
     maxTextureSize: 2048
-    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
-  - serializedVersion: 3
-    buildTarget: Samsung TV
+  - buildTarget: Samsung TV
     maxTextureSize: 2048
-    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -321,13 +190,6 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
-      bones: []
-      spriteID: e4305410000000000800000000000000
-      internalID: 21300046
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     - serializedVersion: 2
       name: idle-n
       rect:
@@ -342,13 +204,6 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
-      bones: []
-      spriteID: 05305410000000000800000000000000
-      internalID: 21300048
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     - serializedVersion: 2
       name: slash-n.5
       rect:
@@ -363,13 +218,6 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
-      bones: []
-      spriteID: 25305410000000000800000000000000
-      internalID: 21300050
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     - serializedVersion: 2
       name: slash-n.3
       rect:
@@ -384,13 +232,6 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
-      bones: []
-      spriteID: 45305410000000000800000000000000
-      internalID: 21300052
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     - serializedVersion: 2
       name: slash-n.2
       rect:
@@ -405,13 +246,6 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
-      bones: []
-      spriteID: 65305410000000000800000000000000
-      internalID: 21300054
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     - serializedVersion: 2
       name: slash-w.5
       rect:
@@ -426,13 +260,6 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
-      bones: []
-      spriteID: 85305410000000000800000000000000
-      internalID: 21300056
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     - serializedVersion: 2
       name: slash-w.4
       rect:
@@ -447,13 +274,6 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
-      bones: []
-      spriteID: a5305410000000000800000000000000
-      internalID: 21300058
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     - serializedVersion: 2
       name: slash-w.3
       rect:
@@ -468,13 +288,6 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
-      bones: []
-      spriteID: c5305410000000000800000000000000
-      internalID: 21300060
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     - serializedVersion: 2
       name: slash-w.2
       rect:
@@ -489,13 +302,6 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
-      bones: []
-      spriteID: e5305410000000000800000000000000
-      internalID: 21300062
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     - serializedVersion: 2
       name: slash-w.1
       rect:
@@ -510,13 +316,6 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
-      bones: []
-      spriteID: 06305410000000000800000000000000
-      internalID: 21300064
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     - serializedVersion: 2
       name: idle-w
       rect:
@@ -531,13 +330,6 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
-      bones: []
-      spriteID: 26305410000000000800000000000000
-      internalID: 21300066
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     - serializedVersion: 2
       name: slash-s.3
       rect:
@@ -552,13 +344,6 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
-      bones: []
-      spriteID: 46305410000000000800000000000000
-      internalID: 21300068
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     - serializedVersion: 2
       name: slash-s.2
       rect:
@@ -573,13 +358,6 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
-      bones: []
-      spriteID: 66305410000000000800000000000000
-      internalID: 21300070
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     - serializedVersion: 2
       name: slash-s.1
       rect:
@@ -594,13 +372,6 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
-      bones: []
-      spriteID: 86305410000000000800000000000000
-      internalID: 21300072
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     - serializedVersion: 2
       name: idle-s
       rect:
@@ -615,13 +386,6 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
-      bones: []
-      spriteID: a6305410000000000800000000000000
-      internalID: 21300074
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     - serializedVersion: 2
       name: slash-s.5
       rect:
@@ -636,13 +400,6 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
-      bones: []
-      spriteID: c6305410000000000800000000000000
-      internalID: 21300076
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     - serializedVersion: 2
       name: slash-s.4
       rect:
@@ -657,13 +414,6 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
-      bones: []
-      spriteID: e6305410000000000800000000000000
-      internalID: 21300078
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     - serializedVersion: 2
       name: slash-e.5
       rect:
@@ -678,13 +428,6 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
-      bones: []
-      spriteID: 07305410000000000800000000000000
-      internalID: 21300080
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     - serializedVersion: 2
       name: slash-e.4
       rect:
@@ -699,13 +442,6 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
-      bones: []
-      spriteID: 27305410000000000800000000000000
-      internalID: 21300082
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     - serializedVersion: 2
       name: slash-e.3
       rect:
@@ -720,13 +456,6 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
-      bones: []
-      spriteID: 47305410000000000800000000000000
-      internalID: 21300084
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     - serializedVersion: 2
       name: slash-e.2
       rect:
@@ -741,13 +470,6 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
-      bones: []
-      spriteID: 67305410000000000800000000000000
-      internalID: 21300086
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     - serializedVersion: 2
       name: slash-e.1
       rect:
@@ -762,13 +484,6 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
-      bones: []
-      spriteID: 87305410000000000800000000000000
-      internalID: 21300088
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     - serializedVersion: 2
       name: idle-e
       rect:
@@ -783,26 +498,9 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
-      bones: []
-      spriteID: a7305410000000000800000000000000
-      internalID: 21300090
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     physicsShape: []
-    bones: []
-    spriteID: 
-    internalID: 0
-    vertices: []
-    indices: 
-    edges: []
-    weights: []
-    secondaryTextures: []
   spritePackingTag: 
-  pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
