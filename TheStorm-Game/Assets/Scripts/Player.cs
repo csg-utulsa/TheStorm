@@ -14,7 +14,10 @@ public class Player : Character
     void FixedUpdate()
     {
         Move();
+    }
 
+    private void Update()
+    {
         if (Input.GetMouseButtonDown(0))
         {
             StartAttack();

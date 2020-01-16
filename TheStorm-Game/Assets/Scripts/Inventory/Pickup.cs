@@ -9,7 +9,16 @@ public class Pickup : Interactable
 
     public void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        var playerObjects = GameObject.FindGameObjectsWithTag("Player");
+
+        foreach(GameObject o in playerObjects)
+        {
+            if(o.GetComponent<Player>() != null)
+            {
+                player = o;
+                return;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -17,7 +26,7 @@ public class Pickup : Interactable
     {
         base.Update();
 
-        float distance = Vector3.Distance(player.position, interactionTransform.position);
+        float distance = Vector3.Distance(player.transform.position, interactionTransform.position);
         if ((distance <= radius))
         {
             textPrompt.gameObject.SetActive(true);

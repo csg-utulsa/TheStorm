@@ -46,7 +46,7 @@ public class Character : MonoBehaviour
 
     protected virtual void StartAttack()
     {
-        Debug.Log("Start Attacking");
+        Debug.LogError("Start Attacking");
         if (weapon != null)
         {
             Debug.Log("Weapon Check");
@@ -56,7 +56,7 @@ public class Character : MonoBehaviour
 
     protected virtual void StopAttack()
     {
-        Debug.Log("Stop Attacking");
+        Debug.LogError("Stop Attacking");
         if (weapon != null)
         {
             weapon.StopFiring();

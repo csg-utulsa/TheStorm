@@ -9,7 +9,7 @@ public class Interactable : MonoBehaviour
     public float radius = 3f; //how close to interact
     public Transform interactionTransform; //tranform of Interactable (does not have to be the object, but an empty object defines the exact location of where the inateraction takes place)
     public bool isFocused = false; //is interactable selected
-    public Transform player; //the player
+    public GameObject player; //the player
     public bool hasInteracted = false;//check if interacted with
     
 
@@ -22,7 +22,7 @@ public class Interactable : MonoBehaviour
 
     public void Update()
     {
-        float distance = Vector3.Distance(player.position, interactionTransform.position);
+        float distance = Vector3.Distance(player.transform.position, interactionTransform.position);
 
         if (isFocused && !hasInteracted)
         {//if focused and has not yet interacted
@@ -48,7 +48,7 @@ public class Interactable : MonoBehaviour
     public void OnFocused(Transform playerTranform)
     {
         isFocused = true; //set focus
-        player = playerTranform; //set the player
+        player = playerTranform.gameObject; //set the player
         hasInteracted = false; //rest interaction when focused
     }//end OnFocused
 
