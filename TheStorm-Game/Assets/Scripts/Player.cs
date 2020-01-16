@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : Character
 {
     public GameObject secondaryWeapon;
+    public GameObject healthSlider;
     [Header("Player Attributes")]
     public float rotationSpeed;
     [Header("PLayer Sprites")]
@@ -124,5 +126,11 @@ public class Player : Character
 
             Inventory.instance.SetWeaponSlots(weapon.weaponSprite, null);
         }
+    }
+
+    public override void TakeDamage(float damage)
+    {
+        base.TakeDamage(damage);
+        healthSlider.gameObject.GetComponent<Slider>().value = health;
     }
 }
