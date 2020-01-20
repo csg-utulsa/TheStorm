@@ -29,7 +29,11 @@ public class Gun : Weapon
     protected override void Fire()
     {
         SpawnBullet();
-        audioData.Play(0);
+
+        if(audioData != null)
+        {
+            audioData.Play(0);
+        }
     }
 
     /// <summary>

@@ -48,8 +48,8 @@ MonoBehaviour:
   damage: 1
   weaponSprite: {fileID: 21300000, guid: 77868c993610538418e8eb1f1873fe6f, type: 3}
   inaccuracy: 3
-  range: 100
-  bulletVelocity: 60
+  range: 10
+  bulletVelocity: 6
   bulletType: 0
 --- !u!82 &9075890799158238830
 AudioSource:
