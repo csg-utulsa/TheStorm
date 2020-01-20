@@ -7,6 +7,12 @@ public class Player : Character
 {
     public GameObject secondaryWeapon;
     public GameObject healthSlider;
+    public GameObject armorSlider;
+    public float armor;
+    public float maxArmorValue;
+    public float speedBuffAmount;
+    public float speedBuffTime;
+    private float speedBuffStartTime;
     [Header("Player Attributes")]
     public float rotationSpeed;
     [Header("PLayer Sprites")]
@@ -15,6 +21,14 @@ public class Player : Character
     // Update is called once per frame
     void FixedUpdate()
     {
+        if ((speedBuffTime > 0) && (Time.time > (speedBuffStartTime + speedBuffTime)))
+        {
+            print("Removing Speed Buff");
+            speed -= speedBuffAmount;
+            speedBuffAmount = 0;
+            speedBuffTime = 0;
+        }
+
         Move();
 
         if (Input.GetMouseButtonDown(0))
@@ -130,7 +144,65 @@ public class Player : Character
 
     public override void TakeDamage(float damage)
     {
-        base.TakeDamage(damage);
+        float totalDamage = damage;
+        if(armor > 0)
+        {
+            if (damage <= armor)
+            {
+                armor -= damage;
+                totalDamage = 0;
+            }
+            else
+            {
+                totalDamage = damage - armor;
+                armor = 0;
+                armorSlider.SetActive(false);
+            }
+
+            if(armor == 0)
+                armorSlider.SetActive(false);
+        }
+        base.TakeDamage(totalDamage);
         healthSlider.gameObject.GetComponent<Slider>().value = health;
+    }
+
+    public void GiveHealth(float health)
+    {
+        if (this.health < playerMaxHealth)
+        {
+            print("Giving health");
+            this.health += health;
+            healthSlider.gameObject.GetComponent<Slider>().value = this.health;
+        }
+    }
+
+    public void GiveArmor(float armor)
+    {
+        //if(armor == 0)
+        //{
+            armorSlider.SetActive(true);
+        //}
+
+        if(armor < maxArmorValue)
+        {
+            print("Giving Armor");
+            this.armor += armor;
+            armorSlider.gameObject.GetComponent<Slider>().value = this.armor;
+        }
+    }
+
+    public void GiveSpeedBuff(float amount, float duration)
+    {
+        if(speedBuffAmount > 0)
+        {
+            speed -= speedBuffAmount;
+            speedBuffAmount = 0;
+            speedBuffTime = 0;
+        }
+
+        speed += amount;
+        speedBuffAmount = amount;
+        speedBuffTime = duration;
+        speedBuffStartTime = Time.time;
     }
 }
