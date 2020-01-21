@@ -54,12 +54,20 @@ public class Bullet : MonoBehaviour
                 Debug.Log("Hit Self");
             }
         }
+
+        //SPECIFICALLY FOR DEMO
+        else if(other.tag.Equals("Target"))
+        {
+            other.GetComponent<Target>().TargetHit();
+        }
         //If the bullet hit something other than a character
         else if(!other.tag.Equals("Bullet"))
         {
             //Finish the bullet
             finish();
         }
+
+        
     }
 
     /// <summary>
