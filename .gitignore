@@ -47,3 +47,4 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 TheStorm-Game/Assets/Sounds/Intro:Loop:End.m4a
+TheStorm-Game/Assets/ProCore/ProBuilder/Shader/pb_VertexShader.shader.meta
