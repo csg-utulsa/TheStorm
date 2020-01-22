@@ -8,6 +8,8 @@ public class ArmorBuff : Buff
     {
         //give player buff here
         print("In Armor Buff");
+        GameObject player = GameObject.Find("Player");
+        player.GetComponentInChildren<Player>().GiveArmor(1);
         base.GiveBuff();
     }
 }
