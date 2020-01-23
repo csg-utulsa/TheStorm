@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 367dbeb6e4e2a5044a376c6dd711f617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToFollow: {fileID: 0}
+  objectToFollow: {fileID: 2327065976890012260}
   speed: 2
   zOffset: 12
 --- !u!1 &2067031443729592191
@@ -200,6 +200,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f0a9854681ee214fa1107daad756ef7, type: 3}
+--- !u!1 &2327065976890012260 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3911718326314072911, guid: 5f0a9854681ee214fa1107daad756ef7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1585919330690320683}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2327065976890012257 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3911718326314072906, guid: 5f0a9854681ee214fa1107daad756ef7,
