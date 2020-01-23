@@ -8,6 +8,8 @@ public class SpeedBuff : Buff
     {
         //give player buff here
         print("In Speed Buff");
+        GameObject player = GameObject.Find("Player");
+        player.GetComponentInChildren<Player>().GiveSpeedBuff(50, 10);
         base.GiveBuff();
     }
 }
