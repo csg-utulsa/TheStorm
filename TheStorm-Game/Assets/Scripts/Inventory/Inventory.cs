@@ -39,6 +39,9 @@ public class Inventory : MonoBehaviour
     public InventorySlot[] slots;
     public Image[] weaponSlots;
 
+    public Text scoreText;
+    private int score;
+
     private bool itemsVisible = true;
 
     public void Start()
@@ -136,6 +139,12 @@ public class Inventory : MonoBehaviour
         {
             iS.SetVisible(itemsVisible);
         }
+    }
+
+    public void UpdateScore(int num)
+    {
+        score += num;
+        scoreText.text = "Score: " + score;
     }
 
 }//end class
