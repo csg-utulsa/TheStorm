@@ -8,11 +8,11 @@ public class Character : MonoBehaviour
     // Start is called before the first frame update
     [Header("Character Attributes")]
     public float health;
+    public float playerMaxHealth;
     public float speed;
     public Slider healthBar;
     [Header("Weapons")]
     public GameObject equippedWeapon;
-    public GameObject deathScreen;
 
     protected Weapon weapon;
 
@@ -46,7 +46,7 @@ public class Character : MonoBehaviour
 
     protected virtual void StartAttack()
     {
-        Debug.Log("Start Attacking");
+        Debug.LogError("Start Attacking");
         if (weapon != null)
         {
             Debug.Log("Weapon Check");
@@ -56,7 +56,7 @@ public class Character : MonoBehaviour
 
     protected virtual void StopAttack()
     {
-        Debug.Log("Stop Attacking");
+        Debug.LogError("Stop Attacking");
         if (weapon != null)
         {
             weapon.StopFiring();
@@ -86,7 +86,6 @@ public class Character : MonoBehaviour
     protected virtual void Die()
     {
         Destroy(gameObject);
-        deathScreen.gameObject.SetActive(true);
     }
 
     public void ChangeSpeed(float mult, float duration)

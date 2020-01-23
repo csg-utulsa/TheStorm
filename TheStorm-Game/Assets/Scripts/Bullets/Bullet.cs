@@ -20,6 +20,8 @@ public class Bullet : MonoBehaviour
         ownerTag = ot;
         speed = s;
         distance = 0;
+
+        GetComponent<SphereCollider>().radius = transform.localScale.x;
     }
 
     // Update is called once per frame
