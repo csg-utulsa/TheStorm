@@ -8,6 +8,8 @@ public class HealthBuff : Buff
     {
         //give player buff here
         print("In Health Buff");
+        GameObject player = GameObject.Find("Player");
+        player.GetComponentInChildren<Player>().GiveHealth(1);
         base.GiveBuff();
     }
 }

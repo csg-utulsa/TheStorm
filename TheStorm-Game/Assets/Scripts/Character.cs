@@ -8,6 +8,7 @@ public class Character : MonoBehaviour
     // Start is called before the first frame update
     [Header("Character Attributes")]
     public float health;
+    public float playerMaxHealth;
     public float speed;
     public Slider healthBar;
     [Header("Weapons")]
