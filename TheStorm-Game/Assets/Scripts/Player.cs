@@ -8,7 +8,7 @@ public class Player : Character
 {
     public GameObject secondaryWeapon;
     [Header("Buff Attributes")]
-    public GameObject healthSlider;
+    //public GameObject healthSlider;
     public GameObject armorSlider;
     public float armor;
     public float maxArmorValue;
@@ -170,7 +170,7 @@ public class Player : Character
                 armorSlider.SetActive(false);
         }
         base.TakeDamage(totalDamage);
-        healthSlider.gameObject.GetComponent<Slider>().value = health;
+        healthBar.gameObject.GetComponent<Slider>().value = health;
     }
 
     public void GiveHealth(float health)
@@ -179,7 +179,7 @@ public class Player : Character
         {
             print("Giving health");
             this.health += health;
-            healthSlider.gameObject.GetComponent<Slider>().value = this.health;
+            healthBar.value = this.health;
         }
     }
 
