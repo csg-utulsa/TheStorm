@@ -4,20 +4,28 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void TargetHit()
     {
-        GetComponentInChildren<RectTransform>().transform.Rotate(90, 0, 0);
+        FindObjectOfType<Inventory>().UpdateScore(10);
+        Transform targetTrans = GetComponentInChildren<RectTransform>().transform;
+        targetTrans.Rotate(110, 0, 0);
+        this.GetComponent<BoxCollider>().enabled = false;
+        StartCoroutine(TargetReset());
+
     }
+
+    IEnumerator TargetReset()
+    {
+        yield return new WaitForSeconds(2);
+
+        Transform targetTrans = GetComponentInChildren<RectTransform>().transform;
+        targetTrans.Rotate(-110, 0, 0);
+        this.GetComponent<BoxCollider>().enabled = true;
+    }
+
+   /* public void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Target has been hit");
+    } */
 }

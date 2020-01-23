@@ -41,8 +41,15 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //if the bullet hits a target
+        if (other.tag.Equals("Target"))
+        {
+            Debug.Log("Hit Target");
+            other.GetComponent<Target>().TargetHit();
+        }
+
         //If the bullet hit a character
-        if(other.tag.Equals("Enemy") || other.tag.Equals("Player"))
+        if (other.tag.Equals("Enemy") || other.tag.Equals("Player"))
         {
             if(!other.tag.Equals(ownerTag))
             {
@@ -55,11 +62,6 @@ public class Bullet : MonoBehaviour
             }
         }
 
-        //SPECIFICALLY FOR DEMO
-        else if(other.tag.Equals("Target"))
-        {
-            other.GetComponent<Target>().TargetHit();
-        }
         //If the bullet hit something other than a character
         else if(!other.tag.Equals("Bullet"))
         {
