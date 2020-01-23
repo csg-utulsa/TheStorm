@@ -89,7 +89,7 @@ MeshCollider:
   m_GameObject: {fileID: 2963009528984053197}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 30
@@ -200,6 +200,7 @@ GameObject:
   - component: {fileID: 112658368164544962}
   - component: {fileID: 26195496217722606}
   - component: {fileID: 6879935178827332159}
+  - component: {fileID: 1739473572862871873}
   m_Layer: 0
   m_Name: fence_wall
   m_TagString: Untagged
@@ -277,11 +278,27 @@ MeshCollider:
   m_GameObject: {fileID: 7391611873215018080}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!208 &1739473572862871873
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7391611873215018080}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.00001}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &8239875983955077939
 GameObject:
   m_ObjectHideFlags: 0

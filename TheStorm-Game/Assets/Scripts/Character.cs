@@ -13,7 +13,6 @@ public class Character : MonoBehaviour
     public Slider healthBar;
     [Header("Weapons")]
     public GameObject equippedWeapon;
-    public GameObject deathScreen;
 
     protected Weapon weapon;
 
@@ -87,7 +86,6 @@ public class Character : MonoBehaviour
     protected virtual void Die()
     {
         Destroy(gameObject);
-        deathScreen.gameObject.SetActive(true);
     }
 
     public void ChangeSpeed(float mult, float duration)
