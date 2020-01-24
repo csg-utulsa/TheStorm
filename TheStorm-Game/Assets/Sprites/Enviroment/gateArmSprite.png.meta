@@ -1,19 +1,7 @@
 fileFormatVersion: 2
-guid: c6cb8f9108859714cafc8b310b0b2558
+guid: d23e584bf88284ec8ae645dea24cf6fe
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 1773473744483456565
-    second: Crate_sprite_0
-  - first:
-      213: -5283891651834889075
-    second: Crate_sprite_1
-  - first:
-      213: 3463113065896336053
-    second: Crate_sprite_2
-  - first:
-      213: -4406899938482595918
-    second: Crate_sprite_3
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -52,13 +40,13 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 120, y: 200, z: 300, w: 400}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -132,91 +120,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Crate_sprite_0
-      rect:
-        serializedVersion: 2
-        x: 13
-        y: 142
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5361b6e69f4ac9810800000000000000
-      internalID: 1773473744483456565
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Crate_sprite_1
-      rect:
-        serializedVersion: 2
-        x: 137
-        y: 153
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d8cbab4b988dba6b0800000000000000
-      internalID: -5283891651834889075
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Crate_sprite_2
-      rect:
-        serializedVersion: 2
-        x: 14
-        y: 15
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5bad3cd2cf27f0030800000000000000
-      internalID: 3463113065896336053
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Crate_sprite_3
-      rect:
-        serializedVersion: 2
-        x: 147
-        y: 22
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2b7dd0ecadb87d2c0800000000000000
-      internalID: -4406899938482595918
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
