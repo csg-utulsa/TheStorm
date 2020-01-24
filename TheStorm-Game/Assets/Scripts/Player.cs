@@ -52,6 +52,7 @@ public class Player : Character
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
+            StopAttack();
             SwapWeapons();
         }
     }
