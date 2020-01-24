@@ -23,6 +23,7 @@ public class BurstRifle : Gun
             base.Fire();
 
             inaccuracy += inaccuracyPerBullet;
+            playAudio();
             yield return new WaitForSeconds(burstDelay);
         }
 

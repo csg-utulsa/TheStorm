@@ -29,11 +29,7 @@ public class Gun : Weapon
     protected override void Fire()
     {
         SpawnBullet();
-
-        if(audioData != null)
-        {
-            audioData.Play(0);
-        }
+        playAudio();
     }
 
     /// <summary>
@@ -74,5 +70,13 @@ public class Gun : Weapon
     protected virtual void SpawnBullet(BulletTypes bt, float angle)
     {
         BulletSpawner.Spawn(transform, damage, range, bulletVelocity, bt, angle, ownerTag);
+    }
+
+    protected void playAudio()
+    {
+        if (audioData != null)
+        {
+            audioData.Play(0);
+        }
     }
 }

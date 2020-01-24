@@ -11,7 +11,7 @@ public class Shotgun : Gun
     private float defaultRange;
     private float defaultSpeed;
 
-    private void Start()
+    private void Awake()
     {
         defaultRange = range;
         defaultSpeed = bulletVelocity;
@@ -51,6 +51,6 @@ public class Shotgun : Gun
             bulletVelocity = defaultSpeed;
         }
 
-        
+        playAudio();
     }
 }
