@@ -49,6 +49,11 @@ public class Player : Character
         {
             StopAttack();
         }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            SwapWeapons();
+        }
     }
 
     protected override void Move()
@@ -106,46 +111,69 @@ public class Player : Character
 
     public void PickupWeapon(GameObject newWeapon)
     {
+        //If the player already has an equipped weapon
         if (equippedWeapon != null)
         {
-            Debug.Log("First Check");
+            //If their secondary slot is available
             if (secondaryWeapon == null)
             {
-                Debug.Log("Second Check");
-                secondaryWeapon = equippedWeapon;
-                Inventory.instance.SetWeaponSlots(null, weapon.weaponSprite);
+                //Add this new weapon as a secondary
+                secondaryWeapon = Instantiate(newWeapon, transform) as GameObject;
+                //Update the weapon inventory GUI
+                Inventory.instance.SetWeaponSlots(null, secondaryWeapon.GetComponent<Weapon>().weaponSprite);
+                //Done with weapon pickup
+                return;
             }
+            //If it is not available
             else
             {
+                //Destroy the currently equipped weapon
                 Destroy(equippedWeapon);
             }
         }
 
+        //Spawn this new weapon as the equipped weapon
         equippedWeapon = Instantiate(newWeapon, transform) as GameObject;
 
+        //Store the equipped weapon objects script
         weapon = equippedWeapon.GetComponent<Weapon>();
+        //Set the tag of the weapon to this tag
         weapon.setOwnerTag(tag);
 
+        //Update the weapon inventory GUI
         Inventory.instance.SetWeaponSlots(weapon.weaponSprite, null);
     }
 
     public void SwapWeapons()
     {
+        //Swap the two weapons
         var temp = equippedWeapon;
         equippedWeapon = secondaryWeapon;
         secondaryWeapon = temp;
 
+        //If the secondary weapon is not null
         if (secondaryWeapon != null)
         {
+            //update the GUI
             Inventory.instance.SetWeaponSlots(null, weapon.weaponSprite);
         }
+        else
+        {
+            Inventory.instance.ClearWeaponSlots(false, true);
+        }
 
+        //if there is an equipped weapon
         if (equippedWeapon != null)
         {
+            //Update the equipped weapon script
             weapon = equippedWeapon.GetComponent<Weapon>();
             weapon.setOwnerTag(tag);
-
+            //Update the GUI
             Inventory.instance.SetWeaponSlots(weapon.weaponSprite, null);
+        }
+        else
+        {
+            Inventory.instance.ClearWeaponSlots(true, false);
         }
     }
 

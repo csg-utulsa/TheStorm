@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
+    public float resetTime;
+    public int score;
 
     public void TargetHit()
     {
-        FindObjectOfType<Inventory>().UpdateScore(10);
+        FindObjectOfType<Inventory>().UpdateScore(score);
         Transform targetTrans = GetComponentInChildren<RectTransform>().transform;
         targetTrans.Rotate(110, 0, 0);
         this.GetComponent<BoxCollider>().enabled = false;
@@ -17,7 +19,7 @@ public class Target : MonoBehaviour
 
     IEnumerator TargetReset()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(resetTime);
 
         Transform targetTrans = GetComponentInChildren<RectTransform>().transform;
         targetTrans.Rotate(-110, 0, 0);

@@ -48,6 +48,7 @@ public class Bullet : MonoBehaviour
         {
             Debug.Log("Hit Target");
             other.GetComponent<Target>().TargetHit();
+            finish();
         }
 
         //If the bullet hit a character
@@ -63,7 +64,6 @@ public class Bullet : MonoBehaviour
                 Debug.Log("Hit Self");
             }
         }
-
         //If the bullet hit something other than a character
         else if(!other.tag.Equals("Bullet"))
         {

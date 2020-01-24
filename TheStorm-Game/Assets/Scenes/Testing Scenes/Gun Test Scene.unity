@@ -286,21 +286,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7849714745478078451, guid: a67671c69eb8a9f468ccd8c8b40ca412,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7849714745478078451, guid: a67671c69eb8a9f468ccd8c8b40ca412,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7849714745478078451, guid: a67671c69eb8a9f468ccd8c8b40ca412,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a67671c69eb8a9f468ccd8c8b40ca412, type: 3}
 --- !u!4 &400643398 stripped
@@ -803,16 +788,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7974084114015427728, guid: 1ff7cc8ed7f896c4880ef1bf9a2fd0ac,
-        type: 3}
-      propertyPath: bulletVelocity
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7974084114015427728, guid: 1ff7cc8ed7f896c4880ef1bf9a2fd0ac,
-        type: 3}
-      propertyPath: range
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ff7cc8ed7f896c4880ef1bf9a2fd0ac, type: 3}

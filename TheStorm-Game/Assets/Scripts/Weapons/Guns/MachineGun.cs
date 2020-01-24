@@ -17,11 +17,19 @@ public class MachineGun : Gun
     {
         defaultInaccuracy = inaccuracy;
         inaccuracyPerBullet = (maxInaccuracy - inaccuracy) / shotsToMaxInacc;
+        Debug.Log(inaccuracyPerBullet);
     }
 
     protected override void Fire()
     {
-        inaccuracy += inaccuracyPerBullet;
+        if(inaccuracy + inaccuracyPerBullet < maxInaccuracy)
+        {
+            inaccuracy += inaccuracyPerBullet;
+        }
+        else if (inaccuracy != maxInaccuracy)
+        {
+            inaccuracy = maxInaccuracy;
+        }
 
         base.Fire();
     }

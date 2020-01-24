@@ -131,6 +131,19 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public void ClearWeaponSlots(bool weapon1, bool weapon2)
+    {
+        if(weapon1)
+        {
+            weaponSlots[0].sprite = null;
+        }
+
+        if (weapon2)
+        {
+            weaponSlots[1].sprite = null;
+        }
+    }
+
     private void ToggleItemInventory()
     {
         itemsVisible = !itemsVisible;
