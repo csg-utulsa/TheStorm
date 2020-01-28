@@ -36,7 +36,7 @@ public class Enemy : Character
         player = GameObject.FindGameObjectWithTag("Player");
 
         // get the attached navmeshagent component
-        agent = GetComponent<NavMeshAgent>();
+        agent = transform.parent.GetComponent<NavMeshAgent>();
 
         // prevent the gameobject from rotating by means of the agent
         agent.updateRotation = false;
@@ -151,5 +151,6 @@ public class Enemy : Character
     {
         // update the agent's destination as the position of the player
         agent.SetDestination(player.transform.position);
+        //transform.LookAt(player.transform);
     }
 }
