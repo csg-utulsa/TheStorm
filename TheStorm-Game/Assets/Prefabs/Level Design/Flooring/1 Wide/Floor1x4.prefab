@@ -27,8 +27,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2578720235807957597}
   - {fileID: 145339831371185489}
+  - {fileID: 2578720235807957597}
   - {fileID: 1514031479898721345}
   - {fileID: 3217077368185662192}
   m_Father: {fileID: 0}
@@ -79,7 +79,7 @@ PrefabInstance:
     - target: {fileID: 2309528540163846004, guid: 8a01b1177d405004f9ec30581c7446d5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2309528540163846004, guid: 8a01b1177d405004f9ec30581c7446d5,
         type: 3}
@@ -99,7 +99,7 @@ PrefabInstance:
     - target: {fileID: 4832826597598123133, guid: 8a01b1177d405004f9ec30581c7446d5,
         type: 3}
       propertyPath: m_Name
-      value: Floor1x1 (1)
+      value: Floor1x1 (1,2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a01b1177d405004f9ec30581c7446d5, type: 3}
@@ -174,7 +174,7 @@ PrefabInstance:
     - target: {fileID: 4832826597598123133, guid: 8a01b1177d405004f9ec30581c7446d5,
         type: 3}
       propertyPath: m_Name
-      value: Floor1x1 (3)
+      value: Floor1x1 (1,4)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a01b1177d405004f9ec30581c7446d5, type: 3}
@@ -229,7 +229,7 @@ PrefabInstance:
     - target: {fileID: 2309528540163846004, guid: 8a01b1177d405004f9ec30581c7446d5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2309528540163846004, guid: 8a01b1177d405004f9ec30581c7446d5,
         type: 3}
@@ -249,7 +249,7 @@ PrefabInstance:
     - target: {fileID: 4832826597598123133, guid: 8a01b1177d405004f9ec30581c7446d5,
         type: 3}
       propertyPath: m_Name
-      value: Floor1x1
+      value: Floor1x1 (1,1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a01b1177d405004f9ec30581c7446d5, type: 3}
@@ -324,7 +324,7 @@ PrefabInstance:
     - target: {fileID: 4832826597598123133, guid: 8a01b1177d405004f9ec30581c7446d5,
         type: 3}
       propertyPath: m_Name
-      value: Floor1x1 (2)
+      value: Floor1x1 (1,3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a01b1177d405004f9ec30581c7446d5, type: 3}
