@@ -112,7 +112,7 @@ public class Enemy : Character
         print("OnCollisionEnter(" + collision.gameObject + ")");
 
         // if collided with by either a player or other enemy
-        if (collision.transform.gameObject.tag == "Player" || collision.transform.gameObject.tag == "Enemy" || collision.transform.gameObject.tag == "Bullet")
+        if (!alerted && collision.transform.gameObject.tag == "Player" || collision.transform.gameObject.tag == "Enemy" || collision.transform.gameObject.tag == "Bullet")
         {
             // function call
             BecomeAlerted();
@@ -121,7 +121,7 @@ public class Enemy : Character
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.gameObject.tag == "Bullet")
+        if (!alerted && other.transform.gameObject.tag == "Bullet")
         {
             // function call
             BecomeAlerted();
@@ -151,6 +151,6 @@ public class Enemy : Character
     {
         // update the agent's destination as the position of the player
         agent.SetDestination(player.transform.position);
-        //transform.LookAt(player.transform);
+        transform.LookAt(player.transform);
     }
 }

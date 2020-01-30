@@ -486,7 +486,6 @@ GameObject:
   - component: {fileID: 3485706832330988381}
   - component: {fileID: 3485706832330988380}
   - component: {fileID: 3485706832330988383}
-  - component: {fileID: 3475231228301643173}
   m_Layer: 0
   m_Name: GuardScript
   m_TagString: Enemy
@@ -508,6 +507,7 @@ Transform:
   - {fileID: 3485706832851901478}
   - {fileID: 3485706831933705277}
   - {fileID: 1038883614480751109}
+  - {fileID: 6487720904945251903}
   m_Father: {fileID: 6215669527368112685}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -535,8 +535,12 @@ MonoBehaviour:
   m_yellow: {fileID: 2100000, guid: f381f37034776584bb1ae21d47e60526, type: 2}
   m_red: {fileID: 2100000, guid: b18de3222e73d754581a716724e45608, type: 2}
   alerted: 0
-  agent: {fileID: 3475231228301643173}
-  waypoints: []
+  agent: {fileID: 1717515210}
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!65 &3485706832330988380
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -564,30 +568,8 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 116
   m_CollisionDetection: 0
---- !u!195 &3475231228301643173
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3485706832330988382}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 20
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &3485706832470005635
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,9 +613,9 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.9421487, b: 0, a: 1}
-  m_Intensity: 2
-  m_Range: 210
-  m_SpotAngle: 67
+  m_Intensity: 1
+  m_Range: 200
+  m_SpotAngle: 70
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
@@ -673,7 +655,7 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -813,9 +795,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6215669527368112685}
   - component: {fileID: 6215669527368112684}
+  - component: {fileID: 1717515210}
   m_Layer: 0
   m_Name: Guard
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -833,7 +816,6 @@ Transform:
   m_Children:
   - {fileID: 3485706832330988384}
   - {fileID: 3485706830926814995}
-  - {fileID: 6487720904945251903}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -888,6 +870,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!195 &1717515210
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6215669527368112675}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 20
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &8662116155616435066
 GameObject:
   m_ObjectHideFlags: 0
@@ -923,7 +927,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 6215669527368112685}
+    m_TransformParent: {fileID: 3485706832330988384}
     m_Modifications:
     - target: {fileID: 2366689712083047641, guid: 1ff7cc8ed7f896c4880ef1bf9a2fd0ac,
         type: 3}
@@ -968,7 +972,7 @@ PrefabInstance:
     - target: {fileID: 5569887583129702210, guid: 1ff7cc8ed7f896c4880ef1bf9a2fd0ac,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5569887583129702210, guid: 1ff7cc8ed7f896c4880ef1bf9a2fd0ac,
         type: 3}
