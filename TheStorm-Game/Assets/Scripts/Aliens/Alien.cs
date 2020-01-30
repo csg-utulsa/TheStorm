@@ -28,11 +28,19 @@ public class Alien : MonoBehaviour
      */
     protected virtual void Update() {}
 
+    public virtual void PickUp()
+    {
+
+        Debug.Log("Picking up Alien");
+        ApplyBuff();
+
+    }
+
     /// <summary>
     /// Applies the buff associated with
     /// the Alien.
     /// </summary>
-    public virtual void ApplyBuff()
+    protected virtual void ApplyBuff()
     {
 
         buff.ApplyBuff();
