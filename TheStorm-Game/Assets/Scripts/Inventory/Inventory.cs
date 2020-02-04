@@ -41,6 +41,8 @@ public class Inventory : MonoBehaviour
 
     public Text scoreText;
     private int score;
+    public int numGoldKeys;
+    public int numSilverKeys;
 
     private bool itemsVisible = true;
 
@@ -158,6 +160,11 @@ public class Inventory : MonoBehaviour
     {
         score += num;
         scoreText.text = "Score: " + score;
+    }
+
+    public void UpdateGoldKeys(int key)
+    {
+        numGoldKeys += key;
     }
 
 }//end class

@@ -9,6 +9,10 @@ TagManager:
   - Weapon
   - Pickup
   - Target
+  - Enemy
+  - Ground
+  - Gold Key
+  - Inventory
   layers:
   - Default
   - TransparentFX
