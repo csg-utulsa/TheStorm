@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
 {
 
     public Canvas EndLevelCanvas;
+    public Canvas WinCanvas;
     public GameObject HelpPanel;
     
     // Start is called before the first frame update
@@ -28,6 +29,10 @@ public class GameController : MonoBehaviour
     {
         EndLevelCanvas.gameObject.SetActive(true);
 
+    }
+
+    public void Win() {
+        WinCanvas.gameObject.SetActive(true);
     }
 
     public void Quit()
