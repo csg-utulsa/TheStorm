@@ -14,6 +14,8 @@ public class AlienBuff : MonoBehaviour
     
     /// <summary>
     /// Applies the buff to the player.
+    /// Contains common functionality
+    /// across the buffs.
     /// </summary>
     public virtual void ApplyBuff()
     {

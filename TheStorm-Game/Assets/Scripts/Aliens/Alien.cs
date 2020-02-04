@@ -28,6 +28,9 @@ public class Alien : MonoBehaviour
      */
     protected virtual void Update() {}
 
+    /// <summary>
+    /// Picks up the Alien.
+    /// </summary>
     public virtual void PickUp()
     {
 
