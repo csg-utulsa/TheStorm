@@ -251,6 +251,18 @@ public class Player : Character
         speed += amount;
     }
 
+    /// <summary>
+    /// Increases the max health of the player.
+    /// </summary>
+    /// <param name="amount">The amount to increase.</param>
+    public void IncreaseMaxHealth(float amount)
+    {
+
+        playerMaxHealth += amount;
+        healthBar.maxValue = playerMaxHealth;
+
+    }
+
     protected override void Die()
     {
         deathScreen.gameObject.SetActive(true);
