@@ -190,6 +190,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemImage: {fileID: 21300000, guid: e41fe6b85ff7c2e4fb806751daec3769, type: 3}
+  thrownGrenade: {fileID: 6346567451291808119, guid: b998be648d3ded74ea77e66e28b9e037,
+    type: 3}
 --- !u!82 &7114201927647169235
 AudioSource:
   m_ObjectHideFlags: 0
