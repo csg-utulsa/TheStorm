@@ -242,6 +242,15 @@ public class Player : Character
         speedBuffStartTime = Time.time;
     }
 
+    /// <summary>
+    /// Gives a permanent speed buff
+    /// </summary>
+    /// <param name="amount">The amount to buff</param>
+    public void GivePermSpeedBuff(float amount)
+    {
+        speed += amount;
+    }
+
     protected override void Die()
     {
         deathScreen.gameObject.SetActive(true);

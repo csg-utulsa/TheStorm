@@ -3,22 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// AlienBuff is the base class for managing the buffs
-/// given by Aliens.
+/// Test Alien Speed Buff
 /// </summary>
-public class AlienBuff : MonoBehaviour
+public class AlienTestSpeedBuff : AlienBuff
 {
 
     /***** Public Variables *****/
-    public Player player;
-    
+    public int buffAmount = 4;
+   
     /// <summary>
     /// Applies the buff to the player.
     /// </summary>
-    public virtual void ApplyBuff()
+    public override void ApplyBuff()
     {
 
-        Debug.Log("Applying buff");
+        base.ApplyBuff();
+
+        player.GivePermSpeedBuff(buffAmount);
 
     }
 
