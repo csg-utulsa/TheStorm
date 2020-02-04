@@ -42,6 +42,8 @@ public class Inventory : MonoBehaviour
     public Text scoreText;
     private int score;
 
+    public GameController gc;
+
     private bool itemsVisible = true;
 
     public void Start()
@@ -158,6 +160,9 @@ public class Inventory : MonoBehaviour
     {
         score += num;
         scoreText.text = "Score: " + score;
+        if (score == 100) {
+            gc.Win();
+        }
     }
 
 }//end class
