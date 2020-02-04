@@ -62,6 +62,7 @@ public class Bullet : MonoBehaviour
             else
             {
                 Debug.Log("Hit Self");
+                return;
             }
         }
 

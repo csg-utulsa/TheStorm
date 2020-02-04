@@ -7348,6 +7348,7 @@ GameObject:
   - component: {fileID: 664676111}
   - component: {fileID: 664676110}
   - component: {fileID: 664676109}
+  - component: {fileID: 664676112}
   m_Layer: 0
   m_Name: Cactus
   m_TagString: Untagged
@@ -7432,6 +7433,19 @@ Transform:
   m_Father: {fileID: 1876080643}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &664676112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664676108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ffeab48d5bef1648923801e66dd8a81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1001 &666712237
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17647,6 +17661,31 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2067031442600691388, guid: 60a7465a80c107a4aafa027d415ce8d2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.41712865
+      objectReference: {fileID: 0}
+    - target: {fileID: 2067031442600691388, guid: 60a7465a80c107a4aafa027d415ce8d2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9088475
+      objectReference: {fileID: 0}
+    - target: {fileID: 2067031442600691388, guid: 60a7465a80c107a4aafa027d415ce8d2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2067031442600691388, guid: 60a7465a80c107a4aafa027d415ce8d2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.112528
+      objectReference: {fileID: 0}
+    - target: {fileID: 2067031442600691388, guid: 60a7465a80c107a4aafa027d415ce8d2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.3684306
+      objectReference: {fileID: 0}
     - target: {fileID: 2067031443729592176, guid: 60a7465a80c107a4aafa027d415ce8d2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17716,6 +17755,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558892720026299259, guid: 60a7465a80c107a4aafa027d415ce8d2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.112528
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558892720026299259, guid: 60a7465a80c107a4aafa027d415ce8d2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.3684306
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a7465a80c107a4aafa027d415ce8d2, type: 3}
