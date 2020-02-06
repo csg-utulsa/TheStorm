@@ -1705,6 +1705,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pistol Pickup
       objectReference: {fileID: 0}
+    - target: {fileID: 497453839419442071, guid: 23be0e62dcd3e39449d34e959b6fe732,
+        type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 2366689712083047641, guid: 1ff7cc8ed7f896c4880ef1bf9a2fd0ac,
+        type: 3}
     - target: {fileID: 497453840265803793, guid: 23be0e62dcd3e39449d34e959b6fe732,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -17746,6 +17752,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shared Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 2274057347967146610, guid: 60a7465a80c107a4aafa027d415ce8d2,
+        type: 3}
+      propertyPath: equippedWeapon
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3883333963949096911, guid: 60a7465a80c107a4aafa027d415ce8d2,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -17765,6 +17776,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -6.3684306
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558892720026299259, guid: 60a7465a80c107a4aafa027d415ce8d2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a7465a80c107a4aafa027d415ce8d2, type: 3}
@@ -22717,21 +22733,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6215669527368112685, guid: 2d40e1451dd8f5c489b5e409d672c5c8,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 6215669527368112685, guid: 2d40e1451dd8f5c489b5e409d672c5c8,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 6215669527368112685, guid: 2d40e1451dd8f5c489b5e409d672c5c8,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.75
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d40e1451dd8f5c489b5e409d672c5c8, type: 3}
 --- !u!4 &1800752946 stripped
@@ -23848,6 +23849,11 @@ PrefabInstance:
     - target: {fileID: 3485706830973978613, guid: 2d40e1451dd8f5c489b5e409d672c5c8,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3485706832330988381, guid: 2d40e1451dd8f5c489b5e409d672c5c8,
+        type: 3}
+      propertyPath: waypoints.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6215669527368112675, guid: 2d40e1451dd8f5c489b5e409d672c5c8,
