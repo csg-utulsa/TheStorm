@@ -109,6 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemImage: {fileID: 21300000, guid: 0c7d2713b263e5844bae8672657e1522, type: 3}
+  mine: {fileID: 6994207692264425148, guid: ac017ae400d61234f899d1bbf91f5310, type: 3}
 --- !u!82 &6656355123032445447
 AudioSource:
   m_ObjectHideFlags: 0
