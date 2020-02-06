@@ -85,7 +85,14 @@ public class Character : MonoBehaviour
 
     protected virtual void Die()
     {
-        Destroy(gameObject);
+        if(transform.parent != null)
+        {
+            Destroy(transform.parent.gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }        
     }
 
     public void ChangeSpeed(float mult, float duration)
