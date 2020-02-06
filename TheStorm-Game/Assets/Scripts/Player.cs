@@ -24,6 +24,15 @@ public class Player : Character
     public Sprite facingRight;
     public Sprite facingAway;
 
+    private float currHealth;
+
+    protected new void Start()
+    {
+        base.Start();
+
+        currHealth = health;
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
