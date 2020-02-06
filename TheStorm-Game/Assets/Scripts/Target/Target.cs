@@ -22,7 +22,7 @@ public class Target : MonoBehaviour
         yield return new WaitForSeconds(resetTime);
 
         Transform targetTrans = GetComponentInChildren<RectTransform>().transform;
-        targetTrans.Rotate(-110, 0, 0);
+        targetTrans.Rotate(-80, 0, 0);
         this.GetComponent<BoxCollider>().enabled = true;
     }
 
