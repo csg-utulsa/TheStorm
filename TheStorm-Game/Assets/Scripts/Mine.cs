@@ -24,7 +24,6 @@ public class Mine : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            print(collision.gameObject.GetComponentInChildren<Player>().health);
             audioData.Play(0);
             collision.gameObject.GetComponentInChildren<Player>().TakeDamage(damage);
             Destroy(gameObject);

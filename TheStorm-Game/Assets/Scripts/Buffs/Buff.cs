@@ -20,7 +20,6 @@ public class Buff : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            print(collision.gameObject.GetComponentInChildren<Player>().health);
             print("Playing Sound");
             GiveBuff();
             audioData.Play(0);
