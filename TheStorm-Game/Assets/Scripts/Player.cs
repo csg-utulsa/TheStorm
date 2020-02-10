@@ -8,10 +8,9 @@ public class Player : Character
 {
     public GameObject secondaryWeapon;
     [Header("Buff Attributes")]
-    //public GameObject healthSlider;
     public GameObject armorSlider;
-    public float armor;
-    public float maxArmorValue;
+    public float startingArmor;
+    public float maxArmor;
     public float speedBuffAmount;
     public float speedBuffTime;
     private float speedBuffStartTime;
@@ -24,13 +23,15 @@ public class Player : Character
     public Sprite facingRight;
     public Sprite facingAway;
 
-    private float currHealth;
+    private float armor;
+    private Slider armorBar;
 
-    protected new void Start()
+    protected void Awake()
     {
-        base.Start();
-
-        currHealth = health;
+        armorBar = armorSlider.GetComponent<Slider>();
+        armor = startingArmor;
+        armorBar.maxValue = maxArmor;
+        armorBar.value = armor;
     }
 
     // Update is called once per frame
@@ -189,51 +190,42 @@ public class Player : Character
 
     public override void TakeDamage(float damage)
     {
-        float totalDamage = damage;
-        if(armor > 0)
-        {
-            if (damage <= armor)
-            {
-                armor -= damage;
-                totalDamage = 0;
-            }
-            else
-            {
-                totalDamage = damage - armor;
-                armor = 0;
-                armorSlider.SetActive(false);
-            }
+        float armoredDamage = damage - armor;
 
-            if(armor == 0)
-                armorSlider.SetActive(false);
+        Debug.Log($"Health: {health}\nArmor: {armor}\nDamage: {damage}\nAdjusted Damage: {armoredDamage}");
+
+        if (armoredDamage <= 0)
+        {
+            armor = -armoredDamage;
+            armorBar.value = armor;
         }
-        base.TakeDamage(totalDamage);
-        healthBar.gameObject.GetComponent<Slider>().value = health;
-    }
-
-    public void GiveHealth(float health)
-    {
-        if (this.health < playerMaxHealth)
+        else
         {
-            print("Giving health");
-            this.health += health;
-            healthBar.value = this.health;
+            armor = 0;
+            armorBar.value = armor;
+            armorSlider.SetActive(false);
+
+            base.TakeDamage(armoredDamage);
         }
     }
 
-    public void GiveArmor(float armor)
+    public void GiveArmor(float amount)
     {
-        //if(armor == 0)
-        //{
-            armorSlider.SetActive(true);
-        //}
+        armorSlider.SetActive(true);
 
-        if(armor < maxArmorValue)
+        float armorDif = maxArmor - armor;
+
+        if (amount < armorDif)
         {
-            print("Giving Armor");
-            this.armor += armor;
-            armorSlider.gameObject.GetComponent<Slider>().value = this.armor;
+            print("Giving armor");
+            armor += amount;
         }
+        else
+        {
+            armor = maxArmor;
+        }
+
+        armorBar.value = armor;
     }
 
     public void GiveSpeedBuff(float amount, float duration)
@@ -267,8 +259,8 @@ public class Player : Character
     public void IncreaseMaxHealth(float amount)
     {
 
-        playerMaxHealth += amount;
-        healthBar.maxValue = playerMaxHealth;
+        maxHealth += amount;
+        healthBar.maxValue = maxHealth;
 
     }
 
