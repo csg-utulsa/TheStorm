@@ -56,7 +56,12 @@ public class Inventory : MonoBehaviour
         ToggleItemInventory();
 
         currentAlienIndex = 0;
-        maxAlienIndex = alienSlots.length();
+        maxAlienIndex = alienSlots.Length;
+        foreach (Image image in alienSlots)
+        {
+            if (image != null)
+                image.enabled = false;
+        }
     }
 
     private void Update()
@@ -166,7 +171,8 @@ public class Inventory : MonoBehaviour
         else
         {
 
-            alienSlots[currentAlienIndex++].sprite = alien;
+            alienSlots[currentAlienIndex].sprite = alien;
+            alienSlots[currentAlienIndex++].enabled = true;
 
         }
 

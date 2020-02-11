@@ -2150,6 +2150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buff: {fileID: 337423205}
+  sprite: {fileID: 825272257240918334, guid: 0c0f1530ba62c0c4da98540c4655aa36, type: 3}
 --- !u!114 &337423205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7719,6 +7720,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buff: {fileID: 871708117}
+  sprite: {fileID: 6954912893408208465, guid: 9db8eaf477e48854fb114806aaac2550, type: 3}
 --- !u!4 &893817545 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 480587509936799386, guid: 9e3f8bfc02ae08b4a92d430357bfa4aa,
@@ -11091,7 +11093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -13420,6 +13422,21 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7176892635002643062, guid: 60a7465a80c107a4aafa027d415ce8d2,
+        type: 3}
+      propertyPath: alienSlots.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7176892635002643062, guid: 60a7465a80c107a4aafa027d415ce8d2,
+        type: 3}
+      propertyPath: alienSlots.Array.data[0]
+      value: 
+      objectReference: {fileID: 1700090410}
+    - target: {fileID: 7176892635002643062, guid: 60a7465a80c107a4aafa027d415ce8d2,
+        type: 3}
+      propertyPath: alienSlots.Array.data[1]
+      value: 
+      objectReference: {fileID: 1213598354}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a7465a80c107a4aafa027d415ce8d2, type: 3}
 --- !u!224 &1425889104 stripped
@@ -16081,7 +16098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
