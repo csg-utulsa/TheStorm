@@ -523,9 +523,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dd35624bc94aa14ea0a343901e6be25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
-  playerMaxHealth: 0
-  speed: 5
+  maxHealth: 20
+  speed: 4
   healthBar: {fileID: 3485706830889029094}
   equippedWeapon: {fileID: 4007393559482543524}
   player: {fileID: 0}
