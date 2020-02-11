@@ -58,10 +58,7 @@ public class Inventory : MonoBehaviour
         currentAlienIndex = 0;
         maxAlienIndex = alienSlots.Length;
         foreach (Image image in alienSlots)
-        {
-            if (image != null)
-                image.enabled = false;
-        }
+            image.enabled = false;
     }
 
     private void Update()
@@ -158,6 +155,10 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Adds an Alien to the Inventory
+    /// </summary>
+    /// <param name="alien">The sprite to display.</param>
     public void AddAlien(Sprite alien)
     {
 
