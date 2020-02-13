@@ -38,9 +38,15 @@ public class Inventory : MonoBehaviour
 
     public InventorySlot[] slots;
     public Image[] weaponSlots;
+    public Image[] alienSlots;
+
+    private int currentAlienIndex;
+    private int maxAlienIndex;
 
     public Text scoreText;
     private int score;
+
+    public GameController gc;
 
     private bool itemsVisible = true;
 
@@ -48,6 +54,11 @@ public class Inventory : MonoBehaviour
     {
         onItemChangedCallback += UpdateUI;
         ToggleItemInventory();
+
+        currentAlienIndex = 0;
+        maxAlienIndex = alienSlots.Length;
+        foreach (Image image in alienSlots)
+            image.enabled = false;
     }
 
     private void Update()
@@ -144,6 +155,30 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Adds an Alien to the Inventory
+    /// </summary>
+    /// <param name="alien">The sprite to display.</param>
+    public void AddAlien(Sprite alien)
+    {
+
+        if (currentAlienIndex == maxAlienIndex)
+        {
+
+            Debug.Log("Can't add another alien...");
+            return;
+
+        }
+        else
+        {
+
+            alienSlots[currentAlienIndex].sprite = alien;
+            alienSlots[currentAlienIndex++].enabled = true;
+
+        }
+
+    }
+
     private void ToggleItemInventory()
     {
         itemsVisible = !itemsVisible;
@@ -158,6 +193,9 @@ public class Inventory : MonoBehaviour
     {
         score += num;
         scoreText.text = "Score: " + score;
+        if (score == 100) {
+            gc.Win();
+        }
     }
 
 }//end class

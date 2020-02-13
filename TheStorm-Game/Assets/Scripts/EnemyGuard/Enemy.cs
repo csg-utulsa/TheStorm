@@ -12,6 +12,7 @@ public class Enemy : Character
     public GameObject pivot;
     public GameObject FOV;
     public GameObject aggroCircle;
+    public Slider enemyHealthBar;
 
     // MATERIALS //
     [Header("Materials")]
@@ -32,6 +33,7 @@ public class Enemy : Character
     new void Start()
     {
         base.Start();
+
         // find the player
         player = GameObject.FindGameObjectWithTag("Player");
 
@@ -96,10 +98,16 @@ public class Enemy : Character
                 // reset the pathing to the origin
                 waypointIndex = 0;
             }
+
+            // if taken damage
+            if (healthBar.value < healthBar.maxValue)
+            {
+                BecomeAlerted();
+            }
         }
 
         // AGGRO //
-        if (alerted)
+        if (alerted && player != null)
         {
             AlertAction();
         }

@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6658453995825647108}
   - component: {fileID: 6658453995825647111}
+  - component: {fileID: -297248219605290098}
   m_Layer: 0
-  m_Name: Axe
+  m_Name: p_axe
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,8 +47,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 1
   damage: 1
+  weaponSprite: {fileID: 0}
   swingTime: 0.6
   swingAngle: 270
+--- !u!65 &-297248219605290098
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6658453995825647109}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.13984966, z: 1}
+  m_Center: {x: 0, y: -0.06070528, z: 0}
 --- !u!1 &6658453996988075178
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,7 +74,6 @@ GameObject:
   - component: {fileID: 6658453996988075181}
   - component: {fileID: 6658453996988075182}
   - component: {fileID: 6658453996988075183}
-  - component: {fileID: 6658453996988075180}
   m_Layer: 0
   m_Name: Axe Object
   m_TagString: Untagged
@@ -103,6 +117,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -127,16 +142,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &6658453996988075180
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6658453996988075178}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
