@@ -59,12 +59,8 @@ public class Spotter : Character
         if (!alerted)
         {
             // Rotate spotter
-            Quaternion rot = Quaternion.Slerp(pivot.transform.rotation, pivot.transform.rotation * Quaternion.Euler(0, 30, 0), speed * Time.deltaTime);
-
-            // rotate the field of vision
-            rot.x = 0;
-            rot.z = 0;
-            pivot.transform.rotation = rot;
+            float angle = Mathf.Sin(Time.time) * 30; // tweak this to change frequency
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
 
             // if taken damage
             if (healthBar.value < healthBar.maxValue)
