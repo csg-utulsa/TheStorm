@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-public class Spotter : Character
+public class Sniper : Character
 {
     // GAME OBJECTS //
     [Header("GameObjects")]
@@ -13,6 +13,7 @@ public class Spotter : Character
     public GameObject FOV;
     public GameObject aggroCircle;
     public Slider enemyHealthBar;
+    public LineRenderer sniperLine;
 
     // MATERIALS //
     [Header("Materials")]
@@ -26,7 +27,7 @@ public class Spotter : Character
     // AI PATHING //
     [Header("Pathing")]
     public NavMeshAgent agent;
-    public int runDistance;
+
 
     // Start is called before the first frame update
     new void Start()
@@ -38,6 +39,9 @@ public class Spotter : Character
 
         // get the attached navmeshagent component
         agent = transform.parent.GetComponent<NavMeshAgent>();
+
+        // get sniper line
+        sniperLine = GetComponent<LineRenderer>();
 
         // prevent the gameobject from rotating by means of the agent
         agent.updateRotation = false;
@@ -107,6 +111,7 @@ public class Spotter : Character
 
         // set status to alerted
         alerted = true;
+        sniperLine.enabled = true;
 
         // disable field of vision
         FOV.SetActive(false);
@@ -122,12 +127,5 @@ public class Spotter : Character
     {
         // Run if player is too close
         transform.LookAt(player.transform);
-        float distance = Vector3.Distance(transform.position, player.transform.position);
-        if (distance <= runDistance)
-        {
-            Vector3 runDirection = transform.position - player.transform.position * base.speed;
-            agent.SetDestination(runDirection);
-            
-        }
     }
 }
