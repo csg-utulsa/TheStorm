@@ -11,6 +11,7 @@ public class Alien : MonoBehaviour
 
     /***** Public Variables *****/
     public AlienBuff buff;
+    public Sprite sprite;
 
     /*
      * Currently unimplemented.
@@ -36,6 +37,7 @@ public class Alien : MonoBehaviour
 
         Debug.Log("Picking up Alien");
         ApplyBuff();
+        Inventory.instance.AddAlien(sprite);
         Destroy(gameObject);
 
     }
