@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Mine : MonoBehaviour
 {
+    public float damage;
+
     AudioSource audioData;
 
     // Start is called before the first frame update
@@ -22,9 +24,9 @@ public class Mine : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            print(collision.gameObject.GetComponentInChildren<Player>().health);
             audioData.Play(0);
-            collision.gameObject.GetComponentInChildren<Player>().TakeDamage(1);
+            collision.gameObject.GetComponentInChildren<Player>().TakeDamage(damage);
+            Destroy(gameObject);
         }
     }
     private void OnTriggerEnter(Collider other)

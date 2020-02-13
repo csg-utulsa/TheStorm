@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 525820129438409808}
   - component: {fileID: 525820129438409811}
   - component: {fileID: 525820129438409810}
-  - component: {fileID: 525820129438409809}
   m_Layer: 0
   m_Name: Dagger Object
   m_TagString: Untagged
@@ -55,6 +54,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -79,19 +79,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &525820129438409809
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 525820129438409815}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &525820130318083832
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,8 +89,9 @@ GameObject:
   m_Component:
   - component: {fileID: 525820130318083833}
   - component: {fileID: 525820130318083834}
+  - component: {fileID: 1741512232268591592}
   m_Layer: 0
-  m_Name: Dagger
+  m_Name: p_dagger
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -138,5 +126,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 0.2
   damage: 1
+  weaponSprite: {fileID: 0}
   swingTime: 0.1
   swingAngle: 20
+--- !u!65 &1741512232268591592
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525820130318083832}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.10303217, y: 0.07778209, z: 0.80356896}
+  m_Center: {x: 0.0030079067, y: 0.0013778806, z: 0.40111223}

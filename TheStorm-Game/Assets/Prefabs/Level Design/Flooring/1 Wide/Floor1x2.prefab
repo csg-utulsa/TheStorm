@@ -97,7 +97,7 @@ PrefabInstance:
     - target: {fileID: 4832826597598123133, guid: 8a01b1177d405004f9ec30581c7446d5,
         type: 3}
       propertyPath: m_Name
-      value: Floor1x1 (1)
+      value: Floor1x1 (1,2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a01b1177d405004f9ec30581c7446d5, type: 3}
@@ -172,7 +172,7 @@ PrefabInstance:
     - target: {fileID: 4832826597598123133, guid: 8a01b1177d405004f9ec30581c7446d5,
         type: 3}
       propertyPath: m_Name
-      value: Floor1x1
+      value: Floor1x1 (1,1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a01b1177d405004f9ec30581c7446d5, type: 3}

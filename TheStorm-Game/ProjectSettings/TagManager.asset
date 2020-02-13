@@ -7,6 +7,9 @@ TagManager:
   - Gun
   - Bullet
   - Weapon
+  - Pickup
+  - Target
+  - Consumable
   layers:
   - Default
   - TransparentFX

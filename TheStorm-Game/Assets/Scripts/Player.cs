@@ -8,10 +8,9 @@ public class Player : Character
 {
     public GameObject secondaryWeapon;
     [Header("Buff Attributes")]
-    public GameObject healthSlider;
     public GameObject armorSlider;
-    public float armor;
-    public float maxArmorValue;
+    public float startingArmor;
+    public float maxArmor;
     public float speedBuffAmount;
     public float speedBuffTime;
     private float speedBuffStartTime;
@@ -23,6 +22,17 @@ public class Player : Character
     public Sprite facingLeft;
     public Sprite facingRight;
     public Sprite facingAway;
+
+    private float armor;
+    private Slider armorBar;
+
+    protected void Awake()
+    {
+        armorBar = armorSlider.GetComponent<Slider>();
+        armor = startingArmor;
+        armorBar.maxValue = maxArmor;
+        armorBar.value = armor;
+    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -48,6 +58,12 @@ public class Player : Character
         if (Input.GetMouseButtonUp(0))
         {
             StopAttack();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            StopAttack();
+            SwapWeapons();
         }
     }
 
@@ -106,96 +122,110 @@ public class Player : Character
 
     public void PickupWeapon(GameObject newWeapon)
     {
+        //If the player already has an equipped weapon
         if (equippedWeapon != null)
         {
-            Debug.Log("First Check");
+            //If their secondary slot is available
             if (secondaryWeapon == null)
             {
-                Debug.Log("Second Check");
-                secondaryWeapon = equippedWeapon;
-                Inventory.instance.SetWeaponSlots(null, weapon.weaponSprite);
+                //Add this new weapon as a secondary
+                secondaryWeapon = Instantiate(newWeapon, transform) as GameObject;
+                //Update the weapon inventory GUI
+                Inventory.instance.SetWeaponSlots(null, secondaryWeapon.GetComponent<Weapon>().weaponSprite);
+                //Done with weapon pickup
+                return;
             }
+            //If it is not available
             else
             {
+                //Destroy the currently equipped weapon
                 Destroy(equippedWeapon);
             }
         }
 
+        //Spawn this new weapon as the equipped weapon
         equippedWeapon = Instantiate(newWeapon, transform) as GameObject;
 
+        //Store the equipped weapon objects script
         weapon = equippedWeapon.GetComponent<Weapon>();
+        //Set the tag of the weapon to this tag
         weapon.setOwnerTag(tag);
 
+        //Update the weapon inventory GUI
         Inventory.instance.SetWeaponSlots(weapon.weaponSprite, null);
     }
 
     public void SwapWeapons()
     {
+        //Swap the two weapons
         var temp = equippedWeapon;
         equippedWeapon = secondaryWeapon;
         secondaryWeapon = temp;
 
+        //If the secondary weapon is not null
         if (secondaryWeapon != null)
         {
+            //update the GUI
             Inventory.instance.SetWeaponSlots(null, weapon.weaponSprite);
         }
+        else
+        {
+            Inventory.instance.ClearWeaponSlots(false, true);
+        }
 
+        //if there is an equipped weapon
         if (equippedWeapon != null)
         {
+            //Update the equipped weapon script
             weapon = equippedWeapon.GetComponent<Weapon>();
             weapon.setOwnerTag(tag);
-
+            //Update the GUI
             Inventory.instance.SetWeaponSlots(weapon.weaponSprite, null);
+        }
+        else
+        {
+            Inventory.instance.ClearWeaponSlots(true, false);
         }
     }
 
     public override void TakeDamage(float damage)
     {
-        float totalDamage = damage;
-        if(armor > 0)
-        {
-            if (damage <= armor)
-            {
-                armor -= damage;
-                totalDamage = 0;
-            }
-            else
-            {
-                totalDamage = damage - armor;
-                armor = 0;
-                armorSlider.SetActive(false);
-            }
+        float armoredDamage = damage - armor;
 
-            if(armor == 0)
-                armorSlider.SetActive(false);
+        Debug.Log($"Health: {health}\nArmor: {armor}\nDamage: {damage}\nAdjusted Damage: {armoredDamage}");
+
+        if (armoredDamage <= 0)
+        {
+            armor = -armoredDamage;
+            armorBar.value = armor;
         }
-        base.TakeDamage(totalDamage);
-        healthSlider.gameObject.GetComponent<Slider>().value = health;
-    }
-
-    public void GiveHealth(float health)
-    {
-        if (this.health < playerMaxHealth)
+        else
         {
-            print("Giving health");
-            this.health += health;
-            healthSlider.gameObject.GetComponent<Slider>().value = this.health;
+            armor = 0;
+            armorBar.value = armor;
+            armorSlider.SetActive(false);
+
+            base.TakeDamage(armoredDamage);
         }
     }
 
-    public void GiveArmor(float armor)
+    public void GiveArmor(float amount)
     {
-        //if(armor == 0)
-        //{
-            armorSlider.SetActive(true);
-        //}
+        armorSlider.SetActive(true);
 
-        if(armor < maxArmorValue)
+        float armorDif = maxArmor - armor;
+
+        if (amount < armorDif)
         {
-            print("Giving Armor");
-            this.armor += armor;
-            armorSlider.gameObject.GetComponent<Slider>().value = this.armor;
+            print("Giving armor");
+            armor += amount;
         }
+        else
+        {
+            armor = maxArmor;
+        }
+
+        armorBar.value = armor;
     }
 
     public void GiveSpeedBuff(float amount, float duration)
@@ -211,6 +241,27 @@ public class Player : Character
         speedBuffAmount = amount;
         speedBuffTime = duration;
         speedBuffStartTime = Time.time;
+    }
+
+    /// <summary>
+    /// Gives a permanent speed buff
+    /// </summary>
+    /// <param name="amount">The amount to buff</param>
+    public void GivePermSpeedBuff(float amount)
+    {
+        speed += amount;
+    }
+
+    /// <summary>
+    /// Increases the max health of the player.
+    /// </summary>
+    /// <param name="amount">The amount to increase.</param>
+    public void IncreaseMaxHealth(float amount)
+    {
+
+        maxHealth += amount;
+        healthBar.maxValue = maxHealth;
+
     }
 
     protected override void Die()

@@ -13,15 +13,23 @@ public class MachineGun : Gun
     private float inaccuracyPerBullet;
     private float defaultInaccuracy;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         defaultInaccuracy = inaccuracy;
         inaccuracyPerBullet = (maxInaccuracy - inaccuracy) / shotsToMaxInacc;
+        Debug.Log(inaccuracyPerBullet);
     }
 
     protected override void Fire()
     {
-        inaccuracy += inaccuracyPerBullet;
+        if(inaccuracy + inaccuracyPerBullet < maxInaccuracy)
+        {
+            inaccuracy += inaccuracyPerBullet;
+        }
+        else if (inaccuracy != maxInaccuracy)
+        {
+            inaccuracy = maxInaccuracy;
+        }
 
         base.Fire();
     }

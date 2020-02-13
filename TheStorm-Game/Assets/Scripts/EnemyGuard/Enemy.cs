@@ -12,6 +12,7 @@ public class Enemy : Character
     public GameObject pivot;
     public GameObject FOV;
     public GameObject aggroCircle;
+    public Slider enemyHealthBar;
 
     // MATERIALS //
     [Header("Materials")]
@@ -32,11 +33,12 @@ public class Enemy : Character
     new void Start()
     {
         base.Start();
+
         // find the player
         player = GameObject.FindGameObjectWithTag("Player");
 
         // get the attached navmeshagent component
-        agent = GetComponent<NavMeshAgent>();
+        agent = transform.parent.GetComponent<NavMeshAgent>();
 
         // prevent the gameobject from rotating by means of the agent
         agent.updateRotation = false;
@@ -96,10 +98,16 @@ public class Enemy : Character
                 // reset the pathing to the origin
                 waypointIndex = 0;
             }
+
+            // if taken damage
+            if (healthBar.value < healthBar.maxValue)
+            {
+                BecomeAlerted();
+            }
         }
 
         // AGGRO //
-        if (alerted)
+        if (alerted && player != null)
         {
             AlertAction();
         }
@@ -112,7 +120,7 @@ public class Enemy : Character
         print("OnCollisionEnter(" + collision.gameObject + ")");
 
         // if collided with by either a player or other enemy
-        if (collision.transform.gameObject.tag == "Player" || collision.transform.gameObject.tag == "Enemy" || collision.transform.gameObject.tag == "Bullet")
+        if (!alerted && collision.transform.gameObject.tag == "Player" || collision.transform.gameObject.tag == "Enemy" || collision.transform.gameObject.tag == "Bullet")
         {
             // function call
             BecomeAlerted();
@@ -121,7 +129,7 @@ public class Enemy : Character
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.gameObject.tag == "Bullet")
+        if (!alerted && other.transform.gameObject.tag == "Bullet")
         {
             // function call
             BecomeAlerted();
@@ -151,5 +159,6 @@ public class Enemy : Character
     {
         // update the agent's destination as the position of the player
         agent.SetDestination(player.transform.position);
+        transform.LookAt(player.transform);
     }
 }
