@@ -17,7 +17,7 @@ public class Key : MonoBehaviour
     private void Start()
     {
         playerOne = GameObject.FindWithTag("Player");
-        keyInvetory = GameObject.FindWithTag("Gold Key");
+        keyInvetory = GameObject.FindWithTag("Gold Key Updater");
         mainInventory = GameObject.FindWithTag("Inventory");
         touched = false;
 

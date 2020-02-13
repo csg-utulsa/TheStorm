@@ -11,8 +11,8 @@ TagManager:
   - Target
   - Enemy
   - Ground
-  - Gold Key
   - Inventory
+  - Gold Key Updater
   layers:
   - Default
   - TransparentFX
