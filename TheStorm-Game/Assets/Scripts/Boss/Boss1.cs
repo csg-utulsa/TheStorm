@@ -68,6 +68,8 @@ public class Boss1 : Character
         waiting = false;
         float rand = Random.value;
 
+        Debug.Log(rand);
+
         if (rand <= jumpChance)
         {
             Jump();
