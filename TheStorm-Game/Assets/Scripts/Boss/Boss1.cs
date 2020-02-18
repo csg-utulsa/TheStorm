@@ -13,7 +13,7 @@ public class Boss1 : Character
     /// <summary>
     /// Array of enemies in the room available to clone
     /// </summary>
-    public GameObject[] enemies;
+    public List<GameObject> enemies;
 
     /// <summary>
     /// Percentage chance that the boss will jump vs run or clone
@@ -30,6 +30,21 @@ public class Boss1 : Character
     /// </summary>
     public float moveRadius;
 
+    /// <summary>
+    /// How many enemies the boss clones normally
+    /// </summary>
+    public int numEnemiesCloned;
+
+    /// <summary>
+    /// How many enemies the boss clones while enraged
+    /// </summary>
+    public int numEnemiesClonedEnraged;
+
+    /// <summary>
+    /// How many seconds it takes to clone an enemy
+    /// </summary>
+    public float cloneTime;
+
     private Animator animator;
     private bool invulnerable;
     private float waitTime;
@@ -44,11 +59,21 @@ public class Boss1 : Character
         player = GameObject.FindGameObjectWithTag("Player");
         agent = GetComponent<NavMeshAgent>();
         agent.speed = speed;
+        agent.updateRotation = false;
     }
 
     public void FireCloneGun()
     {
-        animator.SetTrigger("Fire Clone Gun");
+        animator.SetBool("Fire Clone Gun", true);
+
+        if(enemies.Count > 0)
+        {
+            StartCoroutine(CloneEnemies());
+        }
+        else
+        {
+            animator.SetBool("Fire Clone Gun", false);
+        }
     }
 
     private void Jump()
@@ -126,5 +151,34 @@ public class Boss1 : Character
     public void StopWaiting()
     {
         Move();
+    }
+
+    private IEnumerator CloneEnemies()
+    {
+        int limit = numEnemiesCloned;
+
+        if(enraged)
+        {
+            limit = numEnemiesClonedEnraged;
+        }
+
+        GameObject[] clonedEnemies = new GameObject[limit];
+
+        for(int i = 0; i < limit; i++)
+        {
+            int rand = Random.Range(0, enemies.Count);
+
+            clonedEnemies[i] = enemies[rand];
+        }
+
+        yield return new WaitForSeconds(cloneTime);
+
+        foreach(GameObject enemy in enemies)
+        {
+            var newEnemy = Instantiate(enemy);
+            enemies.Add(newEnemy);
+        }
+
+        animator.SetBool("Fire Clone Gun", false);
     }
 }
