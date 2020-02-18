@@ -84,7 +84,9 @@ public class Character : MonoBehaviour
 
     protected virtual void Die()
     {
-        if(transform.parent != null)
+        FindObjectOfType<Inventory>().UpdateScore(20);
+
+        if (transform.parent != null)
         {
             Destroy(transform.parent.gameObject);
         }
