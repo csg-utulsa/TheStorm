@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
+using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(PlayerInput))]
 public class Player : Character
 {
     public GameObject secondaryWeapon;
@@ -26,12 +28,16 @@ public class Player : Character
     private float armor;
     private Slider armorBar;
 
+    private PlayerInput playerInput;
+
     protected void Awake()
     {
         armorBar = armorSlider.GetComponent<Slider>();
         armor = startingArmor;
         armorBar.maxValue = maxArmor;
         armorBar.value = armor;
+
+        playerInput = GetComponent<PlayerInput>();
     }
 
     // Update is called once per frame
@@ -45,26 +51,40 @@ public class Player : Character
             speedBuffTime = 0;
         }
 
-        Move();
+        //Move();
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            StartAttack();
-        }
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    StartAttack();
+        //}
 
-        if (Input.GetMouseButtonUp(0))
-        {
-            StopAttack();
-        }
+        //if (Input.GetMouseButtonUp(0))
+        //{
+        //    StopAttack();
+        //}
 
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            StopAttack();
-            SwapWeapons();
-        }
+        //if (Input.GetKeyDown(KeyCode.Q))
+        //{
+        //    StopAttack();
+        //    SwapWeapons();
+        //}
+    }
+
+    void OnMoveForward(InputValue value)
+    {
+
+        Debug.Log("Move forward");
+
+    }
+
+    void OnSwapWeapons(InputValue value)
+    {
+
+        Debug.Log("Q pressed");
+
     }
 
     protected override void Move()
@@ -192,7 +212,7 @@ public class Player : Character
     {
         float armoredDamage = damage - armor;
 
-        Debug.Log($"Health: {health}\nArmor: {armor}\nDamage: {damage}\nAdjusted Damage: {armoredDamage}");
+        Debug.Log("Health: {health}\nArmor: {armor}\nDamage: {damage}\nAdjusted Damage: {armoredDamage}");
 
         if (armoredDamage <= 0)
         {
