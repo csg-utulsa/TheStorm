@@ -11,6 +11,7 @@ public class Sniper : Character
     public GameObject player;
     public GameObject pivot;
     public GameObject FOV;
+    public GameObject FOVCone;
     public GameObject aggroCircle;
     public Slider enemyHealthBar;
     public LineRenderer sniperLine;
@@ -115,6 +116,7 @@ public class Sniper : Character
 
         // disable field of vision
         FOV.SetActive(false);
+        FOVCone.SetActive(false);
 
         // set active the aggro circle
         aggroCircle.SetActive(true);
