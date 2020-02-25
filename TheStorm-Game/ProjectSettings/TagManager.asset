@@ -13,6 +13,8 @@ TagManager:
   - Ground
   - Inventory
   - Gold Key Updater
+  - Gate
+  - GateText
   layers:
   - Default
   - TransparentFX
