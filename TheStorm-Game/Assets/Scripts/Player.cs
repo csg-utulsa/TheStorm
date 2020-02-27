@@ -11,7 +11,7 @@ public class Player : Character
     public GameObject armorSlider;
     public float startingArmor;
     public float maxArmor;
-    public float speedBuffAmount;
+    public float speedBuffAmount = 0;
     public float speedBuffTime;
     private float speedBuffStartTime;
     [Header("Player Attributes")]
@@ -254,6 +254,9 @@ public class Player : Character
             speedBuffAmount = 0;
             speedBuffTime = 0;
         }
+
+        print("speed beeore = " + (speed));
+        print("speed after = " + (speed + amount));
 
         speed += amount;
         speedBuffAmount = amount;

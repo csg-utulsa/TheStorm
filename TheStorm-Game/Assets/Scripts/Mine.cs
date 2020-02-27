@@ -33,6 +33,7 @@ public class Mine : MonoBehaviour
             collision.gameObject.GetComponentInChildren<Player>().TakeDamage(damage);
             exploded = true;
             gameObject.GetComponent<MeshRenderer>().enabled = false;
+            gameObject.GetComponent<BoxCollider>().enabled = false;
             print(gameObject.transform.GetChild(0));
             Destroy(gameObject.transform.GetChild(0).gameObject);
             //Destroy(gameObject);

@@ -14,7 +14,7 @@ public class Character : MonoBehaviour
     public GameObject equippedWeapon;
 
     protected Weapon weapon;
-    protected float health;
+    public float health;
 
     protected void Start()
     {
