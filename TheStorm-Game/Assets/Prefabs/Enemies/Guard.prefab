@@ -523,8 +523,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dd35624bc94aa14ea0a343901e6be25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
-  speed: 4
+  maxHealth: 6
+  speed: 3
   healthBar: {fileID: 3485706830889029094}
   equippedWeapon: {fileID: 4007393559482543524}
   player: {fileID: 0}
@@ -753,8 +753,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
-  m_Center: {x: 0, y: 0, z: 2.5}
+  m_Radius: 0.75
+  m_Center: {x: 0, y: 0, z: 2.25}
 --- !u!135 &3485706832851901476
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -766,8 +766,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
-  m_Center: {x: 0, y: 0, z: 5.5}
+  m_Radius: 1.25
+  m_Center: {x: 0, y: 0, z: 4.25}
 --- !u!114 &3485706832851901479
 MonoBehaviour:
   m_ObjectHideFlags: 0
