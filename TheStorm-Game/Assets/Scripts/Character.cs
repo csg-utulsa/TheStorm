@@ -18,6 +18,12 @@ public class Character : MonoBehaviour
 
     protected void Start()
     {
+
+      
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            GameObject child = transform.GetChild(i).gameObject;
+        }
         Debug.Log("Set Health");
         healthBar.maxValue = maxHealth;
         health = maxHealth;

@@ -45,6 +45,8 @@ public class Inventory : MonoBehaviour
 
     public Text scoreText;
     private int score;
+    public int numGoldKeys;
+    public int numSilverKeys;
 
     public GameController gc;
 
@@ -196,6 +198,11 @@ public class Inventory : MonoBehaviour
         if (score == 120) {
             gc.Win();
         }
+    }
+
+    public void UpdateGoldKeys(int key)
+    {
+        numGoldKeys += key;
     }
 
 }//end class

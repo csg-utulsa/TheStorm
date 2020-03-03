@@ -9,6 +9,11 @@ TagManager:
   - Weapon
   - Pickup
   - Target
+  - Ground
+  - Inventory
+  - Gold Key Updater
+  - Gate
+  - GateText
   - Consumable
   - Enemy
   layers:
