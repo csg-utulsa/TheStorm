@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
-public class Enemy : Character
+public class Spotter : Character
 {
     // GAME OBJECTS //
     [Header("GameObjects")]
@@ -12,6 +12,7 @@ public class Enemy : Character
     public GameObject pivot;
     public GameObject FOV;
     public GameObject aggroCircle;
+    public Slider enemyHealthBar;
 
     // MATERIALS //
     [Header("Materials")]
@@ -25,13 +26,13 @@ public class Enemy : Character
     // AI PATHING //
     [Header("Pathing")]
     public NavMeshAgent agent;
-    public Transform[] waypoints;
-    private int waypointIndex = 0;
+    public int runDistance;
 
     // Start is called before the first frame update
     new void Start()
     {
         base.Start();
+
         // find the player
         player = GameObject.FindGameObjectWithTag("Player");
 
@@ -42,13 +43,6 @@ public class Enemy : Character
         agent.updateRotation = false;
 
         agent.speed = speed;
-
-        // if there are waypoints
-        if (waypoints.Length > 0)
-        {
-            // set the destination to walk towards
-            agent.SetDestination(waypoints[waypointIndex].transform.position);
-        }
     }
 
     // Update is called once per frame
@@ -62,44 +56,21 @@ public class Enemy : Character
     protected override void Move()
     {
         // PASSIVE & FOLLOWING WAYPOINTS //
-        if (!alerted && waypoints != null)
+        if (!alerted)
         {
-            if (waypointIndex <= waypoints.Length - 1)
+            // Rotate spotter
+            float angle = Mathf.Sin(Time.time) * 30; // tweak this to change frequency
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
+
+            // if taken damage
+            if (healthBar.value < healthBar.maxValue)
             {
-                // distance between waypoint and enemy
-                Vector3 distance = waypoints[waypointIndex].position - pivot.transform.position;
-
-                // calculate rotation between field of vision and the waypoint position
-                Quaternion rot = Quaternion.Slerp(pivot.transform.rotation, Quaternion.LookRotation(distance), speed * Time.deltaTime);
-
-                // rotate the field of vision
-                rot.x = 0;
-                rot.z = 0;
-                pivot.transform.rotation = rot;
-
-                // set the new destination to walk towards
-                agent.SetDestination(waypoints[waypointIndex].transform.position);
-
-                // if the agent's x and z match the x and z of the waypoint
-                if (agent.transform.position.x == waypoints[waypointIndex].transform.position.x &&
-                    agent.transform.position.z == waypoints[waypointIndex].transform.position.z)
-                {
-                    // debug for when the player reached the waypoint
-                    print("Waypoint reached");
-
-                    // increment the waypoint index
-                    waypointIndex += 1;
-                }
-            }
-            else
-            {
-                // reset the pathing to the origin
-                waypointIndex = 0;
+                BecomeAlerted();
             }
         }
 
         // AGGRO //
-        if (alerted)
+        if (alerted && player != null)
         {
             AlertAction();
         }
@@ -132,7 +103,7 @@ public class Enemy : Character
     public void BecomeAlerted()
     {
         // print the function call
-        print("becomeAlerted()");
+        Debug.Log("Spotter Running!");
 
         // set status to alerted
         alerted = true;
@@ -149,8 +120,14 @@ public class Enemy : Character
 
     public void AlertAction()
     {
-        // update the agent's destination as the position of the player
-        agent.SetDestination(player.transform.position);
+        // Run if player is too close
         transform.LookAt(player.transform);
+        float distance = Vector3.Distance(transform.position, player.transform.position);
+        if (distance <= runDistance)
+        {
+            Vector3 runDirection = transform.position - player.transform.position * base.speed;
+            agent.SetDestination(runDirection);
+            
+        }
     }
 }

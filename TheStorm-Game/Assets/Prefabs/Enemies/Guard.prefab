@@ -82,9 +82,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 10
+  m_MaxValue: 20
   m_WholeNumbers: 1
-  m_Value: 10
+  m_Value: 20
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -523,24 +523,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dd35624bc94aa14ea0a343901e6be25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
-  playerMaxHealth: 0
-  speed: 5
+  maxHealth: 6
+  speed: 3
   healthBar: {fileID: 3485706830889029094}
   equippedWeapon: {fileID: 4007393559482543524}
   player: {fileID: 0}
   pivot: {fileID: 3485706832851901473}
   FOV: {fileID: 3485706832470005635}
   aggroCircle: {fileID: 3485706831933705276}
+  enemyHealthBar: {fileID: 3485706830889029094}
   m_yellow: {fileID: 2100000, guid: f381f37034776584bb1ae21d47e60526, type: 2}
   m_red: {fileID: 2100000, guid: b18de3222e73d754581a716724e45608, type: 2}
   alerted: 0
   agent: {fileID: 1717515210}
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  waypoints: []
 --- !u!65 &3485706832330988380
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -757,8 +753,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
-  m_Center: {x: 0, y: 0, z: 2.5}
+  m_Radius: 0.75
+  m_Center: {x: 0, y: 0, z: 2.25}
 --- !u!135 &3485706832851901476
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -770,8 +766,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
-  m_Center: {x: 0, y: 0, z: 5.5}
+  m_Radius: 1.25
+  m_Center: {x: 0, y: 0, z: 4.25}
 --- !u!114 &3485706832851901479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -812,7 +808,7 @@ Transform:
   m_GameObject: {fileID: 6215669527368112675}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.330535, y: -3.9044895, z: 5.1387253}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_Children:
   - {fileID: 3485706832330988384}
   - {fileID: 3485706830926814995}

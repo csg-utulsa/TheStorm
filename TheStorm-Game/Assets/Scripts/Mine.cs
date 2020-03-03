@@ -8,6 +8,8 @@ public class Mine : MonoBehaviour
 
     AudioSource audioData;
 
+    private bool exploded = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,17 +19,24 @@ public class Mine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(exploded && !audioData.isPlaying)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            print(collision.gameObject.GetComponentInChildren<Player>().health);
             audioData.Play(0);
             collision.gameObject.GetComponentInChildren<Player>().TakeDamage(damage);
-            Destroy(gameObject);
+            exploded = true;
+            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            gameObject.GetComponent<BoxCollider>().enabled = false;
+            print(gameObject.transform.GetChild(0));
+            Destroy(gameObject.transform.GetChild(0).gameObject);
+            //Destroy(gameObject);
         }
     }
     private void OnTriggerEnter(Collider other)

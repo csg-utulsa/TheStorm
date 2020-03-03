@@ -8,11 +8,10 @@ public class Player : Character
 {
     public GameObject secondaryWeapon;
     [Header("Buff Attributes")]
-    //public GameObject healthSlider;
     public GameObject armorSlider;
-    public float armor;
-    public float maxArmorValue;
-    public float speedBuffAmount;
+    public float startingArmor;
+    public float maxArmor;
+    public float speedBuffAmount = 0;
     public float speedBuffTime;
     private float speedBuffStartTime;
     [Header("Player Attributes")]
@@ -23,6 +22,17 @@ public class Player : Character
     public Sprite facingLeft;
     public Sprite facingRight;
     public Sprite facingAway;
+
+    private float armor;
+    private Slider armorBar;
+
+    protected void Awake()
+    {
+        armorBar = armorSlider.GetComponent<Slider>();
+        armor = startingArmor;
+        armorBar.maxValue = maxArmor;
+        armorBar.value = armor;
+    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -61,8 +71,26 @@ public class Player : Character
     {
         Rotate();
         // PLAYER MOVEMENT //
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
+        float h=0;
+        float v=0;
+        if (Input.GetKey(KeyCode.A))
+        {
+            h = -1;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            h = 1;
+        }
+        if (Input.GetKey(KeyCode.W))
+        {
+            v = 1;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            v = -1;
+        }
+        //float h = Input.GetAxisRaw("Horizontal");
+        //float v = Input.GetAxisRaw("Vertical");
 
         if(h != 0 || v != 0)
         {
@@ -180,51 +208,42 @@ public class Player : Character
 
     public override void TakeDamage(float damage)
     {
-        float totalDamage = damage;
-        if(armor > 0)
-        {
-            if (damage <= armor)
-            {
-                armor -= damage;
-                totalDamage = 0;
-            }
-            else
-            {
-                totalDamage = damage - armor;
-                armor = 0;
-                armorSlider.SetActive(false);
-            }
+        float armoredDamage = damage - armor;
 
-            if(armor == 0)
-                armorSlider.SetActive(false);
+        Debug.Log($"Health: {health}\nArmor: {armor}\nDamage: {damage}\nAdjusted Damage: {armoredDamage}");
+
+        if (armoredDamage <= 0)
+        {
+            armor = -armoredDamage;
+            armorBar.value = armor;
         }
-        base.TakeDamage(totalDamage);
-        healthBar.gameObject.GetComponent<Slider>().value = health;
-    }
-
-    public void GiveHealth(float health)
-    {
-        if (this.health < playerMaxHealth)
+        else
         {
-            print("Giving health");
-            this.health += health;
-            healthBar.value = this.health;
+            armor = 0;
+            armorBar.value = armor;
+            armorSlider.SetActive(false);
+
+            base.TakeDamage(armoredDamage);
         }
     }
 
-    public void GiveArmor(float armor)
+    public void GiveArmor(float amount)
     {
-        //if(armor == 0)
-        //{
-            armorSlider.SetActive(true);
-        //}
+        armorSlider.SetActive(true);
 
-        if(armor < maxArmorValue)
+        float armorDif = maxArmor - armor;
+
+        if (amount < armorDif)
         {
-            print("Giving Armor");
-            this.armor += armor;
-            armorSlider.gameObject.GetComponent<Slider>().value = this.armor;
+            print("Giving armor");
+            armor += amount;
         }
+        else
+        {
+            armor = maxArmor;
+        }
+
+        armorBar.value = armor;
     }
 
     public void GiveSpeedBuff(float amount, float duration)
@@ -236,15 +255,39 @@ public class Player : Character
             speedBuffTime = 0;
         }
 
+        print("speed beeore = " + (speed));
+        print("speed after = " + (speed + amount));
+
         speed += amount;
         speedBuffAmount = amount;
         speedBuffTime = duration;
         speedBuffStartTime = Time.time;
     }
 
+    /// <summary>
+    /// Gives a permanent speed buff
+    /// </summary>
+    /// <param name="amount">The amount to buff</param>
+    public void GivePermSpeedBuff(float amount)
+    {
+        speed += amount;
+    }
+
+    /// <summary>
+    /// Increases the max health of the player.
+    /// </summary>
+    /// <param name="amount">The amount to increase.</param>
+    public void IncreaseMaxHealth(float amount)
+    {
+
+        maxHealth += amount;
+        healthBar.maxValue = maxHealth;
+
+    }
+
     protected override void Die()
     {
         deathScreen.gameObject.SetActive(true);
-        base.Die();
+        //base.Die();
     }
 }
