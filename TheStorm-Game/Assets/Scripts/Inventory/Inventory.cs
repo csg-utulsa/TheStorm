@@ -193,7 +193,7 @@ public class Inventory : MonoBehaviour
     {
         score += num;
         scoreText.text = "Score: " + score;
-        if (score == 100) {
+        if (score == 120) {
             gc.Win();
         }
     }
