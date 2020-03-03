@@ -11,17 +11,23 @@ public class Interactable : MonoBehaviour
     public bool isFocused = false; //is interactable selected
     public GameObject player; //the player
     public bool hasInteracted = false;//check if interacted with
-    
+
+    private Vector3 startPosition = Vector3.zero;
 
     public virtual void Interact()
     {//virtual methods are parent methods that are called and can be added to
         Debug.Log("Interact");
     }
 
-
-
     public void Update()
     {
+        if(startPosition == Vector3.zero)
+        {
+            startPosition = transform.position;
+            print(transform.position);
+        }
+        transform.position = startPosition + new Vector3(0, .2f*Mathf.Sin(Time.time), 0.0f);
+
         float distance = Vector3.Distance(player.transform.position, interactionTransform.position);
 
         if (isFocused && !hasInteracted)
