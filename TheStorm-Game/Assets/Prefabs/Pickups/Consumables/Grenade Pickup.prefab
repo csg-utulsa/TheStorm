@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7114201927082581834}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: -0.59}
-  m_LocalScale: {x: 0.3, y: 0.45, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 7114201927647169244}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &7114201927082581832
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -70,7 +70,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e41fe6b85ff7c2e4fb806751daec3769, type: 3}
+  m_Sprite: {fileID: -2252596572762589836, guid: 873505e0da3c008438d3a2d6e99918a0,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -132,7 +133,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7114201927647169234}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -189,7 +190,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f5db5ad6bfef774e97cbc494b46add3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemImage: {fileID: 21300000, guid: e41fe6b85ff7c2e4fb806751daec3769, type: 3}
+  itemImage: {fileID: -2252596572762589836, guid: 873505e0da3c008438d3a2d6e99918a0,
+    type: 3}
   thrownGrenade: {fileID: 6346567451291808119, guid: b998be648d3ded74ea77e66e28b9e037,
     type: 3}
 --- !u!82 &7114201927647169235
