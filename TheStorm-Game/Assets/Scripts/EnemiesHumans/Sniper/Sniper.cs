@@ -129,5 +129,11 @@ public class Sniper : Character
     {
         // Run if player is too close
         transform.LookAt(player.transform);
+
+        // Adjust length of sniper line
+        Vector3 sniperVec = new Vector3(transform.position.x, 0, transform.position.z);
+        Vector3 playerVec = new Vector3(player.transform.position.x, 0, player.transform.position.z);
+        float distanceToPlayer = Vector3.Distance(sniperVec, playerVec);
+        sniperLine.SetPosition(1, new Vector3(0, 0.1f, distanceToPlayer + 2));
     }
 }

@@ -9538,6 +9538,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 530728172539342665, guid: bf69d17db0b1514458706dc77e460a6b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 530728172539342665, guid: bf69d17db0b1514458706dc77e460a6b,
+        type: 3}
+      propertyPath: m_Parameters.generateLightingData
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 530728172539342665, guid: bf69d17db0b1514458706dc77e460a6b,
+        type: 3}
+      propertyPath: m_UseWorldSpace
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3423507046236449725, guid: bf69d17db0b1514458706dc77e460a6b,
         type: 3}
       propertyPath: m_AnchorMax.x

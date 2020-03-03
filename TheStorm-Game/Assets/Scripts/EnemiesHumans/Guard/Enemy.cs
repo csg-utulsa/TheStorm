@@ -123,8 +123,19 @@ public class Enemy : Character
         // if collided with by either a player or other enemy
         if (!alerted && collision.transform.gameObject.tag == "Player" || collision.transform.gameObject.tag == "Enemy" || collision.transform.gameObject.tag == "Bullet")
         {
-            // function call
-            BecomeAlerted();
+            if (collision.transform.gameObject.tag == "Enemy")
+            {
+                Enemy other = collision.transform.GetComponent<Enemy>();
+                if (other.alerted == false)
+                {
+                    return;
+                }
+            }
+            else
+            {
+                // function call
+                BecomeAlerted();
+            }
         }
     }
 
