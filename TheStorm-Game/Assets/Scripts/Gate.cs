@@ -11,6 +11,7 @@ public class Gate : MonoBehaviour
     public GameObject gate;
     public Renderer rend;
     public Alien alien;
+    public AlienInfoCanvas aic;
     private GameObject mainInventory;
     private bool gateMoving;
     private MeshRenderer gateColor;
@@ -65,7 +66,8 @@ public class Gate : MonoBehaviour
             rend.enabled = false;
             mainInventory.GetComponent<Inventory>().numGoldKeys -= 1;
             keyInvetory.GetComponent<Text>().text = "x" + mainInventory.GetComponent<Inventory>().numGoldKeys;
-            alien.PickUp();
+            //alien.PickUp();
+            aic.Enable();
         }
 
         if (gateMoving == true)
@@ -80,6 +82,5 @@ public class Gate : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
     }
 }

@@ -42,6 +42,11 @@ public class Alien : MonoBehaviour
 
     }
 
+    public void Release()
+    {
+        Destroy(gameObject);
+    }
+
     /// <summary>
     /// Applies the buff associated with
     /// the Alien.
