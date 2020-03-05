@@ -28,7 +28,11 @@ public class Player : Character
     private float armor;
     private Slider armorBar;
 
+    // Input
     private PlayerInput playerInput;
+
+    // Movement
+    private Vector2 i_movement = Vector2.zero;
 
     protected void Awake()
     {
@@ -51,7 +55,7 @@ public class Player : Character
             speedBuffTime = 0;
         }
 
-        //Move();
+        Move();
     }
 
     private void Update()
@@ -76,7 +80,7 @@ public class Player : Character
     void OnMove(InputValue value)
     {
 
-        Debug.Log("Move");
+        i_movement = value.Get<Vector2>();
 
     }
 
@@ -97,31 +101,9 @@ public class Player : Character
     protected override void Move()
     {
         Rotate();
-        // PLAYER MOVEMENT //
-        float h=0;
-        float v=0;
-        if (Input.GetKey(KeyCode.A))
+        if (i_movement != Vector2.zero)
         {
-            h = -1;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            h = 1;
-        }
-        if (Input.GetKey(KeyCode.W))
-        {
-            v = 1;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            v = -1;
-        }
-        //float h = Input.GetAxisRaw("Horizontal");
-        //float v = Input.GetAxisRaw("Vertical");
-
-        if(h != 0 || v != 0)
-        {
-            transform.parent.position += new Vector3(h, 0, v).normalized * speed * Time.deltaTime;
+            transform.parent.position += new Vector3(i_movement.x, 0, i_movement.y).normalized * speed * Time.deltaTime;
             //agent.SetDestination(transform.position + new Vector3(h, 0, v).normalized * speed * Time.deltaTime);
         }
     }
