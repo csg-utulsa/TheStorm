@@ -21430,7 +21430,7 @@ PrefabInstance:
     - target: {fileID: 4691787492747141443, guid: 85aa32cb572a3734fb9a50d7ba471e00,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.444209
+      value: 6.76
       objectReference: {fileID: 0}
     - target: {fileID: 4691787492747141443, guid: 85aa32cb572a3734fb9a50d7ba471e00,
         type: 3}
@@ -21477,6 +21477,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4691787492747141443, guid: 85aa32cb572a3734fb9a50d7ba471e00,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 4691787492747141443, guid: 85aa32cb572a3734fb9a50d7ba471e00,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 4691787492747141443, guid: 85aa32cb572a3734fb9a50d7ba471e00,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7243947662928214198, guid: 85aa32cb572a3734fb9a50d7ba471e00,
         type: 3}
       propertyPath: m_Name
@@ -21490,7 +21505,7 @@ PrefabInstance:
     - target: {fileID: 8595060537711563600, guid: 85aa32cb572a3734fb9a50d7ba471e00,
         type: 3}
       propertyPath: m_Name
-      value: SpeedAlienGate
+      value: SpeedAlienCage
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85aa32cb572a3734fb9a50d7ba471e00, type: 3}
@@ -21534,7 +21549,7 @@ PrefabInstance:
     - target: {fileID: 8734801627319902998, guid: ebc062a9cc0d2f34085a549086d8aa60,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.444209
+      value: 6.58
       objectReference: {fileID: 0}
     - target: {fileID: 8734801627319902998, guid: ebc062a9cc0d2f34085a549086d8aa60,
         type: 3}
@@ -21580,6 +21595,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8734801627319902998, guid: ebc062a9cc0d2f34085a549086d8aa60,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebc062a9cc0d2f34085a549086d8aa60, type: 3}

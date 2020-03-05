@@ -68,6 +68,7 @@ public class Gate : MonoBehaviour
             keyInvetory.GetComponent<Text>().text = "x" + mainInventory.GetComponent<Inventory>().numGoldKeys;
             //alien.PickUp();
             aic.Enable();
+            Destroy(gameObject);
         }
 
         if (gateMoving == true)
