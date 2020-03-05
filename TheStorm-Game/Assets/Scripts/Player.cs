@@ -33,6 +33,7 @@ public class Player : Character
 
     // Movement
     private Vector2 i_movement = Vector2.zero;
+    private Vector2 i_look = Vector2.zero;
 
     protected void Awake()
     {
@@ -84,6 +85,14 @@ public class Player : Character
 
     }
 
+    void OnLookAround(InputValue value)
+    {
+
+        i_look = value.Get<Vector2>();
+        Debug.Log(i_look);
+
+    }
+
     void OnSwapWeapons(InputValue value)
     {
 
@@ -110,7 +119,7 @@ public class Player : Character
 
     private void Rotate()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(i_look);
         RaycastHit hit = new RaycastHit();
         if (Physics.Raycast(ray, out hit, 1000))
         {
@@ -121,12 +130,17 @@ public class Player : Character
 
             Vector3 directionToMouse = (hitPoint - transform.position).normalized;
             Quaternion lookRotation = Quaternion.LookRotation(directionToMouse);
+            //Quaternion lookRotation = Quaternion.LookRotation(i_look, Vector3.back);
             lookRotation.x = 0;
             lookRotation.z = 0;
             //lookRotation.SetEulerAngles(0, lookRotation.eulerAngles.y, 0);
             //Quaternion.Euler
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
+            //transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
+            transform.rotation = lookRotation;
         }
+
+        //Quaternion lookRotation = Quaternion.LookRotation(new Vector3(i_look.x, 0, i_look.y));
+        //transform.rotation = lookRotation;
 
         if(transform.rotation.eulerAngles.y > 315 || transform.rotation.eulerAngles.y < 45)
         {
