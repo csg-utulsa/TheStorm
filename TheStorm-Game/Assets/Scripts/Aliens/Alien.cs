@@ -48,9 +48,7 @@ public class Alien : MonoBehaviour
     /// </summary>
     protected virtual void ApplyBuff()
     {
-
         buff.ApplyBuff();
-
     }
 
 }

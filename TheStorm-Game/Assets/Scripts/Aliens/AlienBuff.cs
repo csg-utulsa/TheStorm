@@ -11,7 +11,12 @@ public class AlienBuff : MonoBehaviour
 
     /***** Public Variables *****/
     public Player player;
-    
+
+    void Start()
+    {
+        player = GameObject.Find("PlayerChild").GetComponent<Player>();
+    }
+
     /// <summary>
     /// Applies the buff to the player.
     /// Contains common functionality
@@ -19,9 +24,7 @@ public class AlienBuff : MonoBehaviour
     /// </summary>
     public virtual void ApplyBuff()
     {
-
         Debug.Log("Applying buff");
-
     }
 
 }
