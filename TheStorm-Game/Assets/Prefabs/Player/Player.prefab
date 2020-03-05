@@ -455,6 +455,7 @@ MonoBehaviour:
   speed: 4
   healthBar: {fileID: 0}
   equippedWeapon: {fileID: 0}
+  health: 0
   secondaryWeapon: {fileID: 0}
   armorSlider: {fileID: 0}
   startingArmor: 0
@@ -498,7 +499,7 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Playing
+  m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Playing
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

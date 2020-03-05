@@ -19,42 +19,10 @@ public class @InputControls : IInputActionCollection, IDisposable
             ""id"": ""9dbd200d-bd2e-4ecb-8017-c93887faf336"",
             ""actions"": [
                 {
-                    ""name"": ""Move Forward"",
-                    ""type"": ""Button"",
-                    ""id"": ""757c187d-99bb-4448-ae77-cd52229f24c9"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Move Left"",
-                    ""type"": ""Button"",
-                    ""id"": ""00e4a48d-757b-439c-b032-6ec124350729"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Move Right"",
-                    ""type"": ""Button"",
-                    ""id"": ""d29d66d8-b3cb-4215-a3a2-9b122898a3b7"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Move Back"",
-                    ""type"": ""Button"",
-                    ""id"": ""10570bf2-a799-4558-9a37-66e9ae12de3f"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
                     ""name"": ""Swap Weapons"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""e59a7c4b-c7b0-4164-86d0-0970ba1058a7"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
@@ -65,72 +33,91 @@ public class @InputControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""05145425-71eb-4fd3-86e0-24184b30b81b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""6715d846-5c2e-4205-b984-3e0023b33cca"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Playing"",
-                    ""action"": ""Move Forward"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""cd4087de-5b48-4b64-81c8-686315d748f2"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Playing"",
-                    ""action"": ""Move Left"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""37a42a9f-f950-4e85-8914-4d14f6a4820e"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Playing"",
-                    ""action"": ""Move Right"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""4239db34-a99a-4c18-81c2-e6abbf47d5b3"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Playing"",
-                    ""action"": ""Move Back"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""17b90bd1-859e-4610-84af-5a14576ff563"",
-                    ""path"": ""<Keyboard>/q"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": ""Playing"",
-                    ""action"": ""Swap Weapons"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": """",
                     ""id"": ""ab79b3d0-99f9-456d-ac25-dfb4d40d0e53"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Playing"",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""06e416cf-f962-4c93-851a-ce0f4cb9fbe2"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""a8c1fe98-6fb8-4abb-b6b6-4a82947bc945"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""ac950f89-ac6c-4784-b45b-964fa700a3b7"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""eecc6895-32ca-4b70-8500-12e7dfd5d244"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""dcdc80c2-2325-4698-8b59-e40a613a2199"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f2ac5be5-6fda-4b43-8fe3-1257df3cc2fd"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Swap Weapons"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -139,20 +126,28 @@ public class @InputControls : IInputActionCollection, IDisposable
     ],
     ""controlSchemes"": [
         {
-            ""name"": ""Playing"",
-            ""bindingGroup"": ""Playing"",
-            ""devices"": []
+            ""name"": ""Keyboard&Mouse"",
+            ""bindingGroup"": ""Keyboard&Mouse"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Keyboard>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                },
+                {
+                    ""devicePath"": ""<Mouse>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
         }
     ]
 }");
         // Playing
         m_Playing = asset.FindActionMap("Playing", throwIfNotFound: true);
-        m_Playing_MoveForward = m_Playing.FindAction("Move Forward", throwIfNotFound: true);
-        m_Playing_MoveLeft = m_Playing.FindAction("Move Left", throwIfNotFound: true);
-        m_Playing_MoveRight = m_Playing.FindAction("Move Right", throwIfNotFound: true);
-        m_Playing_MoveBack = m_Playing.FindAction("Move Back", throwIfNotFound: true);
         m_Playing_SwapWeapons = m_Playing.FindAction("Swap Weapons", throwIfNotFound: true);
         m_Playing_Fire = m_Playing.FindAction("Fire", throwIfNotFound: true);
+        m_Playing_Move = m_Playing.FindAction("Move", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -202,22 +197,16 @@ public class @InputControls : IInputActionCollection, IDisposable
     // Playing
     private readonly InputActionMap m_Playing;
     private IPlayingActions m_PlayingActionsCallbackInterface;
-    private readonly InputAction m_Playing_MoveForward;
-    private readonly InputAction m_Playing_MoveLeft;
-    private readonly InputAction m_Playing_MoveRight;
-    private readonly InputAction m_Playing_MoveBack;
     private readonly InputAction m_Playing_SwapWeapons;
     private readonly InputAction m_Playing_Fire;
+    private readonly InputAction m_Playing_Move;
     public struct PlayingActions
     {
         private @InputControls m_Wrapper;
         public PlayingActions(@InputControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @MoveForward => m_Wrapper.m_Playing_MoveForward;
-        public InputAction @MoveLeft => m_Wrapper.m_Playing_MoveLeft;
-        public InputAction @MoveRight => m_Wrapper.m_Playing_MoveRight;
-        public InputAction @MoveBack => m_Wrapper.m_Playing_MoveBack;
         public InputAction @SwapWeapons => m_Wrapper.m_Playing_SwapWeapons;
         public InputAction @Fire => m_Wrapper.m_Playing_Fire;
+        public InputAction @Move => m_Wrapper.m_Playing_Move;
         public InputActionMap Get() { return m_Wrapper.m_Playing; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -227,66 +216,45 @@ public class @InputControls : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_PlayingActionsCallbackInterface != null)
             {
-                @MoveForward.started -= m_Wrapper.m_PlayingActionsCallbackInterface.OnMoveForward;
-                @MoveForward.performed -= m_Wrapper.m_PlayingActionsCallbackInterface.OnMoveForward;
-                @MoveForward.canceled -= m_Wrapper.m_PlayingActionsCallbackInterface.OnMoveForward;
-                @MoveLeft.started -= m_Wrapper.m_PlayingActionsCallbackInterface.OnMoveLeft;
-                @MoveLeft.performed -= m_Wrapper.m_PlayingActionsCallbackInterface.OnMoveLeft;
-                @MoveLeft.canceled -= m_Wrapper.m_PlayingActionsCallbackInterface.OnMoveLeft;
-                @MoveRight.started -= m_Wrapper.m_PlayingActionsCallbackInterface.OnMoveRight;
-                @MoveRight.performed -= m_Wrapper.m_PlayingActionsCallbackInterface.OnMoveRight;
-                @MoveRight.canceled -= m_Wrapper.m_PlayingActionsCallbackInterface.OnMoveRight;
-                @MoveBack.started -= m_Wrapper.m_PlayingActionsCallbackInterface.OnMoveBack;
-                @MoveBack.performed -= m_Wrapper.m_PlayingActionsCallbackInterface.OnMoveBack;
-                @MoveBack.canceled -= m_Wrapper.m_PlayingActionsCallbackInterface.OnMoveBack;
                 @SwapWeapons.started -= m_Wrapper.m_PlayingActionsCallbackInterface.OnSwapWeapons;
                 @SwapWeapons.performed -= m_Wrapper.m_PlayingActionsCallbackInterface.OnSwapWeapons;
                 @SwapWeapons.canceled -= m_Wrapper.m_PlayingActionsCallbackInterface.OnSwapWeapons;
                 @Fire.started -= m_Wrapper.m_PlayingActionsCallbackInterface.OnFire;
                 @Fire.performed -= m_Wrapper.m_PlayingActionsCallbackInterface.OnFire;
                 @Fire.canceled -= m_Wrapper.m_PlayingActionsCallbackInterface.OnFire;
+                @Move.started -= m_Wrapper.m_PlayingActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_PlayingActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_PlayingActionsCallbackInterface.OnMove;
             }
             m_Wrapper.m_PlayingActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @MoveForward.started += instance.OnMoveForward;
-                @MoveForward.performed += instance.OnMoveForward;
-                @MoveForward.canceled += instance.OnMoveForward;
-                @MoveLeft.started += instance.OnMoveLeft;
-                @MoveLeft.performed += instance.OnMoveLeft;
-                @MoveLeft.canceled += instance.OnMoveLeft;
-                @MoveRight.started += instance.OnMoveRight;
-                @MoveRight.performed += instance.OnMoveRight;
-                @MoveRight.canceled += instance.OnMoveRight;
-                @MoveBack.started += instance.OnMoveBack;
-                @MoveBack.performed += instance.OnMoveBack;
-                @MoveBack.canceled += instance.OnMoveBack;
                 @SwapWeapons.started += instance.OnSwapWeapons;
                 @SwapWeapons.performed += instance.OnSwapWeapons;
                 @SwapWeapons.canceled += instance.OnSwapWeapons;
                 @Fire.started += instance.OnFire;
                 @Fire.performed += instance.OnFire;
                 @Fire.canceled += instance.OnFire;
+                @Move.started += instance.OnMove;
+                @Move.performed += instance.OnMove;
+                @Move.canceled += instance.OnMove;
             }
         }
     }
     public PlayingActions @Playing => new PlayingActions(this);
-    private int m_PlayingSchemeIndex = -1;
-    public InputControlScheme PlayingScheme
+    private int m_KeyboardMouseSchemeIndex = -1;
+    public InputControlScheme KeyboardMouseScheme
     {
         get
         {
-            if (m_PlayingSchemeIndex == -1) m_PlayingSchemeIndex = asset.FindControlSchemeIndex("Playing");
-            return asset.controlSchemes[m_PlayingSchemeIndex];
+            if (m_KeyboardMouseSchemeIndex == -1) m_KeyboardMouseSchemeIndex = asset.FindControlSchemeIndex("Keyboard&Mouse");
+            return asset.controlSchemes[m_KeyboardMouseSchemeIndex];
         }
     }
     public interface IPlayingActions
     {
-        void OnMoveForward(InputAction.CallbackContext context);
-        void OnMoveLeft(InputAction.CallbackContext context);
-        void OnMoveRight(InputAction.CallbackContext context);
-        void OnMoveBack(InputAction.CallbackContext context);
         void OnSwapWeapons(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
+        void OnMove(InputAction.CallbackContext context);
     }
 }

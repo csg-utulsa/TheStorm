@@ -73,10 +73,10 @@ public class Player : Character
         //}
     }
 
-    void OnMoveForward(InputValue value)
+    void OnMove(InputValue value)
     {
 
-        Debug.Log("Move forward");
+        Debug.Log("Move");
 
     }
 
@@ -84,6 +84,13 @@ public class Player : Character
     {
 
         Debug.Log("Q pressed");
+
+    }
+
+    void OnFire()
+    {
+
+        Debug.Log("Fire");
 
     }
 
