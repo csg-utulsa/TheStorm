@@ -458,7 +458,7 @@ MonoBehaviour:
   armorSlider: {fileID: 0}
   startingArmor: 0
   maxArmor: 10
-  speedBuffAmount: 2
+  speedBuffAmount: 0
   speedBuffTime: 0
   rotationSpeed: 10
   deathScreen: {fileID: 0}

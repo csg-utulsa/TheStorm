@@ -20,13 +20,17 @@ public class Buff : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            print("Playing Sound");
-            GiveBuff();
-            audioData.Play(0);
+            if (this.GetType().Name != "HealthBuff" || (GameObject.Find("Player").GetComponentInChildren<Player>().health != GameObject.Find("Player").GetComponentInChildren<Player>().maxHealth))
+            {
 
-            gameObject.GetComponent<BoxCollider>().enabled = false;
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
-            gameObject.GetComponentInChildren<SpriteRenderer>().enabled = false;
+                print("Playing Sound");
+                GiveBuff();
+                audioData.Play(0);
+
+                gameObject.GetComponent<BoxCollider>().enabled = false;
+                gameObject.GetComponent<MeshRenderer>().enabled = false;
+                gameObject.GetComponentInChildren<SpriteRenderer>().enabled = false;
+            }
         }
     }
 }

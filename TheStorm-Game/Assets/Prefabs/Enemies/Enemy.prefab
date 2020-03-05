@@ -491,13 +491,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7358258805493582750}
-  m_LocalRotation: {x: 0.28393802, y: -0, z: -0, w: 0.95884264}
+  m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
   m_LocalPosition: {x: 0.09999943, y: 0.51, z: 0.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7358258805128888379}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 32.991, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 10, y: 0, z: 0}
 --- !u!108 &7358258805493582748
 Light:
   m_ObjectHideFlags: 0
@@ -511,9 +511,9 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0.9421487, b: 0, a: 1}
   m_Intensity: 2
-  m_Range: 210
-  m_SpotAngle: 67
-  m_InnerSpotAngle: 21.80208
+  m_Range: 6
+  m_SpotAngle: 50
+  m_InnerSpotAngle: 5
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -647,15 +647,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dd35624bc94aa14ea0a343901e6be25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
-  playerMaxHealth: 0
+  maxHealth: 0
   speed: 5
   healthBar: {fileID: 7358258804910723579}
   equippedWeapon: {fileID: 0}
   player: {fileID: 0}
   pivot: {fileID: 7358258805128888380}
   FOV: {fileID: 7358258805493582750}
+  FOVCone: {fileID: 0}
   aggroCircle: {fileID: 7358258806030897185}
+  enemyHealthBar: {fileID: 0}
   m_yellow: {fileID: 2100000, guid: f381f37034776584bb1ae21d47e60526, type: 2}
   m_red: {fileID: 2100000, guid: b18de3222e73d754581a716724e45608, type: 2}
   alerted: 0
