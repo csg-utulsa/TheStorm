@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4131725326731935075}
   - component: {fileID: 4131725326731935073}
   m_Layer: 0
-  m_Name: TestHealthAlien
+  m_Name: HealthAlien
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

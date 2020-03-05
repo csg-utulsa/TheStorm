@@ -495,7 +495,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8734801627319902998}
   m_Layer: 0
-  m_Name: HealthAlienGate
+  m_Name: HealthAlienCage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

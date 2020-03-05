@@ -21477,6 +21477,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7243947662928214198, guid: 85aa32cb572a3734fb9a50d7ba471e00,
+        type: 3}
+      propertyPath: m_Name
+      value: SpeedAlien
+      objectReference: {fileID: 0}
+    - target: {fileID: 8235706736717431683, guid: 85aa32cb572a3734fb9a50d7ba471e00,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8595060537711563600, guid: 85aa32cb572a3734fb9a50d7ba471e00,
         type: 3}
       propertyPath: m_Name
@@ -21491,6 +21501,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1604771249}
     m_Modifications:
+    - target: {fileID: 104280275312144333, guid: ebc062a9cc0d2f34085a549086d8aa60,
+        type: 3}
+      propertyPath: m_Name
+      value: HealthAlien
+      objectReference: {fileID: 0}
+    - target: {fileID: 1454910273271597777, guid: ebc062a9cc0d2f34085a549086d8aa60,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4342185838433171741, guid: ebc062a9cc0d2f34085a549086d8aa60,
         type: 3}
       propertyPath: m_Mesh

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7051078111570161997}
   - component: {fileID: 7051078111570161994}
   m_Layer: 0
-  m_Name: TestSpeedAlien
+  m_Name: SpeedAlien
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
