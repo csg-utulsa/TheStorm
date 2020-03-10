@@ -31,6 +31,7 @@ public class Player : Character
     // Input
     private PlayerInput playerInput;
     private bool controller;
+    private bool firing = false;
 
     // Movement
     private Vector2 i_movement = Vector2.zero;
@@ -95,14 +96,17 @@ public class Player : Character
     {
 
         i_look = value.Get<Vector2>();
-        Debug.Log(i_look);
+        //Debug.Log(i_look);
 
     }
 
-    void OnSwapWeapons(InputValue value)
+    void OnSwapWeapons()
     {
 
         Debug.Log("Q pressed");
+        StopAttack();
+        SwapWeapons();
+        firing = false;
 
     }
 
@@ -110,6 +114,11 @@ public class Player : Character
     {
 
         Debug.Log("Fire");
+        firing = !firing;
+        if (firing)
+            StartAttack();
+        else
+            StopAttack();
 
     }
 

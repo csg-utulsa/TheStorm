@@ -20,7 +20,7 @@ public class @InputControls : IInputActionCollection, IDisposable
             ""actions"": [
                 {
                     ""name"": ""SwapWeapons"",
-                    ""type"": ""Value"",
+                    ""type"": ""Button"",
                     ""id"": ""e59a7c4b-c7b0-4164-86d0-0970ba1058a7"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
@@ -32,7 +32,7 @@ public class @InputControls : IInputActionCollection, IDisposable
                     ""id"": ""0966bd43-503f-4f25-a295-6fcb5055e97c"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press(behavior=2)""
                 },
                 {
                     ""name"": ""Move"",
@@ -59,6 +59,17 @@ public class @InputControls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""151bdeb3-c7c1-40a3-a4f3-4251930cdfaf"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
                     ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -136,6 +147,17 @@ public class @InputControls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""SwapWeapons"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""664480c2-8d7a-477f-aa02-45f07203dcf3"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
                     ""action"": ""SwapWeapons"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
