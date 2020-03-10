@@ -30,10 +30,12 @@ public class Player : Character
 
     // Input
     private PlayerInput playerInput;
+    private bool controller;
 
     // Movement
     private Vector2 i_movement = Vector2.zero;
     private Vector2 i_look = Vector2.zero;
+    private Quaternion lastRotation = Quaternion.identity;
 
     protected void Awake()
     {
@@ -43,6 +45,10 @@ public class Player : Character
         armorBar.value = armor;
 
         playerInput = GetComponent<PlayerInput>();
+        if (playerInput.currentControlScheme == "Controller")
+            controller = true;
+        else
+            controller = false;
     }
 
     // Update is called once per frame
@@ -107,14 +113,60 @@ public class Player : Character
 
     }
 
+    void OnControlsChanged()
+    {
+
+        if (playerInput.currentControlScheme == "Controller")
+            controller = true;
+        else
+            controller = false;
+
+    }
+
     protected override void Move()
     {
-        Rotate();
+        if (!controller)
+            Rotate();
+        else
+            ControllerRotate();
+
         if (i_movement != Vector2.zero)
         {
             transform.parent.position += new Vector3(i_movement.x, 0, i_movement.y).normalized * speed * Time.deltaTime;
             //agent.SetDestination(transform.position + new Vector3(h, 0, v).normalized * speed * Time.deltaTime);
         }
+    }
+
+    private void ControllerRotate()
+    {
+
+        Quaternion lookRotation;
+
+        if (i_look == Vector2.zero)
+            lookRotation = lastRotation;
+        else
+            lookRotation = Quaternion.LookRotation(new Vector3(i_look.x, 0, i_look.y));
+
+        transform.rotation = lookRotation;
+
+        if (transform.rotation.eulerAngles.y > 315 || transform.rotation.eulerAngles.y < 45)
+        {
+            gameObject.GetComponentInParent<SpriteRenderer>().sprite = facingAway;
+        }
+        else if (transform.rotation.eulerAngles.y > 45 && transform.rotation.eulerAngles.y < 135)
+        {
+            gameObject.GetComponentInParent<SpriteRenderer>().sprite = facingRight;
+        }
+        else if (transform.rotation.eulerAngles.y > 135 && transform.rotation.eulerAngles.y < 225)
+        {
+            gameObject.GetComponentInParent<SpriteRenderer>().sprite = facingFront;
+        }
+        else
+        {
+            gameObject.GetComponentInParent<SpriteRenderer>().sprite = facingLeft;
+        }
+
+        lastRotation = lookRotation;
     }
 
     private void Rotate()
