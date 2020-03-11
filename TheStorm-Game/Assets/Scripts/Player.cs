@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,6 +29,8 @@ public class Player : Character
     private float armor;
     private Slider armorBar;
 
+    private List<Tuple<float, Interactable>> interactables;
+
     // Input
     private PlayerInput playerInput;
     private bool controller;
@@ -50,6 +53,8 @@ public class Player : Character
             controller = true;
         else
             controller = false;
+
+        interactables = new List<Tuple<float, Interactable>>();
     }
 
     // Update is called once per frame
@@ -129,6 +134,38 @@ public class Player : Character
             controller = true;
         else
             controller = false;
+
+    }
+
+    public void PrintTest()
+    {
+
+        Debug.Log("Test");
+
+    }
+
+    public void InformInteractableClose(float distance, Interactable interactable)
+    {
+
+        interactables.Add(new Tuple<float, Interactable>(distance, interactable));
+        if (interactables.Count > 1)
+            interactables.Sort((x, y) => y.Item1.CompareTo(x.Item1));
+
+    }
+
+    public void InformInteractableNotClose(Interactable interactable)
+    {
+
+        foreach (var i in interactables)
+        {
+
+            if (i.Item2 == interactable)
+            {
+                interactables.Remove(i);
+                break;
+            }
+
+        }
 
     }
 

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 /*Author: Akram Taghavi-Burris
  * Created: 10-20-19
  * Modified: 10-20-19
@@ -10,9 +11,19 @@ public class Interactable : MonoBehaviour
     public Transform interactionTransform; //tranform of Interactable (does not have to be the object, but an empty object defines the exact location of where the inateraction takes place)
     public bool isFocused = false; //is interactable selected
     public GameObject player; //the player
+    public Player playerScript;
     public bool hasInteracted = false;//check if interacted with
+    private bool informed = false;
 
     private Vector3 startPosition = Vector3.zero;
+
+    void Start()
+    {
+
+        //playerScript = player.GetComponentInChildren<Player>();
+        playerScript.PrintTest();
+
+    }
 
     public virtual void Interact()
     {//virtual methods are parent methods that are called and can be added to
@@ -43,10 +54,25 @@ public class Interactable : MonoBehaviour
             }
         }
 
-        if ((distance <= radius) && Input.GetKeyDown(KeyCode.E))
-        {//if distnace is within radius
-            Interact();
-            hasInteracted = true;
+        //if ((distance <= radius) && Input.GetKeyDown(KeyCode.E))
+        //{//if distnace is within radius
+        //    Interact();
+        //    hasInteracted = true;
+        //}
+
+        if (distance <= radius)
+        {
+
+            playerScript.InformInteractableClose(distance, this);
+            informed = true;
+
+        }
+        else
+        {
+
+            if (informed)
+                playerScript.InformInteractableNotClose(this);
+
         }
     }
 
