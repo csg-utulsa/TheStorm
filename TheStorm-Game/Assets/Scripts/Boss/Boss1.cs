@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class Boss1 : Character
 {
+    [Header("Boss Attributes")]
     /// <summary>
     /// The percenntage of remaining health at which the boss enrages
     /// </summary>
@@ -16,6 +17,12 @@ public class Boss1 : Character
     public List<GameObject> enemies;
 
     /// <summary>
+    /// How far the boss will walk at a time
+    /// </summary>
+    public float moveRadius;
+
+    [Header("State Chances")]
+    /// <summary>
     /// Percentage chance that the boss will jump vs run or clone
     /// </summary>
     public float jumpChance;
@@ -25,11 +32,7 @@ public class Boss1 : Character
     /// </summary>
     public float cloneChance;
 
-    /// <summary>
-    /// How far the boss will walk at a time
-    /// </summary>
-    public float moveRadius;
-
+    [Header("Cloning Attributes")]
     /// <summary>
     /// How many enemies the boss clones normally
     /// </summary>
@@ -45,13 +48,18 @@ public class Boss1 : Character
     /// </summary>
     public float cloneTime;
 
+    /// <summary>
+    /// Prefab for the clone ray effect
+    /// </summary>
+    public GameObject cloneRayPrefab;
+
     private Animator animator;
     private bool invulnerable;
     private float waitTime;
     private NavMeshAgent agent;
     private GameObject player;
-    private bool waiting = false;
     private bool enraged = false;
+    private bool moveLock = false;
 
     private void Awake()
     {
@@ -65,9 +73,10 @@ public class Boss1 : Character
     public void FireCloneGun()
     {
         animator.SetBool("Fire Clone Gun", true);
-
+        Debug.Log("Clone Gun");
         if(enemies.Count > 0)
         {
+            Debug.Log("Start Coroutine");
             StartCoroutine(CloneEnemies());
         }
         else
@@ -90,22 +99,26 @@ public class Boss1 : Character
 
     protected override void Move()
     {
-        waiting = false;
-        float rand = Random.value;
+        if(!moveLock)
+        {
+            moveLock = true;
 
-        Debug.Log(rand);
+            float rand = Random.value;
 
-        if (rand <= jumpChance)
-        {
-            Jump();
-        }
-        else if (rand >= 1 - cloneChance)
-        {
-            FireCloneGun();
-        }
-        else
-        {
-            Run();
+            Debug.Log(rand);
+
+            if (rand <= jumpChance)
+            {
+                Jump();
+            }
+            else if (rand >= 1 - cloneChance)
+            {
+                FireCloneGun();
+            }
+            else
+            {
+                Run();
+            }
         }
     }
 
@@ -128,15 +141,6 @@ public class Boss1 : Character
         invulnerable = iv;
     }
 
-    private IEnumerator Wait()
-    {
-        waiting = true;
-
-        yield return new WaitForSeconds(waitTime);
-
-        Move();
-    }
-
     private Vector3 RandomNavMeshPoint()
     {
         Vector3 randomPos = Random.insideUnitSphere * moveRadius + transform.position;
@@ -151,6 +155,11 @@ public class Boss1 : Character
     public void StopWaiting()
     {
         Move();
+    }
+
+    public void StopMove()
+    {
+        moveLock = false;
     }
 
     private IEnumerator CloneEnemies()
@@ -169,10 +178,16 @@ public class Boss1 : Character
             int rand = Random.Range(0, enemies.Count);
 
             clonedEnemies[i] = enemies[rand];
+
+            Debug.Log($"Check: {enemies[rand].GetComponentInChildren<Character>() == null}");
+            enemies[rand].GetComponentInChildren<Character>().ChangeSpeed(0, cloneTime);
+
+            var ray = Instantiate(cloneRayPrefab);
+
+            ray.GetComponent<CloneRay>().setTargets(transform.position, clonedEnemies[i].transform.position);
         }
 
         yield return new WaitForSeconds(cloneTime);
-
         foreach(GameObject enemy in enemies)
         {
             var newEnemy = Instantiate(enemy);
