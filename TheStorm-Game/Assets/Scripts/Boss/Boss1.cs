@@ -179,21 +179,27 @@ public class Boss1 : Character
 
             clonedEnemies[i] = enemies[rand];
 
-            Debug.Log($"Check: {enemies[rand].GetComponentInChildren<Character>() == null}");
             enemies[rand].GetComponentInChildren<Character>().ChangeSpeed(0, cloneTime);
 
             var ray = Instantiate(cloneRayPrefab);
 
             ray.GetComponent<CloneRay>().setTargets(transform.position, clonedEnemies[i].transform.position);
+
+            Destroy(ray, cloneTime);
         }
 
         yield return new WaitForSeconds(cloneTime);
-        foreach(GameObject enemy in enemies)
+
+        foreach(GameObject enemy in clonedEnemies)
         {
             var newEnemy = Instantiate(enemy);
             enemies.Add(newEnemy);
         }
 
+        Debug.Log("test");
+
         animator.SetBool("Fire Clone Gun", false);
+
+        StopMove();
     }
 }

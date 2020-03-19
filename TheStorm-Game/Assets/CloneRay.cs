@@ -18,7 +18,7 @@ public class CloneRay : MonoBehaviour
         Debug.Log(line.positionCount);
         for(int i = 0; i < line.positionCount; i++)
         {
-            line.SetPosition(i, Vector3.Lerp(t1, t2, i / line.positionCount));
+            line.SetPosition(i, Vector3.Lerp(t1, t2, (float)i / (line.positionCount-1)));
         }
     }
 }
