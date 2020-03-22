@@ -29,11 +29,19 @@ public class Character : MonoBehaviour
     //Called after awake
     protected void Start()
     {
-         
-        for (int i = 0; i < transform.childCount; i++)
+        //if there is a parent object
+        if(transform.parent !=null)
         {
-            GameObject child = transform.GetChild(i).gameObject;
+            // get the attached navmeshagent component from the parent
+            agent = transform.parent.GetComponent<NavMeshAgent>();
         }
+        else
+        {
+            //otherwise get the component from this object
+            agent = GetComponent<NavMeshAgent>();
+        }
+        
+
         Debug.Log("Set Health");
         //Initialize the health and healthbar
         healthBar.maxValue = maxHealth;
