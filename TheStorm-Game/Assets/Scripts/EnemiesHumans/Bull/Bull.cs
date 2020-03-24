@@ -35,7 +35,6 @@ public class Bull : Character
 
     // AI PATHING //
     [Header("Pathing")]
-    public NavMeshAgent agent;
     public Transform[] waypoints;
     private int waypointIndex = 0;
     Vector3 chargeDestination;
@@ -47,9 +46,6 @@ public class Bull : Character
 
         // find the player
         player = GameObject.FindGameObjectWithTag("Player");
-
-        // get the attached navmeshagent component
-        agent = transform.parent.GetComponent<NavMeshAgent>();
 
         // prevent the gameobject from rotating by means of the agent
         agent.updateRotation = false;
