@@ -80,6 +80,21 @@ public class Boss1 : Character
 
     public void FireCloneGun()
     {
+        for(int i = 0; i < enemies.Count; i++)
+        {
+            if(i >= enemies.Count)
+            {
+                break;
+            }
+
+            if(enemies[i] == null)
+            {
+                enemies.RemoveAt(i);
+            }
+
+            i--;
+        }
+
         animator.SetBool("Fire Clone Gun", true);
         Debug.Log("Clone Gun");
         if(enemies.Count > 0)
