@@ -173,10 +173,9 @@ public class Inventory : MonoBehaviour
         }
         else
         {
-
+            Debug.Log("Adding Alien");
             alienSlots[currentAlienIndex].sprite = alien;
             alienSlots[currentAlienIndex++].enabled = true;
-
         }
 
     }

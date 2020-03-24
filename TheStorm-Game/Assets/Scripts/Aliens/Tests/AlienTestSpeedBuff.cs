@@ -20,7 +20,6 @@ public class AlienTestSpeedBuff : AlienBuff
         base.ApplyBuff();
 
         player.GivePermSpeedBuff(buffAmount);
-
     }
 
 }

@@ -6,20 +6,24 @@ using TMPro;
 
 public class Gate : MonoBehaviour
 {
-    GameObject gateText;
+    public GameObject gateText;
     GameObject player;
-    GameObject gate;
+    public GameObject gate;
     public Renderer rend;
+    public Alien alien;
+    public AlienInfoCanvas aic;
     private GameObject mainInventory;
     private bool gateMoving;
     private MeshRenderer gateColor;
     private bool gateCollision;
+    private GameObject keyInvetory;
     void Start()
     {
-        gateText = GameObject.FindWithTag("GateText");
+        //gateText = GameObject.FindWithTag("GateText");
         player = GameObject.FindWithTag("Player");
-        gate = GameObject.FindWithTag("Gate");
+        //gate = GameObject.FindWithTag("Gate");
         mainInventory = GameObject.FindWithTag("Inventory");
+        keyInvetory = GameObject.FindWithTag("Gold Key Updater");
         rend = gateText.GetComponent<Renderer>();
         gateColor = gate.GetComponent<MeshRenderer>();
         rend.enabled = false;
@@ -33,7 +37,7 @@ public class Gate : MonoBehaviour
         {
             if(mainInventory.GetComponent<Inventory>().numGoldKeys <= 0)
             {
-                gateText.GetComponent<TextMeshPro>().text = "You do not have enough Gold Keys!!";
+                gateText.GetComponent<TextMeshPro>().text = "You do not have enough Gold Keys!";
             }
             else
             {
@@ -61,10 +65,13 @@ public class Gate : MonoBehaviour
             gateMoving = true;
             rend.enabled = false;
             mainInventory.GetComponent<Inventory>().numGoldKeys -= 1;
-
+            keyInvetory.GetComponent<Text>().text = "x" + mainInventory.GetComponent<Inventory>().numGoldKeys;
+            //alien.PickUp();
+            aic.Enable();
+            Destroy(gameObject);
         }
 
-        if(gateMoving == true)
+        if (gateMoving == true)
         {
             
             gateColor.material.color += new Color(0,0,0,-(float)0.01);
@@ -76,6 +83,5 @@ public class Gate : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
     }
 }
