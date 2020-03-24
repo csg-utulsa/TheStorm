@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
 
     public Canvas EndLevelCanvas;
     public Canvas WinCanvas;
+    public Canvas PauseCanvas;
     public GameObject HelpPanel;
     
     // Start is called before the first frame update
@@ -21,7 +22,8 @@ public class GameController : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            Quit();
+            //Quit();
+            Pause();
         }
     }
 
@@ -35,13 +37,29 @@ public class GameController : MonoBehaviour
         WinCanvas.gameObject.SetActive(true);
     }
 
+    void Pause()
+    {
+        if (Time.timeScale != 0)
+        {
+            PauseCanvas.gameObject.SetActive(true);
+            Time.timeScale = 0;
+        }
+        else
+        {
+            PauseCanvas.gameObject.SetActive(false);
+            Time.timeScale = 1;
+        }
+    }
+
     public void Quit()
     {
+        Time.timeScale = 1;
         Application.Quit();
     }
 
     public void Restart()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
 
