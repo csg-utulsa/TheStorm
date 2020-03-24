@@ -25,11 +25,13 @@ public class Boss1 : Character
     /// <summary>
     /// Percentage chance that the boss will jump vs run or clone
     /// </summary>
+    [Range(0,.5f)]
     public float jumpChance;
 
     /// <summary>
     /// Percentage chance that the boss will clone vs run or jump
     /// </summary>
+    [Range(0,.5f)]
     public float cloneChance;
 
     [Header("Cloning Attributes")]
@@ -63,11 +65,17 @@ public class Boss1 : Character
 
     private void Awake()
     {
-        animator = GetComponent<Animator>();
+        animator = transform.GetComponentInParent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
-        agent = GetComponent<NavMeshAgent>();
+        agent = transform.GetComponentInParent<NavMeshAgent>();
         agent.speed = speed;
         agent.updateRotation = false;
+    }
+
+    private void Update()
+    {
+        Vector3 playerPos = player.transform.position;
+        transform.LookAt(new Vector3(playerPos.x, transform.position.y, playerPos.z));
     }
 
     public void FireCloneGun()
@@ -85,6 +93,11 @@ public class Boss1 : Character
         }
     }
 
+    public void FireJumpGun()
+    {
+        ((Boss1Gun)weapon).JumpGun();
+    }
+
     private void Jump()
     {
         agent.SetDestination(player.transform.position);
@@ -93,6 +106,7 @@ public class Boss1 : Character
 
     private void Run()
     {
+        StartAttack();
         animator.SetFloat("Speed", 1f);
         agent.SetDestination(RandomNavMeshPoint());
     }
@@ -160,6 +174,7 @@ public class Boss1 : Character
     public void StopMove()
     {
         moveLock = false;
+        StopAttack();
     }
 
     private IEnumerator CloneEnemies()

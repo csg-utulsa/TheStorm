@@ -30,7 +30,7 @@ public class Boss1_Jump : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.ResetTrigger("Jump");
-        animator.GetComponent<Boss1>().StopMove();
+        animator.transform.GetComponentInChildren<Boss1>().StopMove();
         timer = 0;
     }
 }
