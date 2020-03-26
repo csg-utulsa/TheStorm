@@ -25,11 +25,6 @@ public class Sniper : Character
     [Header("Variables")]
     public bool alerted = false;
 
-    // AI PATHING //
-    [Header("Pathing")]
-    public NavMeshAgent agent;
-
-
     // Start is called before the first frame update
     new void Start()
     {
@@ -37,9 +32,6 @@ public class Sniper : Character
 
         // find the player
         player = GameObject.FindGameObjectWithTag("Player");
-
-        // get the attached navmeshagent component
-        agent = transform.parent.GetComponent<NavMeshAgent>();
 
         // get sniper line
         sniperLine = GetComponent<LineRenderer>();
