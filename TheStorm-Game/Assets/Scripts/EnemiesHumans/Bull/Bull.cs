@@ -138,12 +138,12 @@ public class Bull : Character
                 }
             }
             // Bull specific contact with the player
-            else if (collision.transform.gameObject.tag == "Player")
+            /*else if (collision.transform.gameObject.tag == "Player")
             {
                 player.GetComponent<Character>().TakeDamage(damage);
                 KnockBack(gameObject, force);
 
-            } 
+            }*/ 
             else 
             {
                 // function call

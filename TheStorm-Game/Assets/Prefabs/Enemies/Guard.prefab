@@ -524,19 +524,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 6
+  health: 0
   speed: 3
   healthBar: {fileID: 3485706830889029094}
+  agent: {fileID: 1717515210}
   equippedWeapon: {fileID: 4007393559482543524}
   player: {fileID: 0}
   pivot: {fileID: 3485706832851901473}
   FOV: {fileID: 3485706832470005635}
-  FOVCone: {fileID: 0}
+  FOVCone: {fileID: 4684434757609509294}
   aggroCircle: {fileID: 3485706831933705276}
   enemyHealthBar: {fileID: 3485706830889029094}
   m_yellow: {fileID: 2100000, guid: f381f37034776584bb1ae21d47e60526, type: 2}
   m_red: {fileID: 2100000, guid: b18de3222e73d754581a716724e45608, type: 2}
   alerted: 0
-  agent: {fileID: 1717515210}
   waypoints: []
 --- !u!65 &3485706832330988380
 BoxCollider:
@@ -1081,6 +1082,12 @@ PrefabInstance:
 --- !u!4 &4684434757609147790 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 1cec7e442949718499ea34a4e37ba8fb,
+    type: 3}
+  m_PrefabInstance: {fileID: 4684434757609543438}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4684434757609509294 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 1cec7e442949718499ea34a4e37ba8fb,
     type: 3}
   m_PrefabInstance: {fileID: 4684434757609543438}
   m_PrefabAsset: {fileID: 0}
