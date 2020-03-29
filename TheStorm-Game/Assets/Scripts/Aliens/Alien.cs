@@ -37,7 +37,7 @@ public class Alien : MonoBehaviour
 
         Debug.Log("Picking up Alien");
         ApplyBuff();
-        Inventory.instance.AddAlien(sprite);
+        Inventory.instance.AddAlien(buff, sprite);
         Destroy(gameObject);
 
     }
