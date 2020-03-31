@@ -21,7 +21,6 @@ public class Interactable : MonoBehaviour
     {
 
         //playerScript = player.GetComponentInChildren<Player>();
-        playerScript.PrintTest();
 
     }
 

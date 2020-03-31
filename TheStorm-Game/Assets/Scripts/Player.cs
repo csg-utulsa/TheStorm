@@ -152,13 +152,6 @@ public class Player : Character
 
     }
 
-    public void PrintTest()
-    {
-
-        Debug.Log("Test");
-
-    }
-
     public void InformInteractableClose(float distance, Interactable interactable)
     {
 
