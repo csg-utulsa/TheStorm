@@ -127,6 +127,21 @@ public class Player : Character
 
     }
 
+    void OnInteract()
+    {
+
+        if (interactables.Count > 0)
+        {
+
+            interactables[0].Item2.Interact();
+            interactables.RemoveAt(0);
+
+        }
+        
+        Debug.Log(interactables.Count);
+        
+    }
+
     void OnControlsChanged()
     {
 
@@ -149,7 +164,27 @@ public class Player : Character
 
         interactables.Add(new Tuple<float, Interactable>(distance, interactable));
         if (interactables.Count > 1)
-            interactables.Sort((x, y) => y.Item1.CompareTo(x.Item1));
+            interactables.Sort((x, y) => x.Item1.CompareTo(y.Item1));
+
+    }
+
+    public void UpdateInteractableDistance(float distance, Interactable interactable)
+    {
+
+        for (int i = 0; i < interactables.Count; ++i)
+        {
+
+            if (interactables[i].Item2 == interactable)
+            {
+                
+                interactables[i] = new Tuple<float, Interactable>(distance, interactable);
+                break;
+
+            }
+            
+        }
+        
+        interactables.Sort((x, y) => x.Item1.CompareTo(y.Item1));
 
     }
 

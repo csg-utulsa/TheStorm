@@ -41,37 +41,30 @@ public class Interactable : MonoBehaviour
 
         float distance = Vector3.Distance(player.transform.position, interactionTransform.position);
 
-        if (isFocused && !hasInteracted)
-        {//if focused and has not yet interacted
-
-            //get distance to player
-            //float distance = Vector3.Distance(player.position, interactionTransform.position);
-               
-                if(distance <= radius)
-            {//if distnace is within radius
-                Interact();
-                hasInteracted = true;
-            }
-        }
-
-        //if ((distance <= radius) && Input.GetKeyDown(KeyCode.E))
-        //{//if distnace is within radius
-        //    Interact();
-        //    hasInteracted = true;
-        //}
-
         if (distance <= radius)
         {
 
-            playerScript.InformInteractableClose(distance, this);
-            informed = true;
+            if (!informed)
+            {
+                playerScript.InformInteractableClose(distance, this);
+                informed = true;
+            }
+            else
+            {
+
+                playerScript.UpdateInteractableDistance(distance, this);
+
+            }
 
         }
         else
         {
 
             if (informed)
+            {
                 playerScript.InformInteractableNotClose(this);
+                informed = false;
+            }
 
         }
     }

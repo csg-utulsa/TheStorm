@@ -49,6 +49,14 @@ public class @InputControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""2a633c6b-c2ea-4920-8adb-8cdf56e1c929"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -183,6 +191,17 @@ public class @InputControls : IInputActionCollection, IDisposable
                     ""action"": ""LookAround"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a0f1f4d4-1dbf-4a36-a079-5c7fa4659e56"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -223,6 +242,7 @@ public class @InputControls : IInputActionCollection, IDisposable
         m_Playing_Fire = m_Playing.FindAction("Fire", throwIfNotFound: true);
         m_Playing_Move = m_Playing.FindAction("Move", throwIfNotFound: true);
         m_Playing_LookAround = m_Playing.FindAction("LookAround", throwIfNotFound: true);
+        m_Playing_Interact = m_Playing.FindAction("Interact", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -276,6 +296,7 @@ public class @InputControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Playing_Fire;
     private readonly InputAction m_Playing_Move;
     private readonly InputAction m_Playing_LookAround;
+    private readonly InputAction m_Playing_Interact;
     public struct PlayingActions
     {
         private @InputControls m_Wrapper;
@@ -284,6 +305,7 @@ public class @InputControls : IInputActionCollection, IDisposable
         public InputAction @Fire => m_Wrapper.m_Playing_Fire;
         public InputAction @Move => m_Wrapper.m_Playing_Move;
         public InputAction @LookAround => m_Wrapper.m_Playing_LookAround;
+        public InputAction @Interact => m_Wrapper.m_Playing_Interact;
         public InputActionMap Get() { return m_Wrapper.m_Playing; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -305,6 +327,9 @@ public class @InputControls : IInputActionCollection, IDisposable
                 @LookAround.started -= m_Wrapper.m_PlayingActionsCallbackInterface.OnLookAround;
                 @LookAround.performed -= m_Wrapper.m_PlayingActionsCallbackInterface.OnLookAround;
                 @LookAround.canceled -= m_Wrapper.m_PlayingActionsCallbackInterface.OnLookAround;
+                @Interact.started -= m_Wrapper.m_PlayingActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_PlayingActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_PlayingActionsCallbackInterface.OnInteract;
             }
             m_Wrapper.m_PlayingActionsCallbackInterface = instance;
             if (instance != null)
@@ -321,6 +346,9 @@ public class @InputControls : IInputActionCollection, IDisposable
                 @LookAround.started += instance.OnLookAround;
                 @LookAround.performed += instance.OnLookAround;
                 @LookAround.canceled += instance.OnLookAround;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
             }
         }
     }
@@ -349,5 +377,6 @@ public class @InputControls : IInputActionCollection, IDisposable
         void OnFire(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
         void OnLookAround(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
 }
