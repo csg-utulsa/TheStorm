@@ -137,9 +137,7 @@ public class Player : Character
             interactables.RemoveAt(0);
 
         }
-        
-        Debug.Log(interactables.Count);
-        
+
     }
 
     void OnControlsChanged()
