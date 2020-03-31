@@ -26,7 +26,6 @@ public class Spotter : Character
 
     // AI PATHING //
     [Header("Pathing")]
-    public NavMeshAgent agent;
     public int runDistance;
 
     // Start is called before the first frame update
@@ -36,9 +35,6 @@ public class Spotter : Character
 
         // find the player
         player = GameObject.FindGameObjectWithTag("Player");
-
-        // get the attached navmeshagent component
-        agent = transform.parent.GetComponent<NavMeshAgent>();
 
         // prevent the gameobject from rotating by means of the agent
         agent.updateRotation = false;
