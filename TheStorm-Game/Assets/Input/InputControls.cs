@@ -57,6 +57,14 @@ public class @InputControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Use"",
+                    ""type"": ""Button"",
+                    ""id"": ""cc6d8d5f-615f-46cd-94a1-66234a1178e6"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -213,6 +221,28 @@ public class @InputControls : IInputActionCollection, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""00594813-d2c5-449a-8840-69cd42d45981"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Use"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4e57b898-fb62-41d5-a319-1e80108a926f"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Use"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -254,6 +284,7 @@ public class @InputControls : IInputActionCollection, IDisposable
         m_Playing_Move = m_Playing.FindAction("Move", throwIfNotFound: true);
         m_Playing_LookAround = m_Playing.FindAction("LookAround", throwIfNotFound: true);
         m_Playing_Interact = m_Playing.FindAction("Interact", throwIfNotFound: true);
+        m_Playing_Use = m_Playing.FindAction("Use", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -308,6 +339,7 @@ public class @InputControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Playing_Move;
     private readonly InputAction m_Playing_LookAround;
     private readonly InputAction m_Playing_Interact;
+    private readonly InputAction m_Playing_Use;
     public struct PlayingActions
     {
         private @InputControls m_Wrapper;
@@ -317,6 +349,7 @@ public class @InputControls : IInputActionCollection, IDisposable
         public InputAction @Move => m_Wrapper.m_Playing_Move;
         public InputAction @LookAround => m_Wrapper.m_Playing_LookAround;
         public InputAction @Interact => m_Wrapper.m_Playing_Interact;
+        public InputAction @Use => m_Wrapper.m_Playing_Use;
         public InputActionMap Get() { return m_Wrapper.m_Playing; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -341,6 +374,9 @@ public class @InputControls : IInputActionCollection, IDisposable
                 @Interact.started -= m_Wrapper.m_PlayingActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_PlayingActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_PlayingActionsCallbackInterface.OnInteract;
+                @Use.started -= m_Wrapper.m_PlayingActionsCallbackInterface.OnUse;
+                @Use.performed -= m_Wrapper.m_PlayingActionsCallbackInterface.OnUse;
+                @Use.canceled -= m_Wrapper.m_PlayingActionsCallbackInterface.OnUse;
             }
             m_Wrapper.m_PlayingActionsCallbackInterface = instance;
             if (instance != null)
@@ -360,6 +396,9 @@ public class @InputControls : IInputActionCollection, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @Use.started += instance.OnUse;
+                @Use.performed += instance.OnUse;
+                @Use.canceled += instance.OnUse;
             }
         }
     }
@@ -389,5 +428,6 @@ public class @InputControls : IInputActionCollection, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnLookAround(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnUse(InputAction.CallbackContext context);
     }
 }

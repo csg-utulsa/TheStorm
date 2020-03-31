@@ -41,6 +41,8 @@ public class Player : Character
     private Vector2 i_look = Vector2.zero;
     private Quaternion lastRotation = Quaternion.identity;
 
+    private Consumable consumable;
+
     protected void Awake()
     {
         armorBar = armorSlider.GetComponent<Slider>();
@@ -137,6 +139,16 @@ public class Player : Character
             interactables.RemoveAt(0);
 
         }
+
+    }
+
+    void OnUse()
+    {
+
+        List<Consumable> consumables = Consumable.selectedConsumable;
+
+        if (consumables.Count > 0)
+            consumables[0].useItem();
 
     }
 
