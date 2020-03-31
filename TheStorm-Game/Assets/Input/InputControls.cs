@@ -65,6 +65,22 @@ public class @InputControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""ChangeConsumableForward"",
+                    ""type"": ""Button"",
+                    ""id"": ""5ffe7eb2-bd23-400a-8793-e7b908d3f77c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""ChangeConsumableBackward"",
+                    ""type"": ""Button"",
+                    ""id"": ""b0b764a6-4cce-4059-8406-0fce884a6f03"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -243,6 +259,61 @@ public class @InputControls : IInputActionCollection, IDisposable
                     ""action"": ""Use"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6d06c685-4895-44f7-a60b-47e72c6ae9a2"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""ChangeConsumableForward"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5d013c36-93f7-47ce-897f-2219d3bf04be"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""ChangeConsumableForward"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aa48cb26-5279-42ea-9a8f-e6d2678ad761"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""ChangeConsumableForward"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d1803233-54a1-4fa8-8851-21413b19bae4"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""ChangeConsumableBackward"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fff3b798-bcbc-4960-9528-3085b1ac157a"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""ChangeConsumableBackward"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -285,6 +356,8 @@ public class @InputControls : IInputActionCollection, IDisposable
         m_Playing_LookAround = m_Playing.FindAction("LookAround", throwIfNotFound: true);
         m_Playing_Interact = m_Playing.FindAction("Interact", throwIfNotFound: true);
         m_Playing_Use = m_Playing.FindAction("Use", throwIfNotFound: true);
+        m_Playing_ChangeConsumableForward = m_Playing.FindAction("ChangeConsumableForward", throwIfNotFound: true);
+        m_Playing_ChangeConsumableBackward = m_Playing.FindAction("ChangeConsumableBackward", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -340,6 +413,8 @@ public class @InputControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Playing_LookAround;
     private readonly InputAction m_Playing_Interact;
     private readonly InputAction m_Playing_Use;
+    private readonly InputAction m_Playing_ChangeConsumableForward;
+    private readonly InputAction m_Playing_ChangeConsumableBackward;
     public struct PlayingActions
     {
         private @InputControls m_Wrapper;
@@ -350,6 +425,8 @@ public class @InputControls : IInputActionCollection, IDisposable
         public InputAction @LookAround => m_Wrapper.m_Playing_LookAround;
         public InputAction @Interact => m_Wrapper.m_Playing_Interact;
         public InputAction @Use => m_Wrapper.m_Playing_Use;
+        public InputAction @ChangeConsumableForward => m_Wrapper.m_Playing_ChangeConsumableForward;
+        public InputAction @ChangeConsumableBackward => m_Wrapper.m_Playing_ChangeConsumableBackward;
         public InputActionMap Get() { return m_Wrapper.m_Playing; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -377,6 +454,12 @@ public class @InputControls : IInputActionCollection, IDisposable
                 @Use.started -= m_Wrapper.m_PlayingActionsCallbackInterface.OnUse;
                 @Use.performed -= m_Wrapper.m_PlayingActionsCallbackInterface.OnUse;
                 @Use.canceled -= m_Wrapper.m_PlayingActionsCallbackInterface.OnUse;
+                @ChangeConsumableForward.started -= m_Wrapper.m_PlayingActionsCallbackInterface.OnChangeConsumableForward;
+                @ChangeConsumableForward.performed -= m_Wrapper.m_PlayingActionsCallbackInterface.OnChangeConsumableForward;
+                @ChangeConsumableForward.canceled -= m_Wrapper.m_PlayingActionsCallbackInterface.OnChangeConsumableForward;
+                @ChangeConsumableBackward.started -= m_Wrapper.m_PlayingActionsCallbackInterface.OnChangeConsumableBackward;
+                @ChangeConsumableBackward.performed -= m_Wrapper.m_PlayingActionsCallbackInterface.OnChangeConsumableBackward;
+                @ChangeConsumableBackward.canceled -= m_Wrapper.m_PlayingActionsCallbackInterface.OnChangeConsumableBackward;
             }
             m_Wrapper.m_PlayingActionsCallbackInterface = instance;
             if (instance != null)
@@ -399,6 +482,12 @@ public class @InputControls : IInputActionCollection, IDisposable
                 @Use.started += instance.OnUse;
                 @Use.performed += instance.OnUse;
                 @Use.canceled += instance.OnUse;
+                @ChangeConsumableForward.started += instance.OnChangeConsumableForward;
+                @ChangeConsumableForward.performed += instance.OnChangeConsumableForward;
+                @ChangeConsumableForward.canceled += instance.OnChangeConsumableForward;
+                @ChangeConsumableBackward.started += instance.OnChangeConsumableBackward;
+                @ChangeConsumableBackward.performed += instance.OnChangeConsumableBackward;
+                @ChangeConsumableBackward.canceled += instance.OnChangeConsumableBackward;
             }
         }
     }
@@ -429,5 +518,7 @@ public class @InputControls : IInputActionCollection, IDisposable
         void OnLookAround(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnUse(InputAction.CallbackContext context);
+        void OnChangeConsumableForward(InputAction.CallbackContext context);
+        void OnChangeConsumableBackward(InputAction.CallbackContext context);
     }
 }

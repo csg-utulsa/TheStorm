@@ -82,6 +82,36 @@ public class Consumable : MonoBehaviour
         // }
     }
 
+    public void ChangeConsumableForward()
+    {
+
+        selectedConsumableIndex++;
+
+        if (selectedConsumableIndex > consumables.Count - 1)
+        {
+            selectedConsumableIndex = 0;
+        }
+
+        selectedConsumable = consumables[selectedConsumableIndex];
+        slot.setImage(selectedConsumable[0].itemImage, (short)(selectedConsumable.Count));
+
+    }
+
+    public void ChangeConsumableBackward()
+    {
+        
+        selectedConsumableIndex--;
+        
+        if (selectedConsumableIndex < 0)
+        {
+            selectedConsumableIndex = (short)(consumables.Count-1);
+        }
+        
+        selectedConsumable = consumables[selectedConsumableIndex];
+        slot.setImage(selectedConsumable[0].itemImage, (short)(selectedConsumable.Count));
+        
+    }
+
     //After consumable is used, remove it from the inventory
     public virtual void useItem()
     {

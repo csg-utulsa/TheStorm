@@ -147,8 +147,28 @@ public class Player : Character
 
         List<Consumable> consumables = Consumable.selectedConsumable;
 
-        if (consumables.Count > 0)
+        if (consumables != null && consumables.Count > 0)
             consumables[0].useItem();
+
+    }
+
+    void OnChangeConsumableForward()
+    {
+
+        List<Consumable> consumables = Consumable.selectedConsumable;
+        
+        if (consumables != null && consumables.Count > 0)
+            consumables[0].ChangeConsumableForward();
+
+    }
+    
+    void OnChangeConsumableBackward()
+    {
+
+        List<Consumable> consumables = Consumable.selectedConsumable;
+        
+        if (consumables != null && consumables.Count > 0)
+            consumables[0].ChangeConsumableBackward();
 
     }
 
