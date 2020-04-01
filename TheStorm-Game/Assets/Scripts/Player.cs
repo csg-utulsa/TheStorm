@@ -91,6 +91,9 @@ public class Player : Character
         //    SwapWeapons();
         //}
     }
+    
+    
+    /****** INPUT EVENTS ******/
 
     void OnMove(InputValue value)
     {
@@ -181,25 +184,42 @@ public class Player : Character
             controller = false;
 
     }
+    
+    /***** END INPUT EVENTS *****/
 
+    /// <summary>
+    /// Let's the Interactable inform the player when it's close
+    /// </summary>
+    /// <param name="distance">The distance between the interactable and the player (used for sorting)</param>
+    /// <param name="interactable">The interactable</param>
     public void InformInteractableClose(float distance, Interactable interactable)
     {
 
         interactables.Add(new Tuple<float, Interactable>(distance, interactable));
+        
+        // We want to sort by distance, so if two interactables are close,
+        // the player picks up the one that's closest.
         if (interactables.Count > 1)
             interactables.Sort((x, y) => x.Item1.CompareTo(y.Item1));
 
     }
 
+    /// <summary>
+    /// Let's the Interactable update the distance
+    /// </summary>
+    /// <param name="distance">The distance between the interactable and the player (used for sorting)</param>
+    /// <param name="interactable">The interactable</param>
     public void UpdateInteractableDistance(float distance, Interactable interactable)
     {
 
+        // Find the interactable and update it
         for (int i = 0; i < interactables.Count; ++i)
         {
 
             if (interactables[i].Item2 == interactable)
             {
                 
+                // Create a new Tuple because tuples are immutable
                 interactables[i] = new Tuple<float, Interactable>(distance, interactable);
                 break;
 
@@ -207,10 +227,17 @@ public class Player : Character
             
         }
         
-        interactables.Sort((x, y) => x.Item1.CompareTo(y.Item1));
+        // We want to sort by distance, so if two interactables are close,
+        // the player picks up the one that's closest.
+        if (interactables.Count > 1)
+            interactables.Sort((x, y) => x.Item1.CompareTo(y.Item1));
 
     }
 
+    /// <summary>
+    /// Let's the interactable inform the player that they are out of range
+    /// </summary>
+    /// <param name="interactable">The interactable</param>
     public void InformInteractableNotClose(Interactable interactable)
     {
 
