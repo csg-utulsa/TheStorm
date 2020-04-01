@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 /*Author: Akram Taghavi-Burris
  * Created: 10-20-19
  * Modified: 10-20-19
@@ -10,9 +11,18 @@ public class Interactable : MonoBehaviour
     public Transform interactionTransform; //tranform of Interactable (does not have to be the object, but an empty object defines the exact location of where the inateraction takes place)
     public bool isFocused = false; //is interactable selected
     public GameObject player; //the player
+    public Player playerScript;
     public bool hasInteracted = false;//check if interacted with
+    private bool informed = false;
 
     private Vector3 startPosition = Vector3.zero;
+
+    void Start()
+    {
+
+        //playerScript = player.GetComponentInChildren<Player>();
+
+    }
 
     public virtual void Interact()
     {//virtual methods are parent methods that are called and can be added to
@@ -30,23 +40,31 @@ public class Interactable : MonoBehaviour
 
         float distance = Vector3.Distance(player.transform.position, interactionTransform.position);
 
-        if (isFocused && !hasInteracted)
-        {//if focused and has not yet interacted
+        if (distance <= radius)
+        {
 
-            //get distance to player
-            //float distance = Vector3.Distance(player.position, interactionTransform.position);
-               
-                if(distance <= radius)
-            {//if distnace is within radius
-                Interact();
-                hasInteracted = true;
+            if (!informed)
+            {
+                playerScript.InformInteractableClose(distance, this);
+                informed = true;
             }
-        }
+            else
+            {
 
-        if ((distance <= radius) && Input.GetKeyDown(KeyCode.E))
-        {//if distnace is within radius
-            Interact();
-            hasInteracted = true;
+                playerScript.UpdateInteractableDistance(distance, this);
+
+            }
+
+        }
+        else
+        {
+
+            if (informed)
+            {
+                playerScript.InformInteractableNotClose(this);
+                informed = false;
+            }
+
         }
     }
 

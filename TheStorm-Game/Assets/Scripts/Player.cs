@@ -1,9 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
+using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(PlayerInput))]
 public class Player : Character
 {
     public GameObject secondaryWeapon;
@@ -26,12 +29,34 @@ public class Player : Character
     private float armor;
     private Slider armorBar;
 
+    private List<Tuple<float, Interactable>> interactables;
+
+    // Input
+    private PlayerInput playerInput;
+    private bool controller;
+    private bool firing = false;
+
+    // Movement
+    private Vector2 i_movement = Vector2.zero;
+    private Vector2 i_look = Vector2.zero;
+    private Quaternion lastRotation = Quaternion.identity;
+
+    private Consumable consumable;
+
     protected void Awake()
     {
         armorBar = armorSlider.GetComponent<Slider>();
         armor = startingArmor;
         armorBar.maxValue = maxArmor;
         armorBar.value = armor;
+
+        playerInput = GetComponent<PlayerInput>();
+        if (playerInput.currentControlScheme == "Controller")
+            controller = true;
+        else
+            controller = false;
+
+        interactables = new List<Tuple<float, Interactable>>();
     }
 
     // Update is called once per frame
@@ -50,58 +75,234 @@ public class Player : Character
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    StartAttack();
+        //}
+
+        //if (Input.GetMouseButtonUp(0))
+        //{
+        //    StopAttack();
+        //}
+
+        //if (Input.GetKeyDown(KeyCode.Q))
+        //{
+        //    StopAttack();
+        //    SwapWeapons();
+        //}
+    }
+    
+    
+    /****** INPUT EVENTS ******/
+
+    void OnMove(InputValue value)
+    {
+
+        i_movement = value.Get<Vector2>();
+
+    }
+
+    void OnLookAround(InputValue value)
+    {
+
+        i_look = value.Get<Vector2>();
+        //Debug.Log(i_look);
+
+    }
+
+    void OnSwapWeapons()
+    {
+
+        Debug.Log("Q pressed");
+        StopAttack();
+        SwapWeapons();
+        firing = false;
+
+    }
+
+    void OnFire()
+    {
+
+        Debug.Log("Fire");
+        firing = !firing;
+        if (firing)
             StartAttack();
+        else
+            StopAttack();
+
+    }
+
+    void OnInteract()
+    {
+
+        if (interactables.Count > 0)
+        {
+
+            interactables[0].Item2.Interact();
+            interactables.RemoveAt(0);
+
         }
 
-        if (Input.GetMouseButtonUp(0))
+    }
+
+    void OnUse()
+    {
+
+        List<Consumable> consumables = Consumable.selectedConsumable;
+
+        if (consumables != null && consumables.Count > 0)
+            consumables[0].useItem();
+
+    }
+
+    void OnChangeConsumableForward()
+    {
+
+        List<Consumable> consumables = Consumable.selectedConsumable;
+        
+        if (consumables != null && consumables.Count > 0)
+            consumables[0].ChangeConsumableForward();
+
+    }
+    
+    void OnChangeConsumableBackward()
+    {
+
+        List<Consumable> consumables = Consumable.selectedConsumable;
+        
+        if (consumables != null && consumables.Count > 0)
+            consumables[0].ChangeConsumableBackward();
+
+    }
+
+    void OnControlsChanged()
+    {
+
+        if (playerInput.currentControlScheme == "Controller")
+            controller = true;
+        else
+            controller = false;
+
+    }
+    
+    /***** END INPUT EVENTS *****/
+
+    /// <summary>
+    /// Let's the Interactable inform the player when it's close
+    /// </summary>
+    /// <param name="distance">The distance between the interactable and the player (used for sorting)</param>
+    /// <param name="interactable">The interactable</param>
+    public void InformInteractableClose(float distance, Interactable interactable)
+    {
+
+        interactables.Add(new Tuple<float, Interactable>(distance, interactable));
+        
+        // We want to sort by distance, so if two interactables are close,
+        // the player picks up the one that's closest.
+        if (interactables.Count > 1)
+            interactables.Sort((x, y) => x.Item1.CompareTo(y.Item1));
+
+    }
+
+    /// <summary>
+    /// Let's the Interactable update the distance
+    /// </summary>
+    /// <param name="distance">The distance between the interactable and the player (used for sorting)</param>
+    /// <param name="interactable">The interactable</param>
+    public void UpdateInteractableDistance(float distance, Interactable interactable)
+    {
+
+        // Find the interactable and update it
+        for (int i = 0; i < interactables.Count; ++i)
         {
-            StopAttack();
+
+            if (interactables[i].Item2 == interactable)
+            {
+                
+                // Create a new Tuple because tuples are immutable
+                interactables[i] = new Tuple<float, Interactable>(distance, interactable);
+                break;
+
+            }
+            
+        }
+        
+        // We want to sort by distance, so if two interactables are close,
+        // the player picks up the one that's closest.
+        if (interactables.Count > 1)
+            interactables.Sort((x, y) => x.Item1.CompareTo(y.Item1));
+
+    }
+
+    /// <summary>
+    /// Let's the interactable inform the player that they are out of range
+    /// </summary>
+    /// <param name="interactable">The interactable</param>
+    public void InformInteractableNotClose(Interactable interactable)
+    {
+
+        foreach (var i in interactables)
+        {
+
+            if (i.Item2 == interactable)
+            {
+                interactables.Remove(i);
+                break;
+            }
+
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            StopAttack();
-            SwapWeapons();
-        }
     }
 
     protected override void Move()
     {
-        Rotate();
-        // PLAYER MOVEMENT //
-        float h=0;
-        float v=0;
-        if (Input.GetKey(KeyCode.A))
-        {
-            h = -1;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            h = 1;
-        }
-        if (Input.GetKey(KeyCode.W))
-        {
-            v = 1;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            v = -1;
-        }
-        //float h = Input.GetAxisRaw("Horizontal");
-        //float v = Input.GetAxisRaw("Vertical");
+        if (!controller)
+            Rotate();
+        else
+            ControllerRotate();
 
-        if(h != 0 || v != 0)
+        if (i_movement != Vector2.zero)
         {
-            transform.parent.position += new Vector3(h, 0, v).normalized * speed * Time.deltaTime;
+            transform.parent.position += new Vector3(i_movement.x, 0, i_movement.y).normalized * speed * Time.deltaTime;
             //agent.SetDestination(transform.position + new Vector3(h, 0, v).normalized * speed * Time.deltaTime);
         }
     }
 
+    private void ControllerRotate()
+    {
+
+        Quaternion lookRotation;
+
+        if (i_look == Vector2.zero)
+            lookRotation = lastRotation;
+        else
+            lookRotation = Quaternion.LookRotation(new Vector3(i_look.x, 0, i_look.y));
+
+        transform.rotation = lookRotation;
+
+        if (transform.rotation.eulerAngles.y > 315 || transform.rotation.eulerAngles.y < 45)
+        {
+            gameObject.GetComponentInParent<SpriteRenderer>().sprite = facingAway;
+        }
+        else if (transform.rotation.eulerAngles.y > 45 && transform.rotation.eulerAngles.y < 135)
+        {
+            gameObject.GetComponentInParent<SpriteRenderer>().sprite = facingRight;
+        }
+        else if (transform.rotation.eulerAngles.y > 135 && transform.rotation.eulerAngles.y < 225)
+        {
+            gameObject.GetComponentInParent<SpriteRenderer>().sprite = facingFront;
+        }
+        else
+        {
+            gameObject.GetComponentInParent<SpriteRenderer>().sprite = facingLeft;
+        }
+
+        lastRotation = lookRotation;
+    }
+
     private void Rotate()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(i_look);
         RaycastHit hit = new RaycastHit();
         if (Physics.Raycast(ray, out hit, 1000))
         {
@@ -112,12 +313,17 @@ public class Player : Character
 
             Vector3 directionToMouse = (hitPoint - transform.position).normalized;
             Quaternion lookRotation = Quaternion.LookRotation(directionToMouse);
+            //Quaternion lookRotation = Quaternion.LookRotation(i_look, Vector3.back);
             lookRotation.x = 0;
             lookRotation.z = 0;
             //lookRotation.SetEulerAngles(0, lookRotation.eulerAngles.y, 0);
             //Quaternion.Euler
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
+            //transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
+            transform.rotation = lookRotation;
         }
+
+        //Quaternion lookRotation = Quaternion.LookRotation(new Vector3(i_look.x, 0, i_look.y));
+        //transform.rotation = lookRotation;
 
         if(transform.rotation.eulerAngles.y > 315 || transform.rotation.eulerAngles.y < 45)
         {
@@ -210,7 +416,7 @@ public class Player : Character
     {
         float armoredDamage = damage - armor;
 
-        Debug.Log($"Health: {health}\nArmor: {armor}\nDamage: {damage}\nAdjusted Damage: {armoredDamage}");
+        Debug.Log("Health: {health}\nArmor: {armor}\nDamage: {damage}\nAdjusted Damage: {armoredDamage}");
 
         if (armoredDamage <= 0)
         {
