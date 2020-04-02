@@ -27,8 +27,4 @@ public class AlienBuff : MonoBehaviour
         Debug.Log("Applying buff");
     }
 
-    public virtual void RemoveBuff()
-    {
-        print("Removing Buff");
-    }
 }

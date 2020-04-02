@@ -1555,11 +1555,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7715410458598119963, guid: 7ad9e2e8f1ad43b469d4ee557f729385,
         type: 3}
-      propertyPath: alienSlotsImage.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7715410458598119963, guid: 7ad9e2e8f1ad43b469d4ee557f729385,
-        type: 3}
       propertyPath: gc
       value: 
       objectReference: {fileID: 4493766072188152066}
@@ -1709,11 +1704,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4752887082921120446, guid: 5f0a9854681ee214fa1107daad756ef7,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 2067031442600691387}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f0a9854681ee214fa1107daad756ef7, type: 3}
 --- !u!4 &2327065976890012257 stripped
