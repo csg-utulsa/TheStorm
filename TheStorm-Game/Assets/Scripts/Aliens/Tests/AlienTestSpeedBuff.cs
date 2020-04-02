@@ -10,7 +10,12 @@ public class AlienTestSpeedBuff : AlienBuff
 
     /***** Public Variables *****/
     public int buffAmount = 4;
-   
+
+    public void Start()
+    {
+        buffAmount = Random.Range(1, 5);
+    }
+
     /// <summary>
     /// Applies the buff to the player.
     /// </summary>
@@ -18,6 +23,8 @@ public class AlienTestSpeedBuff : AlienBuff
     {
 
         base.ApplyBuff();
+
+        print(buffAmount);
 
         player.GivePermSpeedBuff(buffAmount);
     }
