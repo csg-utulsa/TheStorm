@@ -74,14 +74,14 @@ public class Gate : MonoBehaviour
         if (gateMoving == true)
         {
             
-            gateColor.material.color += new Color(0,0,0,-(float)0.01);
+            //gateColor.material.color += new Color(0,0,0,-(float)0.01);
             //Debug.Log(gateColor.material.color.ToString());
             transform.position = transform.position + new Vector3(0, (float)0.015, 0);
         }
 
-        if(gateColor.material.color.a <= 0)
-        {
-            Destroy(gameObject);
-        }
+        //if(gateColor.material.color.a <= 0)
+       // {
+       //     Destroy(gameObject);
+       // }
     }
 }

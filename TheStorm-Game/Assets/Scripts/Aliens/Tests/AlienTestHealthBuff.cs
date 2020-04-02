@@ -8,6 +8,11 @@ public class AlienTestHealthBuff : AlienBuff
     /***** Public Variables *****/
     public int buffAmount = 5;
 
+    public void Start()
+    {
+        buffAmount = Random.Range(1, 6);
+    }
+
     /// <summary>
     /// Applies the buff to the player.
     /// </summary>
@@ -20,5 +25,10 @@ public class AlienTestHealthBuff : AlienBuff
         player.GiveHealth(buffAmount);
 
     }
+    public override void RemoveBuff()
+    {
+        base.RemoveBuff();
 
+        player.GivePermSpeedBuff(-buffAmount);
+    }
 }
