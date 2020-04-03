@@ -287,6 +287,7 @@ public class Player : Character
 
     protected override void Die()
     {
+        Time.timeScale = 0;
         deathScreen.gameObject.SetActive(true);
         //base.Die();
     }

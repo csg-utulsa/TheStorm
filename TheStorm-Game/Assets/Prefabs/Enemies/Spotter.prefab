@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 5302909912422584663}
   - component: {fileID: 5302909912422584660}
   - component: {fileID: 7914538358274671281}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: agroCircle
   m_TagString: Enemy
   m_Icon: {fileID: 0}
