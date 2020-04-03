@@ -19,7 +19,7 @@ public class alertSpotter : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // if collided with by the player or other enemy
-        if (!spotter.alerted && (other.tag == "Player" || other.tag == "Enemy"))
+        if (spotter != null && !spotter.alerted && (other.tag == "Player" || other.tag == "Enemy"))
         {
             // call the function of the enemy this object belongs to
             spotter.BecomeAlerted();

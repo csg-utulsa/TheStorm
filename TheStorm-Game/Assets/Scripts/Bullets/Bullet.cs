@@ -66,14 +66,8 @@ public class Bullet : MonoBehaviour
             }
         }
 
-        //If the bullet hit something other than a character
-        if(!other.tag.Equals("Bullet"))
-        {
-            //Finish the bullet
-            finish();
-        }
-
-        
+        //Otherwise, destroy the bullet
+        finish();        
     }
 
     /// <summary>
