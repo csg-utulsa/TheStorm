@@ -10,6 +10,9 @@ TagManager:
   - Pickup
   - Target
   - Consumable
+  - Inventory
+  - Enemy_Test_Tag
+  - MiniCamera
   layers:
   - Default
   - TransparentFX
