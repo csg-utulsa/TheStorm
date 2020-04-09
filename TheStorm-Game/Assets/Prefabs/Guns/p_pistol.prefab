@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c472588fa0b8474095c2a15ac9cb056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 0.35
+  fireRate: 0.6
   damage: 1
   weaponSprite: {fileID: 21300000, guid: 8e89d23eb82d9f1419e8977c153c4fd5, type: 3}
   inaccuracy: 4
@@ -61,7 +61,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 07d1a1e01a74b574fa53f07af3fa2886, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 90cd26bc6346be34c83ef04e82d82d18, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

@@ -11,7 +11,7 @@ public class Player : Character
     public GameObject armorSlider;
     public float startingArmor;
     public float maxArmor;
-    public float speedBuffAmount;
+    public float speedBuffAmount = 0;
     public float speedBuffTime;
     private float speedBuffStartTime;
     [Header("Player Attributes")]
@@ -71,8 +71,26 @@ public class Player : Character
     {
         Rotate();
         // PLAYER MOVEMENT //
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
+        float h=0;
+        float v=0;
+        if (Input.GetKey(KeyCode.A))
+        {
+            h = -1;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            h = 1;
+        }
+        if (Input.GetKey(KeyCode.W))
+        {
+            v = 1;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            v = -1;
+        }
+        //float h = Input.GetAxisRaw("Horizontal");
+        //float v = Input.GetAxisRaw("Vertical");
 
         if(h != 0 || v != 0)
         {
@@ -237,6 +255,9 @@ public class Player : Character
             speedBuffTime = 0;
         }
 
+        print("speed beeore = " + (speed));
+        print("speed after = " + (speed + amount));
+
         speed += amount;
         speedBuffAmount = amount;
         speedBuffTime = duration;
@@ -266,7 +287,8 @@ public class Player : Character
 
     protected override void Die()
     {
+        Time.timeScale = 0;
         deathScreen.gameObject.SetActive(true);
-        base.Die();
+        //base.Die();
     }
 }

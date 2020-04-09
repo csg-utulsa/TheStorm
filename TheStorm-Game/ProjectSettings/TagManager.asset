@@ -9,10 +9,14 @@ TagManager:
   - Weapon
   - Pickup
   - Target
-  - Consumable
+  - Ground
   - Inventory
-  - Enemy_Test_Tag
-  - MiniCamera
+  - Gold Key Updater
+  - Gate
+  - GateText
+  - Consumable
+  - Enemy
+  - FOV Spheres
   layers:
   - Default
   - TransparentFX
@@ -22,8 +26,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Bullet
+  - Ignore Bullets
   - 
   - 
   - 
@@ -49,4 +53,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Door
+    uniqueID: 4285043985
     locked: 0

@@ -11,6 +11,7 @@ public class Spotter : Character
     public GameObject player;
     public GameObject pivot;
     public GameObject FOV;
+    public GameObject FOVCone;
     public GameObject aggroCircle;
     public Slider enemyHealthBar;
 
@@ -25,7 +26,6 @@ public class Spotter : Character
 
     // AI PATHING //
     [Header("Pathing")]
-    public NavMeshAgent agent;
     public int runDistance;
 
     // Start is called before the first frame update
@@ -35,9 +35,6 @@ public class Spotter : Character
 
         // find the player
         player = GameObject.FindGameObjectWithTag("Player");
-
-        // get the attached navmeshagent component
-        agent = transform.parent.GetComponent<NavMeshAgent>();
 
         // prevent the gameobject from rotating by means of the agent
         agent.updateRotation = false;
@@ -110,6 +107,7 @@ public class Spotter : Character
 
         // disable field of vision
         FOV.SetActive(false);
+        FOVCone.SetActive(false);
 
         // set active the aggro circle
         aggroCircle.SetActive(true);
