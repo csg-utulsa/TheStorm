@@ -16,6 +16,7 @@ TagManager:
   - GateText
   - Consumable
   - Enemy
+  - FOV Spheres
   layers:
   - Default
   - TransparentFX
@@ -25,8 +26,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Bullet
+  - Ignore Bullets
   - 
   - 
   - 

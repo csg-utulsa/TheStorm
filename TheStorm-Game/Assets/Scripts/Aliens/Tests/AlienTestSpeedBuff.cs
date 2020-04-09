@@ -17,6 +17,7 @@ public class AlienTestSpeedBuff : AlienBuff
         player = GameObject.Find("PlayerChild").GetComponent<Player>();
     }
 
+   
     /// <summary>
     /// Applies the buff to the player.
     /// </summary>
@@ -25,15 +26,7 @@ public class AlienTestSpeedBuff : AlienBuff
 
         base.ApplyBuff();
 
-        print(buffAmount);
-
         player.GivePermSpeedBuff(buffAmount);
     }
 
-    public override void RemoveBuff()
-    {
-        base.RemoveBuff();
-
-        player.GivePermSpeedBuff(-buffAmount);
-    }
 }

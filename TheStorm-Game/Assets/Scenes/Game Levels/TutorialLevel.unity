@@ -7279,7 +7279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ffeab48d5bef1648923801e66dd8a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 1
 --- !u!1001 &666712237
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13087,6 +13087,21 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3485706832330988384, guid: 2d40e1451dd8f5c489b5e409d672c5c8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.55615604
+      objectReference: {fileID: 0}
+    - target: {fileID: 3485706832330988384, guid: 2d40e1451dd8f5c489b5e409d672c5c8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.83107793
+      objectReference: {fileID: 0}
+    - target: {fileID: 3485706832330988384, guid: 2d40e1451dd8f5c489b5e409d672c5c8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 67.581
+      objectReference: {fileID: 0}
     - target: {fileID: 3485706832851901478, guid: 2d40e1451dd8f5c489b5e409d672c5c8,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -17370,6 +17385,36 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4624916629612702153, guid: 60a7465a80c107a4aafa027d415ce8d2,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4624916629612702153, guid: 60a7465a80c107a4aafa027d415ce8d2,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4624916629612702153, guid: 60a7465a80c107a4aafa027d415ce8d2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4624916629612702153, guid: 60a7465a80c107a4aafa027d415ce8d2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143479547268512732, guid: 60a7465a80c107a4aafa027d415ce8d2,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143479547268512732, guid: 60a7465a80c107a4aafa027d415ce8d2,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6558892720026299259, guid: 60a7465a80c107a4aafa027d415ce8d2,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -20705,6 +20750,7 @@ GameObject:
   - component: {fileID: 1734382314}
   - component: {fileID: 1734382316}
   - component: {fileID: 1734382315}
+  - component: {fileID: 1734382317}
   m_Layer: 0
   m_Name: Cactus (1)
   m_TagString: Untagged
@@ -20789,6 +20835,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1734382317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734382313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ffeab48d5bef1648923801e66dd8a81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
 --- !u!1001 &1746525123
 PrefabInstance:
   m_ObjectHideFlags: 0

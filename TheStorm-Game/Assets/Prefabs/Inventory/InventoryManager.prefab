@@ -2357,14 +2357,9 @@ MonoBehaviour:
   weaponSlots:
   - {fileID: 397068180}
   - {fileID: 609652936}
-  alienSlotsImage:
+  alienSlots:
   - {fileID: 5673925801594930157}
   - {fileID: 5673925800840010581}
-  alienSlots:
-  - {fileID: 0}
-  - {fileID: 0}
-  currentAlienIndex: 0
-  maxAlienIndex: 0
   scoreText: {fileID: 2806665831260356546}
   numGoldKeys: 0
   numSilverKeys: 0

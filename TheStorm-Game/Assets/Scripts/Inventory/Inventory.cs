@@ -38,11 +38,10 @@ public class Inventory : MonoBehaviour
 
     public InventorySlot[] slots;
     public Image[] weaponSlots;
-    public Image[] alienSlotsImage;
-    public AlienBuff[] alienSlots;
+    public Image[] alienSlots;
 
-    public int currentAlienIndex;
-    public int maxAlienIndex;
+    private int currentAlienIndex;
+    private int maxAlienIndex;
 
     public Text scoreText;
     private int score;
@@ -59,8 +58,8 @@ public class Inventory : MonoBehaviour
         ToggleItemInventory();
 
         currentAlienIndex = 0;
-        maxAlienIndex = alienSlotsImage.Length;
-        foreach (Image image in alienSlotsImage)
+        maxAlienIndex = alienSlots.Length;
+        foreach (Image image in alienSlots)
             image.enabled = false;
     }
 
@@ -162,7 +161,7 @@ public class Inventory : MonoBehaviour
     /// Adds an Alien to the Inventory
     /// </summary>
     /// <param name="alien">The sprite to display.</param>
-    public void AddAlien(AlienBuff buff, Sprite alien)
+    public void AddAlien(Sprite alien)
     {
 
         if (currentAlienIndex == maxAlienIndex)
@@ -175,9 +174,8 @@ public class Inventory : MonoBehaviour
         else
         {
             Debug.Log("Adding Alien");
-            alienSlots[currentAlienIndex] = buff;
-            alienSlotsImage[currentAlienIndex].sprite = alien;
-            alienSlotsImage[currentAlienIndex++].enabled = true;
+            alienSlots[currentAlienIndex].sprite = alien;
+            alienSlots[currentAlienIndex++].enabled = true;
         }
 
     }
