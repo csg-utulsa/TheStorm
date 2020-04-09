@@ -14,6 +14,7 @@ public class AlienTestSpeedBuff : AlienBuff
     public void Start()
     {
         buffAmount = Random.Range(1, 5);
+        player = GameObject.Find("PlayerChild").GetComponent<Player>();
     }
 
     /// <summary>

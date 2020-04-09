@@ -11,6 +11,7 @@ public class AlienTestHealthBuff : AlienBuff
     public void Start()
     {
         buffAmount = Random.Range(1, 6);
+        player = GameObject.Find("PlayerChild").GetComponent<Player>();
     }
 
     /// <summary>
