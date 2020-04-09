@@ -29,4 +29,10 @@ public class AlienTestSpeedBuff : AlienBuff
         player.GivePermSpeedBuff(buffAmount);
     }
 
+    public override void RemoveBuff()
+    {
+        base.RemoveBuff();
+
+        player.GivePermSpeedBuff(-buffAmount);
+    }
 }
