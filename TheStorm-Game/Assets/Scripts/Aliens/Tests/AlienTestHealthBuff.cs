@@ -8,6 +8,12 @@ public class AlienTestHealthBuff : AlienBuff
     /***** Public Variables *****/
     public int buffAmount = 5;
 
+    public void Start()
+    {
+        buffAmount = Random.Range(1, 6);
+        player = GameObject.Find("PlayerChild").GetComponent<Player>();
+    }
+
     /// <summary>
     /// Applies the buff to the player.
     /// </summary>
