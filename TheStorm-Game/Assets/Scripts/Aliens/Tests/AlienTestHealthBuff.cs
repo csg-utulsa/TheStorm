@@ -26,5 +26,10 @@ public class AlienTestHealthBuff : AlienBuff
         player.GiveHealth(buffAmount);
 
     }
+    public override void RemoveBuff()
+    {
+        base.RemoveBuff();
 
+        player.IncreaseMaxHealth(-buffAmount);
+    }
 }
