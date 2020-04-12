@@ -10,6 +10,13 @@ public class AlienTestSpeedBuff : AlienBuff
 
     /***** Public Variables *****/
     public int buffAmount = 4;
+
+    public void Start()
+    {
+        buffAmount = Random.Range(1, 5);
+        player = GameObject.Find("PlayerChild").GetComponent<Player>();
+    }
+
    
     /// <summary>
     /// Applies the buff to the player.
@@ -22,4 +29,10 @@ public class AlienTestSpeedBuff : AlienBuff
         player.GivePermSpeedBuff(buffAmount);
     }
 
+    public override void RemoveBuff()
+    {
+        base.RemoveBuff();
+
+        player.GivePermSpeedBuff(-buffAmount);
+    }
 }
