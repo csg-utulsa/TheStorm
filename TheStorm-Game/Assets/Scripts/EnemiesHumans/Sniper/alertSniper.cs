@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// LAST UPDATED DEC 17 2019
+// LAST UPDATED 12 April 2020
 
 public class alertSniper : MonoBehaviour
 {
     // SCRIPTS //
     public Sniper sniper;
+    private Transform player;
 
     // Start is called before the first frame update
     void Start()
@@ -19,10 +20,19 @@ public class alertSniper : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // if collided with by the player or other enemy
-        if (!sniper.alerted && (other.tag == "Player" || other.tag == "Enemy"))
+        if (!sniper.alerted && (other.tag == "Player"))
         {
-            // call the function of the enemy this object belongs to
-            sniper.BecomeAlerted();
+            RaycastHit hit;
+            player = FindObjectOfType<Player>().transform;
+            Vector3 rayDirection = player.position - transform.position;
+            if (Physics.Raycast (transform.position, rayDirection, out hit))
+            {
+                if (hit.collider.tag == "Player")
+                {
+                    // call the function of the enemy this object belongs to
+                    sniper.BecomeAlerted();
+                }
+            }
         }
     }
 }

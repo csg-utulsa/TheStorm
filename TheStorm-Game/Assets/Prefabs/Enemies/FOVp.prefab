@@ -104,8 +104,6 @@ GameObject:
   - component: {fileID: 3446184789125880901}
   - component: {fileID: 3446184789125880906}
   - component: {fileID: 3446184789125880907}
-  - component: {fileID: 7064293954000775113}
-  - component: {fileID: 2293394748430983685}
   m_Layer: 9
   m_Name: FOVp
   m_TagString: FOV Spheres
@@ -168,32 +166,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 2
   m_Center: {x: 0, y: 0, z: 5.5}
---- !u!114 &7064293954000775113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3446184789125880910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78faf8467276fdb458527c76b9ca7107, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spotter: {fileID: 0}
---- !u!114 &2293394748430983685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3446184789125880910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62613aab8b44ef4469a1e14ee35748c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
 --- !u!1001 &6809956264372589056
 PrefabInstance:
   m_ObjectHideFlags: 0
