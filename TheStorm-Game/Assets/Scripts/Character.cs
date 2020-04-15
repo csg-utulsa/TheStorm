@@ -150,7 +150,7 @@ public class Character : MonoBehaviour
     {
         //Should be moved to Enemy and Boss Die functions with custom score values
         //This should not be in the base class and should not be hard coded
-        FindObjectOfType<Inventory>().UpdateScore(20);
+        //FindObjectOfType<Inventory>().UpdateScore(20);
 
         //If the character script's object has a parent
         if (transform.parent != null)

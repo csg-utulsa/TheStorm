@@ -44,8 +44,8 @@ public class Inventory : MonoBehaviour
     public int currentAlienIndex;
     public int maxAlienIndex;
 
-    public Text scoreText;
-    private int score;
+    // public Text scoreText;
+    // private int score;
     public int numGoldKeys;
     public int numSilverKeys;
 
@@ -192,14 +192,14 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void UpdateScore(int num)
+    /*public void UpdateScore(int num)
     {
         score += num;
         scoreText.text = "Score: " + score;
         if (score == 120) {
             gc.Win();
         }
-    }
+    }*/
 
     public void UpdateGoldKeys(int key)
     {
