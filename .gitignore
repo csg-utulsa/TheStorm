@@ -11,6 +11,9 @@
 # Visual Studio cache directory
 .vs/
 
+# Resharper project directory
+.idea/
+
 # Gradle cache directory
 .gradle/
 
