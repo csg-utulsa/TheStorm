@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     public Canvas WinCanvas;
     public Canvas PauseCanvas;
     public GameObject HelpPanel;
+    public GameObject deathScreen;
     
     // Start is called before the first frame update
     void Start()
@@ -60,7 +61,9 @@ public class GameController : MonoBehaviour
     public void Restart()
     {
         Time.timeScale = 1;
+        deathScreen.gameObject.SetActive(false);
         SceneManager.LoadScene(0);
+        Destroy(GameObject.Find("Shared Prefab").gameObject);
     }
 
     public void LoadLevel(int level)
