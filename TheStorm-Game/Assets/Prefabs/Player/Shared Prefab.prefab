@@ -1427,6 +1427,7 @@ MonoBehaviour:
   WinCanvas: {fileID: 1263466095210706308}
   PauseCanvas: {fileID: 7307921115892015613}
   HelpPanel: {fileID: 5493260111786993882}
+  deathScreen: {fileID: 775907564}
 --- !u!1 &4323515862837357609
 GameObject:
   m_ObjectHideFlags: 0
