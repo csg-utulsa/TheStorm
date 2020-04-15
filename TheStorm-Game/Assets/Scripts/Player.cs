@@ -493,6 +493,9 @@ public class Player : Character
     {
         Time.timeScale = 0;
         deathScreen.gameObject.SetActive(true);
+        //health = 10;
+        //print(this.gameObject.transform.parent.parent.name);
+        //Destroy(this.gameObject.transform.parent.parent.gameObject);
         //base.Die();
     }
 }

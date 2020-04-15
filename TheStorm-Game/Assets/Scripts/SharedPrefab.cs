@@ -4,9 +4,18 @@ using UnityEngine;
 
 public class SharedPrefab : MonoBehaviour
 {
+    //public static bool initialized = false;
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
+        //if (!initialized)
+        //{
+            DontDestroyOnLoad(this.gameObject);
+        //    initialized = true;
+        //}
+        //else
+       // {
+       //     Destroy(this.gameObject);
+        //}
     }
 }
