@@ -9,7 +9,7 @@ public class Target : MonoBehaviour
 
     public void TargetHit()
     {
-        FindObjectOfType<Inventory>().UpdateScore(score);
+        //FindObjectOfType<Inventory>().UpdateScore(score);
         Transform targetTrans = GetComponentInChildren<RectTransform>().transform;
         targetTrans.Rotate(110, 0, 0);
         this.GetComponent<BoxCollider>().enabled = false;
