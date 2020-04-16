@@ -2354,7 +2354,9 @@ MonoBehaviour:
   items: []
   space: 20
   slots: []
-  weaponSlots: []
+  weaponSlots:
+  - {fileID: 397068180}
+  - {fileID: 609652936}
   alienSlotsImage:
   - {fileID: 5673925801594930157}
   - {fileID: 5673925800840010581}
@@ -2363,7 +2365,6 @@ MonoBehaviour:
   - {fileID: 0}
   currentAlienIndex: 0
   maxAlienIndex: 0
-  scoreText: {fileID: 0}
   numGoldKeys: 0
   numSilverKeys: 0
   gc: {fileID: 0}
