@@ -9,12 +9,29 @@ public class Interactable : MonoBehaviour
     public float radius = 3f; //how close to interact
     public Transform interactionTransform; //tranform of Interactable (does not have to be the object, but an empty object defines the exact location of where the inateraction takes place)
     public bool isFocused = false; //is interactable selected
-    public GameObject player; //the player
-    public Player playerScript;
     public bool hasInteracted = false;//check if interacted with
     private bool informed = false;
+    
+    // Player variables
+    public GameObject player; //the player
+    private Player playerScript;
 
     private Vector3 startPosition = Vector3.zero;
+
+    public void Awake()
+    {
+        var playerObjects = GameObject.FindGameObjectsWithTag("Player");
+
+        foreach(GameObject o in playerObjects)
+        {
+            if(o.GetComponent<Player>() != null)
+            {
+                player = o;
+                playerScript = player.GetComponent<Player>();
+                return;
+            }
+        }
+    }
 
     public virtual void Interact()
     {//virtual methods are parent methods that are called and can be added to
