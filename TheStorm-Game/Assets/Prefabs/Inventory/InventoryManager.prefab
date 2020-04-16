@@ -2355,8 +2355,8 @@ MonoBehaviour:
   space: 20
   slots: []
   weaponSlots:
-  - {fileID: 2096239523}
-  - {fileID: 2070293474}
+  - {fileID: 397068180}
+  - {fileID: 609652936}
   alienSlotsImage:
   - {fileID: 5673925801594930157}
   - {fileID: 5673925800840010581}
