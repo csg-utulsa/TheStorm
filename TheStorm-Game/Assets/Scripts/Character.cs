@@ -232,4 +232,9 @@ public class Character : MonoBehaviour
         //Ensure there is a weapon at this point
         Debug.Assert(weapon != null, "Weapon is null");
     }
+
+    private void OnEnable()
+    {
+        SetStartingWeapon();
+    }
 }

@@ -58,7 +58,6 @@ public class Boss1 : Character
     private Animator animator;
     private bool invulnerable;
     private float waitTime;
-    private NavMeshAgent agent;
     private GameObject player;
     private bool enraged = false;
     private bool moveLock = false;
