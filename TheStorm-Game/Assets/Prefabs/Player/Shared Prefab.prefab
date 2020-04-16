@@ -636,6 +636,83 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &92066442346947496
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2589618226023716448}
+  - component: {fileID: 6580936960218191917}
+  - component: {fileID: 7618292997406814239}
+  m_Layer: 0
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2589618226023716448
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92066442346947496}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7389970894778492116}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 30}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &6580936960218191917
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92066442346947496}
+  m_CullTransparentMesh: 0
+--- !u!114 &7618292997406814239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92066442346947496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Audio Volume
 --- !u!1 &473721400295227414
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,6 +873,7 @@ RectTransform:
   - {fileID: 1629473622296728064}
   - {fileID: 6479327689643407942}
   - {fileID: 7267754758803481094}
+  - {fileID: 2589618226023716448}
   m_Father: {fileID: 9089392872323983219}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1126,7 +1204,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2067031442600691385}
   m_LocalRotation: {x: 0.41712865, y: -0, z: -0, w: 0.9088475}
-  m_LocalPosition: {x: -0.00000011920929, y: 8.112529, z: -6.368431}
+  m_LocalPosition: {x: 2.5, y: 7.082528, z: -1.8452306}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2067031443729592176}
@@ -1506,7 +1584,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You've won our demo! Would you like to play again?
+  m_Text: Congratulations on completing our demo! Would you like to play again?
 --- !u!1 &4648353331322793065
 GameObject:
   m_ObjectHideFlags: 0
@@ -1867,6 +1945,43 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1339426415153963409, guid: 7ad9e2e8f1ad43b469d4ee557f729385,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Welcome to our demo! This is just a demonstration of the game we plan
+        to make. Please enjoy while you try to release the aliens, defeat the guards
+        and make your way to the boss!
+
+
+        Instructions:
+
+        WASD - Move
+
+        Left
+        Click - Shoot
+
+        E - Pick up Weapons
+
+        Q - Swap Weapons
+
+        ESC
+        - Pause
+
+
+        Power Ups:
+
+        To collect, just walk over them.
+
+        Speed
+        - Increases speed for 6 seconds
+
+        Armor - increases your armor by
+        1
+
+        Health - increases your health by 1
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 1403634796209554801, guid: 7ad9e2e8f1ad43b469d4ee557f729385,
         type: 3}
       propertyPath: m_AnchorMin.x
@@ -2059,15 +2174,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ad9e2e8f1ad43b469d4ee557f729385, type: 3}
---- !u!1 &5493260111786993882 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4949508539682050231, guid: 7ad9e2e8f1ad43b469d4ee557f729385,
+--- !u!4 &7176892635002643061 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7715410458598119960, guid: 7ad9e2e8f1ad43b469d4ee557f729385,
     type: 3}
   m_PrefabInstance: {fileID: 615820229978634349}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &5096362301516895142 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5634636170982550475, guid: 7ad9e2e8f1ad43b469d4ee557f729385,
+--- !u!224 &2376329274088600959 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2914321398082669842, guid: 7ad9e2e8f1ad43b469d4ee557f729385,
     type: 3}
   m_PrefabInstance: {fileID: 615820229978634349}
   m_PrefabAsset: {fileID: 0}
@@ -2083,27 +2198,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &2376329274088600959 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2914321398082669842, guid: 7ad9e2e8f1ad43b469d4ee557f729385,
+--- !u!1 &5096362301516895142 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5634636170982550475, guid: 7ad9e2e8f1ad43b469d4ee557f729385,
     type: 3}
   m_PrefabInstance: {fileID: 615820229978634349}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &7176892635002643061 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7715410458598119960, guid: 7ad9e2e8f1ad43b469d4ee557f729385,
-    type: 3}
-  m_PrefabInstance: {fileID: 615820229978634349}
-  m_PrefabAsset: {fileID: 0}
---- !u!223 &7307921115892015613 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 7917652181580372368, guid: 7ad9e2e8f1ad43b469d4ee557f729385,
+--- !u!1 &5493260111786993882 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4949508539682050231, guid: 7ad9e2e8f1ad43b469d4ee557f729385,
     type: 3}
   m_PrefabInstance: {fileID: 615820229978634349}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &9089392872323983219 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8552291249795014430, guid: 7ad9e2e8f1ad43b469d4ee557f729385,
+    type: 3}
+  m_PrefabInstance: {fileID: 615820229978634349}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &7307921115892015613 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 7917652181580372368, guid: 7ad9e2e8f1ad43b469d4ee557f729385,
     type: 3}
   m_PrefabInstance: {fileID: 615820229978634349}
   m_PrefabAsset: {fileID: 0}
