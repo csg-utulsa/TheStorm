@@ -7,20 +7,6 @@ public class Pickup : Interactable
 {
     public TextMeshProUGUI textPrompt;
 
-    // public void Awake()
-    // {
-    //     var playerObjects = GameObject.FindGameObjectsWithTag("Player");
-    //
-    //     foreach(GameObject o in playerObjects)
-    //     {
-    //         if(o.GetComponent<Player>() != null)
-    //         {
-    //             player = o;
-    //             return;
-    //         }
-    //     }
-    // }
-
     // Update is called once per frame
     new void Update()
     {
