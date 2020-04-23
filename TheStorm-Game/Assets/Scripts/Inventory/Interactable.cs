@@ -9,10 +9,29 @@ public class Interactable : MonoBehaviour
     public float radius = 3f; //how close to interact
     public Transform interactionTransform; //tranform of Interactable (does not have to be the object, but an empty object defines the exact location of where the inateraction takes place)
     public bool isFocused = false; //is interactable selected
-    public GameObject player; //the player
     public bool hasInteracted = false;//check if interacted with
+    private bool informed = false;
+    
+    // Player variables
+    public GameObject player; //the player
+    private Player playerScript;
 
     private Vector3 startPosition = Vector3.zero;
+
+    public void Awake()
+    {
+        var playerObjects = GameObject.FindGameObjectsWithTag("Player");
+
+        foreach(GameObject o in playerObjects)
+        {
+            if(o.GetComponent<Player>() != null)
+            {
+                player = o;
+                playerScript = player.GetComponent<Player>();
+                return;
+            }
+        }
+    }
 
     public virtual void Interact()
     {//virtual methods are parent methods that are called and can be added to
@@ -30,23 +49,31 @@ public class Interactable : MonoBehaviour
 
         float distance = Vector3.Distance(player.transform.position, interactionTransform.position);
 
-        if (isFocused && !hasInteracted)
-        {//if focused and has not yet interacted
+        if (distance <= radius)
+        {
 
-            //get distance to player
-            //float distance = Vector3.Distance(player.position, interactionTransform.position);
-               
-                if(distance <= radius)
-            {//if distnace is within radius
-                Interact();
-                hasInteracted = true;
+            if (!informed)
+            {
+                playerScript.InformInteractableClose(distance, this);
+                informed = true;
             }
-        }
+            else
+            {
 
-        if ((distance <= radius) && Input.GetKeyDown(KeyCode.E))
-        {//if distnace is within radius
-            Interact();
-            hasInteracted = true;
+                playerScript.UpdateInteractableDistance(distance, this);
+
+            }
+
+        }
+        else
+        {
+
+            if (informed)
+            {
+                playerScript.InformInteractableNotClose(this);
+                informed = false;
+            }
+
         }
     }
 

@@ -22,64 +22,36 @@ public class Consumable : MonoBehaviour
         slot = GameObject.Find("ConsumablesSlot").GetComponent<ConsumableSlot>(); //get a reference to the consumables inventory slot
     }
 
-    void Update()
+    void Update() {}
+    
+    public void ChangeConsumableForward()
     {
-        //use the item
-        if (selectedConsumable != null && Input.GetKeyDown(KeyCode.F))
+
+        selectedConsumableIndex++;
+
+        if (selectedConsumableIndex > consumables.Count - 1)
         {
-            if (selectedConsumable[0].Equals(this) && !usePressed)
-            {
-                usePressed = true;
-                selectedConsumable[0].useItem();
-            }
+            selectedConsumableIndex = 0;
         }
 
+        selectedConsumable = consumables[selectedConsumableIndex];
+        slot.setImage(selectedConsumable[0].itemImage, (short)(selectedConsumable.Count));
 
-        //reset input after a key is raised
-        if (Input.GetKeyUp(KeyCode.F) || Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.DownArrow))
+    }
+
+    public void ChangeConsumableBackward()
+    {
+        
+        selectedConsumableIndex--;
+        
+        if (selectedConsumableIndex < 0)
         {
-            usePressed = false;
-            upPressed = false;
-            downPressed = false;
+            selectedConsumableIndex = (short)(consumables.Count-1);
         }
-
-        //cycle down consumables in inventory, loop when index is below 0
-        if(selectedConsumable != null && Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            if (selectedConsumable[0].Equals(this) && !downPressed)
-            {
-                downPressed = true;
-
-                selectedConsumableIndex--;
-
-                if (selectedConsumableIndex < 0)
-                {
-                    selectedConsumableIndex = (short)(consumables.Count-1);
-                }
-
-                selectedConsumable = consumables[selectedConsumableIndex];
-                slot.setImage(selectedConsumable[0].itemImage, (short)(selectedConsumable.Count));
-            }
-        }
-
-        //cycle up consumables in inventory, loop when index is above size of consumables list
-        if (selectedConsumable != null && Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            if (selectedConsumable[0].Equals(this) && !upPressed)
-            {
-                upPressed = true;
-
-                selectedConsumableIndex++;
-
-                if(selectedConsumableIndex > consumables.Count - 1)
-                {
-                    selectedConsumableIndex = 0;
-                }
-
-                selectedConsumable = consumables[selectedConsumableIndex];
-                slot.setImage(selectedConsumable[0].itemImage, (short)(selectedConsumable.Count));
-            }
-        }
+        
+        selectedConsumable = consumables[selectedConsumableIndex];
+        slot.setImage(selectedConsumable[0].itemImage, (short)(selectedConsumable.Count));
+        
     }
 
     //After consumable is used, remove it from the inventory
