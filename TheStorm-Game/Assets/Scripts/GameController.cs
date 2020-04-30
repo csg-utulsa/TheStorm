@@ -61,7 +61,7 @@ public class GameController : MonoBehaviour
     public void Restart()
     {
         Time.timeScale = 1;
-        deathScreen.gameObject.SetActive(false);
+      //  deathScreen.gameObject.SetActive(false);
         SceneManager.LoadScene(0);
         Destroy(GameObject.Find("Shared Prefab").gameObject);
     }
